@@ -21,6 +21,22 @@ p {
   font-size: 12px;
 }
 
+.cloud {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../img/PNG/clouds.png');
+  background-repeat: no-repeat,;
+  background-position: center;
+  background-size: 100% auto;
+  z-index: 2;
+}
+
 .btn {
   border-radius: 0;
   font-size: .6rem;
