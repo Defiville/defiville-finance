@@ -4,6 +4,12 @@
   background-image: url('../img/PNG/grass.png');
 }
 
+.snow {
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/PNG/grass-snow.png');
+}
+
 span {
   background-size: contain;
 }
@@ -36,6 +42,34 @@ GRASS
   background-image: url('../img/PNG/grass-left.png');
 }
 
+/* SNOWY GRASS */
+
+.grass-top-left-snow {
+  background-image: url('../img/PNG/grass-top-left-snow.png');
+}
+.grass-top-snow {
+  background-image: url('../img/PNG/grass-top-snow.png');
+}
+.grass-top-right-snow {
+  background-image: url('../img/PNG/grass-top-right-snow.png');
+}
+.grass-right-snow {
+  background-image: url('../img/PNG/grass-right-snow.png');
+}
+.grass-bottom-right-snow {
+  background-image: url('../img/PNG/grass-bottom-right-snow.png');
+}
+.grass-bottom-snow {
+  background-image: url('../img/PNG/grass-bottom-snow.png');
+}
+.grass-bottom-left-snow {
+  background-image: url('../img/PNG/grass-bottom-left-snow.png');
+}
+.grass-left-snow {
+  background-image: url('../img/PNG/grass-left-snow.png');
+}
+
+
 .cliff {
   background-image: url('../img/PNG/cliff.png');
 }
@@ -48,6 +82,10 @@ ELEMENTS
 ============================================================================= */
 .tree {
   background-image: url('../img/PNG/tree.png');
+}
+
+.tree-snow {
+  background-image: url('../img/PNG/tree-snow.png');
 }
 
 .carrots {
@@ -74,6 +112,10 @@ ELEMENTS
   background-image: url('../img/PNG/rocks.png');
 }
 
+.rocks-snow {
+  background-image: url('../img/PNG/rocks-snow.png');
+}
+
 .camping {
   background-image: url('../img/PNG/camping.png');
 }
@@ -90,6 +132,10 @@ ELEMENTS
   background-image: url('../img/PNG/hay.png');
 }
 
+.hay-snow {
+  background-image: url('../img/PNG/hay-snow.png');
+}
+
 .tulips {
   background-image: url('../img/PNG/tulips.png');
 }
@@ -100,6 +146,10 @@ ELEMENTS
 
 .grass-small {
   background-image: url('../img/PNG/grass-small.png');
+}
+
+.grass-small-snow {
+  background-image: url('../img/PNG/grass-small-snow.png');
 }
 
 .gas {
@@ -123,6 +173,10 @@ ELEMENTS
   background-image: url('../img/PNG/comp.png');
 }
 
+.comp-snow {
+  background-image: url('../img/PNG/comp-snow.png');
+}
+
 .crv {
   background-image: url('../img/PNG/crv.png');
 }
@@ -139,8 +193,8 @@ ELEMENTS
   background-image: url('../img/PNG/maker.png');
 }
 
-.poi-pasta {
-  background-image: url('../img/PNG/pasta.png');
+.poi-sushi {
+  background-image: url('../img/PNG/sushi.png');
 }
 
 .poi-snx {
@@ -155,6 +209,10 @@ ELEMENTS
   background-image: url('../img/PNG/flowers-white.png');
 }
 
+.flowers-white-snow {
+  background-image: url('../img/PNG/flowers-white-snow.png');
+}
+
 
 /* =============================================================================
 SAND
@@ -162,6 +220,10 @@ SAND
 
 .sand-top {
   background-image: url('../img/PNG/sand-top.png');
+}
+
+.sand-top-snow {
+  background-image: url('../img/PNG/sand-top-snow.png');
 }
 
 /* =============================================================================
@@ -208,6 +270,48 @@ ROAD
   background-image: url('../img/PNG/road-ver.png');
 }
 
+/* SNOWY ROAD */
+
+.road-curve-bottom-left-snow {
+  background-image: url('../img/PNG/road-curve-bottom-left-snow.png');
+}
+
+.road-curve-left-top-snow {
+  background-image: url('../img/PNG/road-curve-left-top-snow.png');
+}
+
+.road-curve-right-bottom-snow {
+  background-image: url('../img/PNG/road-curve-right-bottom-snow.png');
+}
+
+.road-curve-top-right-snow {
+  background-image: url('../img/PNG/road-curve-top-right-snow.png');
+}
+
+.road-end-0-snow {
+  background-image: url('../img/PNG/road-end-0-snow.png');
+}
+
+.road-end-180-snow {
+  background-image: url('../img/PNG/road-end-180-snow.png');
+}
+
+.road-end-270-snow {
+  background-image: url('../img/PNG/road-end-270-snow.png');
+}
+
+.road-end-90-snow {
+  background-image: url('../img/PNG/road-end-90-snow.png');
+}
+
+.road-hor-snow {
+  background-image: url('../img/PNG/road-hor-snow.png');
+}
+
+.road-ver-snow {
+  background-image: url('../img/PNG/road-ver-snow.png');
+}
+
 
 /* =============================================================================
 SOCIAL
@@ -223,4 +327,23 @@ SOCIAL
 
 .telegram {
   background-image: url('../img/PNG/telegram.png');
+}
+
+.discord {
+  background-image: url('../img/PNG/discord.png');
+}
+
+.chad {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  animation: updown 1s linear infinite;
+}
+@keyframes updown {
+  0%, 100% {
+    bottom: -10px;
+  }
+  50% {
+    bottom: 0;
+  }
 }
