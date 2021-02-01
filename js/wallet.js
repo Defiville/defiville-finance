@@ -249,28 +249,28 @@ function fetchTxInfos() {
 
 function getSeason1Tokens() {
     return {
-        CRV: '0x37C14FeFf6a98DAc93ed7f7a973D722f26d76B70',
-        SNX: '0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f',
-        SUSHI: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
-        MKR: '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2',
-        YFI: '0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e',
-        COMP: '0xc00e94cb662c3520282e6f5717214004a7f26888',
-        AAVE: '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9',
-        LINK: '0x514910771af9ca656af840dff83e8264ecf986ca',
+        CRV: '0xD533a949740bb3306d119CC777fa900bA034cd52',
+        SNX: '0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F',
+        SUSHI: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
+        // MKR: '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2',
+        // YFI: '0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e',
+        // COMP: '0xc00e94cb662c3520282e6f5717214004a7f26888',
+        AAVE: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9',
+        // LINK: '0x514910771af9ca656af840dff83e8264ecf986ca',
         ISLAND: '0x514910771af9ca656af840dff83e8264ecf986ca',
     }
 }
 
 function getSeason1Pools() {
     return {
-        CRVLP: '0x6B34DE0d94C8B1738Db161c84088DdF05A69ec3B',
-        SNXLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
-        SUSHILP: '0x514910771af9ca656af840dff83e8264ecf986ca',
-        MKRLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
-        YFILP: '0x514910771af9ca656af840dff83e8264ecf986ca',
-        COMPLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
-        AAVELP: '0x514910771af9ca656af840dff83e8264ecf986ca',
-        LINKLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
+        CRVLP: '0x99Cf79d898e306E382F70c6b63EbcE8CA0610cc1',
+        SNXLP: '0x30353c2b2536223600054DADC79C7283D6111314',
+        SUSHILP: '0x50DbD9f08798D3A2Ea542E64764E3334fE2553e1',
+        // MKRLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
+        // YFILP: '0x514910771af9ca656af840dff83e8264ecf986ca',
+        // COMPLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
+        AAVELP: '0xe27E43e3cde491A28Cf1DF4b6cbF6e4edF8e6298',
+        // LINKLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
     }
 }
 
