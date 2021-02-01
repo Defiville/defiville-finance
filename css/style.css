@@ -1,3 +1,10 @@
+/* ===============================================================================
+DEFIVILLE
+A project created by:
+Andrea Zuccarini and Fabio Monzani
+2020-2021
+=============================================================================== */
+
 html, body {
   height: 100%;
   width: 100%;
@@ -20,7 +27,7 @@ html, body {
 p {
   font-size: 12px;
 }
-
+/*.cloud class to be removed in production*/
 .cloud {
   position: fixed;
   display: block;
@@ -37,6 +44,12 @@ p {
   z-index: 2;
 }
 
+
+.white {
+  color: #FFF;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
 .btn {
   border-radius: 0;
   font-size: .6rem;
@@ -50,6 +63,45 @@ p {
 .btn-primary:hover {
   background-color: #4F3826;
   border-bottom: 4px solid #302216;
+}
+
+.btn-approve {
+  color: #FFF;
+  background-color: #1e7e34;
+  border: none;
+  border-bottom: 4px solid #125020;
+}
+.btn-approve:hover {
+  color: #F2F2F2;
+  background-color: #1c672d;
+  border-bottom: 4px solid #125020;
+}
+
+.btn-withdraw {
+  color: #FFF;
+  background-color: #ff5722;
+  border: none;
+  border-bottom: 4px solid #a52920;
+}
+.btn-withdraw:hover {
+  color: #FFF;
+  background-color: #b5411d;
+  border: none;
+  border-bottom: 4px solid #a52920;
+}
+
+.btn-metamask::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: sub;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url('../img/metamask-fox.png');
+  background-size: cover;
 }
 
 .modal-content {
@@ -107,4 +159,47 @@ p {
   font-family: 'Press Start 2P', cursive;
   font-size: 8px;
   border-radius: 0px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+}
+
+.form-control {
+  border: 2px solid #333333;
+  border-radius: 0;
+}
+
+.form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: : 0.1rem;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-size: : 0.5rem;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-size: : 0.5rem;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-size: : 0.5rem;
+}
+
+.pool-box {
+  border: 2px solid black;
+}
+
+#poolStaked, #poolReward {
+  font-size: 1.2rem;
+}
+
+.btn-block+.btn-block {
+  margin-top: 0;
+}
+
+#errorMessage {
+  color: #F0422B;
+  font-size: 0.8rem;
 }
