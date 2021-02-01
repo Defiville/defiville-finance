@@ -257,7 +257,7 @@ function getSeason1Tokens() {
         // COMP: '0xc00e94cb662c3520282e6f5717214004a7f26888',
         AAVE: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9',
         // LINK: '0x514910771af9ca656af840dff83e8264ecf986ca',
-        ISLAND: '0x514910771af9ca656af840dff83e8264ecf986ca',
+        ISLAND: '0x20a68F9e34076b2dc15ce726d7eEbB83b694702d',
     }
 }
 
