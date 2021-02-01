@@ -39,8 +39,8 @@ async function approve() {
                     to: tokenAddress,
                     from: accounts[0],
                     data: '0x095ea7b3000000000000000000000000' + lpPoolAddress.substring(2) + 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',
-                    gasPrice: gasPriceGWei.toString(16),
-                    gas: '0x493e0'
+                    // gasPrice: gasPriceGWei.toString(16),
+                    // gas: '0x493e0'
                 }
             ]
         })
@@ -70,8 +70,8 @@ async function stake() {
                         to: lpPoolAddress,
                         from: accounts[0],
                         data: dataHex,
-                        gasPrice: gasPriceGWei.toString(16),
-                        gas: '0x493e0'
+                        // gasPrice: gasPriceGWei.toString(16),
+                        // gas: '0x493e0'
                     }
                 ]
             })
@@ -104,8 +104,8 @@ async function withdraw() {
                     to: lpPoolAddress,
                     from: accounts[0],
                     data: dataHex,
-                    gasPrice: gasPriceGWei.toString(16),
-                    gas: '0xf4240'
+                    // gasPrice: gasPriceGWei.toString(16),
+                    // gas: '0xf4240'
                 }
             ]
         })
@@ -128,8 +128,8 @@ async function harvest() {
                     to: lpPoolAddress,
                     from: accounts[0],
                     data: '0x3d18b912',
-                    gasPrice: gasPriceGWei.toString(16),
-                    gas: '0xf4240'
+                    // gasPrice: gasPriceGWei.toString(16),
+                    // gas: '0xf4240'
                 }
 
             ]
@@ -150,8 +150,8 @@ async function harvestAndUnstake() {
                     to: lpPoolAddress,
                     from: accounts[0],
                     data: '0xe9fad8ee',
-                    gasPrice: gasPriceGWei.toString(16),
-                    gas: '0xf4240'
+                    // gasPrice: gasPriceGWei.toString(16),
+                    // gas: '0xf4240'
                 }
             ]
         })
