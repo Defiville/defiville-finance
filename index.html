@@ -11,11 +11,24 @@
     <!-- Custom styling -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/island.css">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
   </head>
   <body>
+    <audio id="btn-click" src="sounds/button-click.mp3" preload="auto"></audio>
+    <audio id="chad-click" src="sounds/brah.mp3" preload="auto"></audio>
 
-    <div class="cloud"></div>
-
+    <!-- =========================================================================
+    NAVBAR
+    ========================================================================= -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <a class="navbar-brand" href="#">
         <img src="img/SVG/logo.svg" height="50" alt="defiville logo" loading="lazy">
@@ -24,12 +37,23 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between align-items-center w-100" id="navbarNav">
-
+      <ul class="navbar-nav mx-auto text-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#faqModal" onclick="document.getElementById('btn-click').play();">FAQs</a>
+            </li>
+        </ul>
+      <ul class="navbar-nav flex-row justify-content-center flex-nowrap">
+        <li class="nav-item">
+          <a id="con-wallet" class="nav-link btn btn-primary text-uppercase" href="#" data-toggle="modal" data-target="#walletModal" onclick="document.getElementById('btn-click').play();">Connect Wallet</a>
+        </li>
+      </ul>
     </div>
   </nav>
 
   <div class="board">
-
+    <!-- =========================================================================
+    LAND OVERLAY
+    ========================================================================= -->
     <div class="overlay">
       <!-- Row 1 -->
       <span class=""></span>
@@ -37,10 +61,10 @@
       <span class=""></span>
       <span class=""></span>
       <span class=""></span>
-      <span class="grass-top-left"></span>
-      <span class="grass-top"></span>
-      <span class="grass-top"></span>
-      <span class="grass-top-right"></span>
+      <span class="grass-top-left-snow"></span>
+      <span class="grass-top-snow"></span>
+      <span class="grass-top-snow"></span>
+      <span class="grass-top-right-snow"></span>
       <span class=""></span>
       <span class=""></span>
       <span class=""></span>
@@ -48,112 +72,112 @@
       <!-- Row 2 -->
       <span class=""></span>
       <span class=""></span>
-      <span class="grass-top-left"></span>
-      <span class="grass-top"></span>
-      <span class="grass-top"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-top"></span>
-      <span class="grass-top-right"></span>
+      <span class="grass-top-left-snow"></span>
+      <span class="grass-top-snow"></span>
+      <span class="grass-top-snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="grass-top-snow"></span>
+      <span class="grass-top-right-snow"></span>
       <span class=""></span>
 
       <!-- Row 3 -->
-      <span class="grass-top-left"></span>
-      <span class="grass-top"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-top-right"></span>
+      <span class="grass-top-left-snow"></span>
+      <span class="grass-top-snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="grass-top-right-snow"></span>
 
       <!-- Row 4 -->
-      <span class="grass-left"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-bottom-right"></span>
+      <span class="grass-left-snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="grass-bottom-right-snow"></span>
 
       <!-- Row 5 -->
-      <span class="grass-bottom-left"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-right"></span>
+      <span class="grass-bottom-left-snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="grass-right-snow"></span>
       <span class="boat"></span>
 
       <!-- Row 6 -->
       <span class="cliff"></span>
-      <span class="grass-bottom-left"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-top-right"></span>
+      <span class="grass-bottom-left-snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="grass-top-right-snow"></span>
 
       <!-- Row 7 -->
       <span class=""></span>
       <span class="cliff"></span>
-      <span class="grass-left"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-right"></span>
+      <span class="grass-left-snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="grass-right-snow"></span>
 
       <!-- Row 8 -->
-      <span class="grass-top-left"></span>
-      <span class="grass-top"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-bottom"></span>
-      <span class="grass-bottom-right"></span>
+      <span class="grass-top-left-snow"></span>
+      <span class="grass-top-snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="snow"></span>
+      <span class="grass-bottom-snow"></span>
+      <span class="grass-bottom-right-snow"></span>
 
       <!-- Row 9 -->
-      <span class="grass-bottom-left"></span>
-      <span class="grass-bottom"></span>
-      <span class="grass-bottom"></span>
-      <span class="grass-bottom-right"></span>
-      <span class="sand-top"></span>
-      <span class="sand-top"></span>
-      <span class="sand-top"></span>
-      <span class="grass-bottom-left"></span>
-      <span class="grass-bottom"></span>
-      <span class="grass-bottom-right"></span>
+      <span class="grass-bottom-left-snow"></span>
+      <span class="grass-bottom-snow"></span>
+      <span class="grass-bottom-snow"></span>
+      <span class="grass-bottom-right-snow"></span>
+      <span class="sand-top-snow"></span>
+      <span class="sand-top-snow"></span>
+      <span class="sand-top-snow"></span>
+      <span class="grass-bottom-left-snow"></span>
+      <span class="grass-bottom-snow"></span>
+      <span class="grass-bottom-right-snow"></span>
       <span class="cliff"></span>
       <span class="cliff"></span>
 
@@ -173,6 +197,9 @@
 
     </div>
 
+    <!-- =========================================================================
+    ELEMENTS
+    ========================================================================= -->
     <div class="elements">
       <!-- Row 1 -->
       <span class=""></span>
@@ -180,10 +207,12 @@
       <span class=""></span>
       <span class=""></span>
       <span class=""></span>
-      <span class="rocks"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class=""></span>
+      <span class="rocks-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="farm clickable" onclick="poolModal(this);" name="Curve Farm" data-token="CRV">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Curve Farm"></div>
+      </span>
+      <span class="crv"></span>
       <span class=""></span>
       <span class=""></span>
       <span class=""></span>
@@ -191,126 +220,152 @@
       <!-- Row 2 -->
       <span class=""></span>
       <span class=""></span>
-      <span class="tree"></span>
-      <span class="grass-small"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class=""></span>
+      <span class="tree-snow"></span>
+      <span class="grass-small-snow"></span>
+      <span class="gas clickable" data-toggle="modal" data-target="#gasModal" onclick="document.getElementById('btn-click').play();">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Gas Station"></div>
+      </span>
+      <span class="gas-prices">
+        <label>Average</label>
+        <p id="gas-med"></p>
+      </span>
+      <span class="road-curve-right-bottom-snow"></span>
+      <span class="road-end-90-snow"></span>
+      <span class="hay-snow"></span>
+      <span class="hay-snow"></span> <!--remove this -->
+      <!-- <span class="farm clickable" onclick="poolModal(this)" name="Comp Farm" data-token="COMP">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Comp Farm"></div>
+      </span> -->
+      <!-- <span class="comp-snow"></span> -->
+      <span class=""></span> <!-- remove this -->
       <span class=""></span>
 
       <!-- Row 3 -->
-      <span class="tree"></span>
+      <span class="tree-snow"></span>
+      <span class="road-end-270-snow"></span>
+      <span class="road-hor-snow"></span>
+      <span class="road-hor-snow"></span>
+      <span class="road-hor-snow"></span>
+      <span class="road-hor-snow"></span>
+      <span class="road-curve-left-top-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="grass-small-snow"></span>
       <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class="grass-small"></span>
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span>
 
       <!-- Row 4 -->
-      <span class="flowers-white"></span>
-      <span class="tree"></span>
-      <span class="rocks"></span>
-      <span class="tree"></span>
-      <span class="grass-small"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="flowers-white"></span>
-      <span class="tree"></span>
+      <span class="flowers-white-snow"></span>
+      <span class="poi-lend clickable" onclick="poolModal(this)" name="Aave Tower" data-token="AAVE">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Aave Tower"></div>
+      </span>
+      <span class="rocks-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="grass-small-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="poi-sushi clickable" onclick="poolModal(this)" name="Sushi Restaurant" data-token="SUSHI">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Sushi Restaurant"></div>
+      </span>
+      <span class="flowers-white-snow"></span>
+      <span class="tree-snow"></span>
 
       <!-- Row 5 -->
       <span class=""></span>
-      <span class="flower-white"></span>
+      <span class="flower-white-snow"></span>
       <span class=""></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="tree"></span>
+      <span class="tree-snow"></span>
+      <span class="poi-snx clickable" onclick="poolModal(this)" name="Synthetix Factory" data-token="SNX">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Synthetix Factory"></div>
+      </span>
+      <span class="road-curve-right-bottom-snow"></span>
+      <span class="road-hor-snow"></span>
+      <span class="road-hor-snow"></span>
+      <span class="road-hor-snow"></span>
+      <span class="road-end-90-snow"></span>
+      <span class="tree-snow"></span>
       <span class=""></span>
 
       <!-- Row 6 -->
       <span class=""></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="flowers-white"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="flowers-white-snow"></span>
       <span class=""></span>
-      <span class=""></span>
-      <span class="flowers-white"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
+      <span class="road-ver-snow"></span>
+      <span class="flowers-white-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span>
       <span class="grass-tall"></span>
 
       <!-- Row 7 -->
       <span class=""></span>
       <span class=""></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="road-ver"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="flowers-white"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span>
+      <span class="road-ver-snow"></span>
+      <span class="tree-snow"></span> <!-- remove this -->
+      <!-- <span class="poi-maker clickable" onclick="poolModal(this)" name="Maker Farm" data-token="MKR">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Maker Farm"></div>
+      </span> -->
+      <span class="tree-snow"></span>
+      <span class="flowers-white-snow"></span>
       <span class=""></span>
-      <span class="tree"></span>
-      <span class="rocks"></span>
+      <span class=""></span> <!-- remove this -->
+      <!-- <span class="poi-yfi clickable" onclick="poolModal(this)" name="YFI Temple" data-token="YFI">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="YFI Temple"></div>
+      </span> -->
+      <span class="rocks-snow"></span>
 
       <!-- Row 8 -->
-      <span class="tree"></span>
-      <span class="tree"></span>
+      <span class="tree-snow"></span>
+      <span class="tree-snow"></span> <!-- remove this -->
+      <!-- <span class="poi-link clickable" onclick="poolModal(this)" name="Link Fortress" data-token="LINK">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Link Fortress"></div>
+      </span> -->
+      <span class="road-curve-right-bottom-snow"></span>
+      <span class="road-hor-snow"></span>
+      <span class="road-hor-snow"></span>
+      <span class="road-curve-left-top-snow"></span>
+      <span class="hay-snow"></span>
+      <span class="tree-snow"></span>
       <span class=""></span>
+      <span class="tree-snow"></span>
       <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class=""></span>
-      <span class="grass-small"></span>
+      <span class="grass-small-snow"></span>
 
       <!-- Row 9 -->
-      <span class="grass-small"></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="rocks"></span>
+      <span class="grass-small-snow"></span>
+      <span class="road-end-270-snow"></span>
+      <span class="road-curve-left-top-snow"></span>
+      <span class="rocks-snow"></span>
       <span class=""></span>
       <span class="camping"></span>
       <span class=""></span>
-      <span class="flowers-white"></span>
+      <span class="flowers-white-snow"></span>
       <span class=""></span>
-      <span class="rocks"></span>
+      <span class="rocks-snow"></span>
       <span class=""></span>
       <span class=""></span>
 
       <!-- Row 10 -->
-      <!-- <span class="github clickable" onclick="window.open('https://www.github.com', '_blank')">
+      <!-- <span class="github clickable" onclick="window.open('https://www.github.com', '_blank'); document.getElementById('btn-click').play();">
         <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Github"></div>
       </span> -->
-      <!-- <span class="twitter clickable" onclick="window.open('https://www.twitter.com/defivillegame', '_blank')">
+      <span class="twitter clickable" onclick="window.open('https://twitter.com/defivillegame', '_blank'); document.getElementById('btn-click').play();">
         <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Twitter"></div>
-      </span> -->
-      <!-- <span class="telegram clickable" onclick="window.open('https://www.telegram.com', '_blank')">
+      </span>
+      <span class="telegram clickable" onclick="window.open('https://t.me/joinchat/FyS6I9P3VbQ4urxl', '_blank'); document.getElementById('btn-click').play();">
         <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Telegram"></div>
-      </span> -->
-      <span class=""></span>
+      </span>
+      <span class="discord clickable" onclick="window.open('https://discord.gg/Hut5vegPUq', '_blank'); document.getElementById('btn-click').play();">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Discord"></div>
+      </span>
       <span class=""></span>
       <span class=""></span>
       <span class=""></span>
@@ -324,6 +379,198 @@
 
   </div>
 
+  <footer class="footer">
+    <p class="white ml-5" id="countdown"></p>
+  </footer>
+
+  <img class="chad" src="img/PNG/chad.png" height="120" onclick="document.getElementById('chad-click').play();">
+
+  <!-- =========================================================================
+  MODAL WALLET
+  ========================================================================= -->
+  <div class="modal fade" id="walletModal" tabindex="-1" aria-labelledby="walletModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Select wallet</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn-metamask" data-dismiss="modal" onclick="getMetamaskWallet()">
+            Metamask
+          </button>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  MODAL GAS
+  ========================================================================= -->
+  <div class="modal fade" id="gasModal" tabindex="-1" aria-labelledby="gasModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eth Gas Station</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Fast</p>
+          <p id="gasfast"></p>
+          <p>Average</p>
+          <p id="gasaverage"></p>
+          <p>Safe Low</p>
+          <p id="gaslow"></p>
+        </div>
+        <div class="modal-footer">
+          <p><i>Gas prices offered by ethgasstation.info</i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  MODAL PROTOCOL
+  ========================================================================= -->
+  <div class="modal fade" id="farmModal" tabindex="-1" aria-labelledby="farmModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="farmModalLabel">Protocol Name</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#poolModal">Pool One</a>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#poolModal">Pool Two</a>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#poolModal">Pool Three</a>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#poolModal">Pool Four</a>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#poolModal">Pool Five</a>
+          </ul>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  MODAL POOL
+  ========================================================================= -->
+  <div class="modal fade" id="poolModal" tabindex="-1" aria-labelledby="poolModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="poolModalLabel">Pool Name</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="stakeText"></p>
+          <input type="number" id="tokenAmount" class="form-control" placeholder="Insert the amount"></input>
+          <span id="errorMessage">Please add an amount of token</span>
+          <div class="row mt-4 text-center">
+            <div class="col-md-6">
+              <div class="pool-box p-2">
+                <p>Rewards</p>
+                <h1 id="poolReward">-</h1>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pool-box p-2">
+                <p class="text-center">Staked</p>
+                <h1 id="poolStaked">-</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input class="d-none" type="text" id="currentPoolToken"></input>
+          <div class="row w-100">
+            <div class="col-md-6 pl-0">
+              <button id="btnApprove" class="nav-link btn btn-approve btn-block text-uppercase" onclick="approve()">Approve</button>
+              <button id="btnStake" class="nav-link btn btn-approve btn-block text-uppercase" onclick="stake()">Stake</button>
+            </div>
+            <div class="col-md-6 pr-0">
+              <button class="nav-link btn btn-withdraw btn-block text-uppercase" onclick="withdraw()">Withdraw</button>
+            </div>
+          </div>
+
+          <div class="row w-100">
+            <div class="col-md-6 pl-0">
+              <button class="nav-link btn btn-primary btn-block text-uppercase" onclick="harvest()">Harvest</button>
+            </div>
+            <div class="col-md-6 pr-0">
+              <button class="nav-link btn btn-primary btn-block text-uppercase" onclick="harvestAndUnstake()">Harvest & unstake</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  MODAL FAQ
+  ========================================================================= -->
+  <div class="modal fade" id="faqModal" tabindex="-1" aria-labelledby="faqModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">FAQs</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6 class="text-uppercase">What is defiville?</h6>
+          <p>Welcome to DeFiVille, a strange world made of farmers, seasons and animals.
+            You can see this 2D game as a social experiment, where the community is put on top of the platform and every decision is made using governance mechanisms.
+            The community will be driven by accomplishing challenges and common goals.
+            Oh….and there is a secret treasure to find.</p>
+
+          <h6 class="text-uppercase">What is island?</h6>
+          <p>$ISLAND is the token of Defiville</p>
+
+          <h6 class="text-uppercase">What are the tokenomics of island?</h6>
+          <p>Total $ISLAND supply: 7.000.000<br>
+          Circulating supply at launch: 0<br>
+          Season 1: 1.000.000<br>
+          Governance treasury: 1.000.000</p>
+
+          <h6 class="text-uppercase">Why are you launching defiville?</h6>
+          <p>Defiville is a new concept of yield farming gamified that will evolve as the time progress.
+          Different season has different goals and it will introduce new concepts like NFTs and other cool stuff.
+        The project will be 100% community led, so everyone gets a fair share of what the future of DefiVille will look like.</p>
+
+          <h6 class="text-uppercase">What is the roadmap for defiville?</h6>
+          <p>Defiville is divided into seasons.
+          You can think of seasons like sprints or projects on a roadmap.
+        Different seasons will last until the pools will stop emitting ISLAND tokens.
+      Before each season the community gets to propose and vote for new proposals and change the course of the history of DefiVille.</p>
+
+          <h6 class="text-uppercase">Smart contract</h6>
+          <p>You can check the smart contract here:</p>
+          <a href="https://etherscan.io/address/0x20a68f9e34076b2dc15ce726d7eebb83b694702d#code">ISLA Smart Contract</a>
+
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  SCRIPTS
+  ========================================================================= -->
     <script src="vendors/bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
     <script src="vendors/bootstrap-4.5.0/js/popper.min.js"></script>
     <script src="vendors/bootstrap-4.5.0/js/bootstrap.min.js"></script>
@@ -331,5 +578,6 @@
     <script src="js/gas.js"></script>
     <script src="js/wallet.js"></script>
     <script src="js/pool-modal.js"></script>
+    <script src="js/countdown.js"></script>
   </body>
 </html>
