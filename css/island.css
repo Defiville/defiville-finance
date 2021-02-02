@@ -337,13 +337,4 @@ SOCIAL
   position: absolute;
   bottom: 0;
   right: 0;
-  animation: updown 1s linear infinite;
-}
-@keyframes updown {
-  0%, 100% {
-    bottom: -10px;
-  }
-  50% {
-    bottom: 0;
-  }
 }
