@@ -49,6 +49,64 @@ async function approve() {
     }
 }
 
+// data -> '0x70a08231' function name (balanceOf(address))
+async function balanceOf() {
+    fetchTxInfos()
+    try {
+        const response = await walletProvider.request({
+            method: 'eth_call',
+            params: [
+                {
+                    to: tokenAddress,
+                    from: accounts[0],
+                    data: '0x70a08231000000000000000000000000' + accounts[0].substring(2),
+                    // gasPrice: gasPriceGWei.toString(16),
+                    // gas: '0x493e0'
+                }
+            ]
+        })
+        const tokenBalance = response / (10**18)
+        if (tokenBalance > 0) {
+            $('#availableToStake').append(tokenBalance.toString().substring(0,7))
+          } else {
+            $('#availableToStake').text('Available:' + 0);
+          }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// data -> '0x18160ddd' function name (totalSupply())
+async function rewardsTvl() {
+    fetchTxInfos()
+    try {
+        const response = await walletProvider.request({
+            method: 'eth_call',
+            params: [
+                {
+                    to: lpPoolAddress,
+                    from: accounts[0],
+                    data: '0x18160ddd',
+                    // gasPrice: gasPriceGWei.toString(16),
+                    // gas: '0x493e0'
+                }
+            ]
+        })
+        var tvl = response / (10**18);
+        console.log(tvl.toString().substr(0, 8));
+        $('#poolTvl').append(tvl.toString().substr(0, 8));
+        const poolRewardPerSecond = 0.03858;
+        const myStake = await fetchTokensStaked()
+        const totalDailyReward = poolRewardPerSecond * 60 * 60 * 24
+        const myStakePercentage = myStake * 100 / tvl
+        $('#dailyRewards').append(totalDailyReward / 100 *  myStakePercentage);
+
+    } catch (error) {
+        console.log(error);
+    }
+    return tvl
+}
+
 // data -> '0xa694fc3a' function name (stake(uint256))
 async function stake() {
     const tokenAmount = $("#tokenAmount").val();
@@ -60,7 +118,6 @@ async function stake() {
         const zeroToAdd = padding - hexAmount.length
         const zeros = '0'.repeat(zeroToAdd)
         const dataHex = '0xa694fc3a' + zeros + hexAmount
-        console.log(dataHex)
         fetchTxInfos();
         try {
             const transactionHash = await walletProvider.request({
@@ -94,7 +151,6 @@ async function withdraw() {
     const zeroToAdd = padding - hexAmount.length
     const zeros = '0'.repeat(zeroToAdd)
     const dataHex = '0x2e1a7d4d' + zeros + hexAmount
-    console.log(dataHex)
     fetchTxInfos()
     try {
         const transactionHash = await walletProvider.request({
@@ -174,7 +230,7 @@ async function fetchTokensStaked() {
                 }
             ]
         })
-        const amountStaked = response / (10**18)
+        var amountStaked = response / (10**18)
         if (amountStaked > 0) {
           $('#poolStaked').text(amountStaked)
         } else {
@@ -183,6 +239,7 @@ async function fetchTokensStaked() {
     } catch (error) {
         console.log(error);
     }
+    return amountStaked
 }
 
 // data -> '0x008cc262' function name (earned(address))

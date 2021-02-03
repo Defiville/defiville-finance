@@ -203,3 +203,7 @@ p {
   color: #F0422B;
   font-size: 0.8rem;
 }
+
+#availableToStake, #dailyRewards, #poolTvl {
+  opacity: 0.3;
+}

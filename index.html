@@ -475,7 +475,14 @@
           </button>
         </div>
         <div class="modal-body">
-          <p id="stakeText"></p>
+          <div class="row">
+            <div class="col-md-6">
+              <p id="stakeText"></p>
+            </div>
+            <div class="col-md-6">
+              <p id="availableToStake">Available:</p>
+            </div>
+          </div>
           <input type="number" id="tokenAmount" class="form-control" placeholder="Insert the amount"></input>
           <span id="errorMessage">Please add an amount of token</span>
           <div class="row mt-4 text-center">
@@ -490,6 +497,14 @@
                 <p class="text-center">Staked</p>
                 <h1 id="poolStaked">-</h1>
               </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <p id="dailyRewards">Daily rewards:</p>
+            </div>
+            <div class="col-md-6">
+              <p id="poolTvl">Pool TVL:</p>
             </div>
           </div>
         </div>
