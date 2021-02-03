@@ -96,10 +96,11 @@ async function rewardsTvl() {
         console.log(tvl.toString().substr(0, 8));
         $('#poolTvl').append(tvl.toString().substr(0, 8));
         const poolRewardPerSecond = 0.03858;
-        const myStake = await fetchTokensStaked()
-        const totalDailyReward = poolRewardPerSecond * 60 * 60 * 24
-        const myStakePercentage = myStake * 100 / tvl
-        $('#dailyRewards').append(totalDailyReward / 100 *  myStakePercentage);
+        const myStake = await fetchTokensStaked();
+        const totalDailyReward = poolRewardPerSecond * 60 * 60 * 24;
+        const myStakePercentage = myStake * 100 / tvl;
+        const myDailyRewards = totalDailyReward / 100 *  myStakePercentage;
+        $('#dailyRewards').append(myDailyRewards.toString().substr(0, 8));
 
     } catch (error) {
         console.log(error);
