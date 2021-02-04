@@ -8,7 +8,7 @@ function poolModal(e) {
     $('#errorMessage').hide();
     $('#poolModalLabel').text(poolName);
     $('#stakeText').text('Staked ' + tokenName);
-    $('#poolTvl').text('Pool TVL:');
+    $('#poolTvl').text('Loading TVL');
     $('#availableToStake').text('Available:');
     $('#dailyRewards').text('Daily rewards:')
     $('#currentPoolToken').val(tokenName);

@@ -93,12 +93,24 @@ async function rewardsTvl() {
             ]
         })
         var tvl = response / (10**18);
+        var tokenId = getCoingeckoToken()[tokenCode]
+        var priceTvl = 'https://api.coingecko.com/api/v3/simple/price?ids=' + tokenId + '&vs_currencies=usd';
+        $.ajax({
+            url: priceTvl,
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(result){
+                var unitPrice = result[tokenId]['usd'] * tvl;
+                $('#poolTvl').text('TVL: $ ' + unitPrice.toFixed(2))
+            },
+            error: function(errorMessage){
+          }
+        })
         console.log(tvl.toString().substr(0, 8));
-        $('#poolTvl').append(tvl.toString().substr(0, 8));
         const poolRewardPerSecond = 0.03858;
-        const myStake = await fetchTokensStaked();
-        const totalDailyReward = poolRewardPerSecond * 60 * 60 * 24;
-        const myStakePercentage = myStake * 100 / tvl;
+        const myStake = await fetchTokensStaked()
+        const totalDailyReward = poolRewardPerSecond * 60 * 60 * 24
+        const myStakePercentage = myStake * 100 / tvl
         const myDailyRewards = totalDailyReward / 100 *  myStakePercentage;
         $('#dailyRewards').append(myDailyRewards.toString().substr(0, 8));
 
@@ -329,6 +341,15 @@ function getSeason1Pools() {
         // COMPLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
         AAVELP: '0xe27E43e3cde491A28Cf1DF4b6cbF6e4edF8e6298',
         // LINKLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
+    }
+}
+
+function getCoingeckoToken() {
+    return {
+        CRV: 'curve-dao-token',
+        SUSHI: 'sushi',
+        SNX: 'havven',
+        AAVE: 'aave'
     }
 }
 
