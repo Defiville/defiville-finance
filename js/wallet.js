@@ -13,6 +13,7 @@ async function getMetamaskWallet() {
         var addressStart = accounts[0].slice(0,6);
         var addressEnd = accounts[0].slice(38,42);
         document.getElementById('con-wallet').textContent = addressStart + "..." + addressEnd;
+        await balanceOfIsla()
         walletProvider.on('chainChanged', () => {
             console.log('chain changed')
         })
@@ -71,6 +72,29 @@ async function balanceOf() {
           } else {
             $('#availableToStake').text('Available:' + 0);
           }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// data -> '0x70a08231' function name (balanceOf(address))
+async function balanceOfIsla() {
+    try {
+        const response = await walletProvider.request({
+            method: 'eth_call',
+            params: [
+                {
+                    to: getSeason1Tokens()["ISLAND"],
+                    from: accounts[0],
+                    data: '0x70a08231000000000000000000000000' + accounts[0].substring(2),
+                    // gasPrice: gasPriceGWei.toString(16),
+                    // gas: '0x493e0'
+                }
+            ]
+        })
+        const tokenBalance = response / (10**18)
+        $('#islaBalance').text(tokenBalance.toFixed(2) + " ISLA")
+        console.log(tokenBalance)
     } catch (error) {
         console.log(error);
     }

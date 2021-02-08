@@ -207,3 +207,11 @@ p {
 #availableToStake, #dailyRewards, #poolTvl {
   opacity: 0.3;
 }
+
+#islaBalance {
+  border-radius: 0;
+  font-size: .6rem;
+  background-color: #A5744E;
+  border: none;
+  border-bottom: 4px solid #654731;
+}
