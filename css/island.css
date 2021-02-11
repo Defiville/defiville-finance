@@ -205,6 +205,10 @@ ELEMENTS
   background-image: url('../img/PNG/yfi.png');
 }
 
+.poi-construction {
+  background-image: url('../img/PNG/construction.png');
+}
+
 .flowers-white {
   background-image: url('../img/PNG/flowers-white.png');
 }
