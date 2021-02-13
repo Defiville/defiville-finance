@@ -131,13 +131,15 @@ async function rewardsTvl() {
           }
         })
         console.log(tvl.toString().substr(0, 8));
-        const poolRewardPerSecond = 0.03858;
         const myStake = await fetchTokensStaked()
-        const totalDailyReward = poolRewardPerSecond * 60 * 60 * 24
+        const totalDailyReward = getPoolRewardPerSecond()[tokenCode + 'LP'] * 60 * 60 * 24
         const myStakePercentage = myStake * 100 / tvl
-        const myDailyRewards = totalDailyReward / 100 *  myStakePercentage;
-        $('#dailyRewards').append(myDailyRewards.toString().substr(0, 8));
-
+        if (myStakePercentage > 0) {
+            const myDailyRewards = totalDailyReward / 100 *  myStakePercentage;
+            $('#dailyRewards').append(myDailyRewards.toString().substr(0, 8));
+          } else {
+            $('#dailyRewards').append(0);
+          }
     } catch (error) {
         console.log(error);
     }
@@ -350,7 +352,7 @@ function getSeason1Tokens() {
         // YFI: '0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e',
         // COMP: '0xc00e94cb662c3520282e6f5717214004a7f26888',
         AAVE: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9',
-        // LINK: '0x514910771af9ca656af840dff83e8264ecf986ca',
+        LINK: '0x514910771AF9Ca656af840dff83E8264EcF986CA',
         ISLAND: '0x20a68F9e34076b2dc15ce726d7eEbB83b694702d',
     }
 }
@@ -364,7 +366,7 @@ function getSeason1Pools() {
         // YFILP: '0x514910771af9ca656af840dff83e8264ecf986ca',
         // COMPLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
         AAVELP: '0xe27E43e3cde491A28Cf1DF4b6cbF6e4edF8e6298',
-        // LINKLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
+        LINKLP: '0xCe4d7780d760E5D6F3F2b436756D2507478feDB9',
     }
 }
 
@@ -373,7 +375,18 @@ function getCoingeckoToken() {
         CRV: 'curve-dao-token',
         SUSHI: 'sushi',
         SNX: 'havven',
-        AAVE: 'aave'
+        AAVE: 'aave',
+        LINK: 'chainlink'
+    }
+}
+
+function getPoolRewardPerSecond() {
+    return {
+        CRVLP: 0.03858,
+        SNXLP: 0.03858,
+        SUSHILP: 0.03858,
+        AAVELP: 0.03858,
+        LINKLP: 0.06430
     }
 }
 
