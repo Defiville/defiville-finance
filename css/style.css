@@ -215,3 +215,8 @@ p {
   border: none;
   border-bottom: 4px solid #654731;
 }
+
+.icon-mail {
+  height: 12px;
+  opacity: 0.5;
+}
