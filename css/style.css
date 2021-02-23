@@ -104,6 +104,13 @@ p {
   background-size: cover;
 }
 
+.btn-buy {
+  color: #FFF;
+  background-color: #ffc107;
+  border: none;
+  border-top: 4px solid #ff9800;
+}
+
 .modal-content {
   border: 2px solid black;
   outline: 2px solid white;
@@ -112,6 +119,21 @@ p {
 .modal-title {
   text-transform: uppercase;
   text-shadow: 2px 2px 0px #bababa;
+}
+
+.nft-modal-title {
+  text-transform: uppercase;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
 }
 
 .modal-header, .modal-footer {
@@ -219,4 +241,53 @@ p {
 .icon-mail {
   height: 12px;
   opacity: 0.5;
+}
+
+/* NFT MODAL */
+
+.nft-modal-body {
+  height: 800px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../img/PNG/vending-machine-body.png');
+}
+
+.nft-modal-header {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../img/PNG/vending-machine-header.png');
+  color: #FFF;
+}
+
+.nft-modal-footer {
+  height: 110px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../img/PNG/vending-machine-footer.png');
+}
+
+.card-container {
+  display: inline-block;
+  position: relative;
+}
+
+.card-container::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background: url('../img/PNG/glare-card.png') no-repeat;
+  background-size: contain;
+  animation: reflection 5s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+@keyframes reflection {
+      0%, 10%   { background-position: 0 -200px ; }
+      90%, 100% { background-position: 0 200px; }
+  }
+
+
+.nft-card:hover {
+  filter: drop-shadow(0 0 6px rgba(255,242,193,0.75));
 }

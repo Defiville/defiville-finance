@@ -300,9 +300,11 @@
       <span class=""></span>
       <span class="tree"></span>
       <span class="tree"></span>
-      <span class="flowers-white"></span>
-      <span class=""></span>
-      <span class="road-ver"></span>
+      <span class="ss-01"></span>
+      <span class="ss-02 clickable" data-toggle="modal" data-target="#nftModal" onclick="document.getElementById('btn-click').play();">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="NFT Vending Machine"></div>
+      </span>
+      <span class="ss-03"></span>
       <span class="flowers-white"></span>
       <span class="tree"></span>
       <span class="tree"></span>
@@ -314,9 +316,9 @@
       <span class=""></span>
       <span class=""></span>
       <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="road-ver"></span>
+      <span class="ss-04"></span>
+      <span class="ss-05"></span>
+      <span class="ss-06"></span>
       <span class="tree"></span> <!-- remove this -->
       <!-- <span class="poi-maker clickable" onclick="poolModal(this)" name="Maker Farm" data-token="MKR">
         <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Maker Farm"></div>
@@ -536,6 +538,83 @@
               <button class="nav-link btn btn-primary btn-block text-uppercase" onclick="harvestAndUnstake()">Harvest & unstake</button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  NFT VENDING MACHINE MODAL
+  ========================================================================= -->
+  <div class="modal fade" id="nftModal" tabindex="-1" aria-labelledby="nftModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header nft-modal-header">
+          <h5 class="nft-modal-title">NFT VENDING MACHINE</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body nft-modal-body">
+          <div class="container">
+            <div class="row text-center mt-5 mb-5">
+              <div class="col-md-4">
+                <div class="card-container">
+                  <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
+                </div>
+                <!-- <p class="mb-0">ETH 0.14</p>
+                <p class="btn btn-buy" onclick="document.getElementById('buy-click').play();">BUY</p> -->
+              </div>
+              <div class="col-md-4">
+                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
+                <!-- <p class="mb-0">ETH 0.14</p>
+                <p class="btn btn-buy">BUY</p> -->
+              </div>
+              <div class="col-md-4">
+                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
+                <!-- <p class="mb-0">ETH 0.14</p>
+                <p class="btn btn-buy">BUY</p> -->
+              </div>
+            </div>
+
+            <div class="row mt-5 mb-5 text-center">
+              <div class="col-md-4">
+                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
+                <!-- <p class="mb-0">ETH 0.14</p>
+                <p class="btn btn-buy">BUY</p> -->
+              </div>
+              <div class="col-md-4">
+                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
+                <!-- <p class="mb-0">ETH 0.14</p>
+                <p class="btn btn-buy">BUY</p> -->
+              </div>
+              <div class="col-md-4">
+                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
+                <!-- <p class="mb-0">ETH 0.14</p>
+                <p class="btn btn-buy">BUY</p> -->
+              </div>
+            </div>
+
+            <div class="row mt-5 text-center">
+              <div class="col-md-4">
+                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
+                <!-- <p class="mb-0">ETH 0.14</p>
+                <p class="btn btn-buy">BUY</p> -->
+              </div>
+              <div class="col-md-4">
+                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
+                <!-- <p class="mb-0">ETH 0.14</p>
+                <p class="btn btn-buy">BUY</p> -->
+              </div>
+              <div class="col-md-4">
+                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
+                <!-- <p class="mb-0">ETH 0.14</p>
+                <p class="btn btn-buy">BUY</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer nft-modal-footer">
         </div>
       </div>
     </div>

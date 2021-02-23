@@ -316,6 +316,34 @@ ROAD
   background-image: url('../img/PNG/road-ver-snow.png');
 }
 
+/* =============================================================================
+SERVICE STATION
+============================================================================= */
+
+.ss-01 {
+  background-image: url('../img/PNG/ss-01.png');
+}
+
+.ss-02 {
+  background-image: url('../img/PNG/ss-02.png');
+}
+
+.ss-03 {
+  background-image: url('../img/PNG/ss-03.png');
+}
+
+.ss-04 {
+  background-image: url('../img/PNG/ss-04.png');
+}
+
+.ss-05 {
+  background-image: url('../img/PNG/ss-05.png');
+}
+
+.ss-06 {
+  background-image: url('../img/PNG/ss-06.png');
+}
+
 
 /* =============================================================================
 SOCIAL
