@@ -301,7 +301,7 @@
       <span class="tree"></span>
       <span class="tree"></span>
       <span class="ss-01"></span>
-      <span class="ss-02 clickable" data-toggle="modal" data-target="#nftModal" onclick="document.getElementById('btn-click').play();">
+      <span class="ss-02 clickable" onclick="nftModal(this)" name="Vending Machine">
         <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="NFT Vending Machine"></div>
       </span>
       <span class="ss-03"></span>
@@ -557,13 +557,14 @@
         </div>
         <div class="modal-body nft-modal-body">
           <div class="container">
-            <div class="row text-center mt-5 mb-5">
+            <div class="row text-center mt-2">
               <div class="col-md-4">
                 <div class="card-container">
-                  <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
+                  <img class="img-fluid nft-card" src="img/PNG/defiville-card-sample.png">
                 </div>
-                <!-- <p class="mb-0">ETH 0.14</p>
-                <p class="btn btn-buy" onclick="document.getElementById('buy-click').play();">BUY</p> -->
+                <p class="mb-0" id="slot0salePrice">-</p>
+                <p class="btn btn-buy" onclick="buyNFT()">BUY</p>
+                <p id="saleAmountLeft" class="m-0"></p>
               </div>
               <div class="col-md-4">
                 <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
@@ -577,7 +578,7 @@
               </div>
             </div>
 
-            <div class="row mt-5 mb-5 text-center">
+            <div class="row mt-4 text-center">
               <div class="col-md-4">
                 <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
                 <!-- <p class="mb-0">ETH 0.14</p>
@@ -595,7 +596,7 @@
               </div>
             </div>
 
-            <div class="row mt-5 text-center">
+            <div class="row mt-4 text-center">
               <div class="col-md-4">
                 <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
                 <!-- <p class="mb-0">ETH 0.14</p>
@@ -679,6 +680,8 @@
     <script src="js/tooltip.js"></script>
     <script src="js/gas.js"></script>
     <script src="js/wallet.js"></script>
+    <script src="js/vending.js"></script>
+    <script src="js/nft-modal.js"></script>
     <script src="js/pool-modal.js"></script>
     <script src="js/countdown.js"></script>
   </body>

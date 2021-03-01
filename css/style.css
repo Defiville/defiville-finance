@@ -291,3 +291,8 @@ p {
 .nft-card:hover {
   filter: drop-shadow(0 0 6px rgba(255,242,193,0.75));
 }
+
+#saleAmountLeft {
+  font-size: 0.55rem;
+  opacity: 0.5;
+}
