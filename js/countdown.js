@@ -12,7 +12,7 @@ var end = new Date('03/3/2021 6:1 PM');
         if (distance < 0) {
 
             clearInterval(timer);
-            document.getElementById('countdown').innerHTML = 'EXPIRED!';
+            document.getElementById('countdown').innerHTML = 'SEASON ONE HAS ENDED';
 
             return;
         }
