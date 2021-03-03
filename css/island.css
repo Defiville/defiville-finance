@@ -370,3 +370,22 @@ SOCIAL
   bottom: 0;
   right: 0;
 }
+
+/* =============================================================================
+CARGO SHIP
+============================================================================= */
+.ship-01, .ship-02, .ship-03 {
+  cursor: pointer;
+}
+
+.ship-01 {
+  background-image: url('../img/PNG/ship-01.png');
+}
+
+.ship-02 {
+  background-image: url('../img/PNG/ship-02.png');
+}
+
+.ship-03 {
+  background-image: url('../img/PNG/ship-03.png');
+}
