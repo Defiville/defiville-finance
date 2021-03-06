@@ -9,8 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendors/bootstrap-4.5.0/css/bootstrap.min.css">
     <!-- Custom styling -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/island.css">
+    <link rel="stylesheet" href="css/intra-style.css">
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -25,7 +24,6 @@
   <body>
     <audio id="btn-click" src="sounds/button-click.mp3" preload="auto"></audio>
     <audio id="chad-click" src="sounds/brah.mp3" preload="auto"></audio>
-    <audio id="buy-click" src="sounds/fairy-dust.mp3" preload="auto"></audio>
     <audio id="boat-click" src="sounds/boathorn.mp3" preload="auto"></audio>
 
     <!-- =========================================================================
@@ -46,581 +44,43 @@
         </ul>
       <ul class="navbar-nav flex-row justify-content-center flex-nowrap">
         <li class="nav-item">
-          <span id="islaBalance" class="nav-link text-uppercase mr-5">- ISLA</span>
-        </li>
-        <li class="nav-item">
-          <a id="con-wallet" class="nav-link btn btn-primary text-uppercase" href="#" data-toggle="modal" data-target="#walletModal" onclick="document.getElementById('btn-click').play();">Connect Wallet</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-primary text-uppercase ml-2" href="email.html">
-            <svg class="icon-mail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
-          </a>
+          <a id="con-wallet" class="nav-link btn btn-primary text-uppercase" href="v1" onclick="document.getElementById('btn-click').play();">Back to Season One</a>
         </li>
       </ul>
     </div>
   </nav>
-
   <div class="board">
-    <!-- =========================================================================
-    LAND OVERLAY
-    ========================================================================= -->
-    <div class="overlay">
-      <!-- Row 1 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="grass-top-left"></span>
-      <span class="grass-top"></span>
-      <span class="grass-top"></span>
-      <span class="grass-top-right"></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 2 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class="grass-top-left"></span>
-      <span class="grass-top"></span>
-      <span class="grass-top"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-top"></span>
-      <span class="grass-top-right"></span>
-      <span class=""></span>
-
-      <!-- Row 3 -->
-      <span class="grass-top-left"></span>
-      <span class="grass-top"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-top-right"></span>
-
-      <!-- Row 4 -->
-      <span class="grass-left"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-bottom-right"></span>
-
-      <!-- Row 5 -->
-      <span class="grass-bottom-left"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-right"></span>
-      <span class="boat"></span>
-
-      <!-- Row 6 -->
-      <span class="cliff"></span>
-      <span class="grass-bottom-left"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-top-right"></span>
-
-      <!-- Row 7 -->
-      <span class=""></span>
-      <span class="cliff"></span>
-      <span class="grass-left"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-right"></span>
-
-      <!-- Row 8 -->
-      <span class="grass-top-left"></span>
-      <span class="grass-top"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="land"></span>
-      <span class="grass-bottom"></span>
-      <span class="grass-bottom-right"></span>
-
-      <!-- Row 9 -->
-      <span class="grass-bottom-left"></span>
-      <span class="grass-bottom"></span>
-      <span class="grass-bottom"></span>
-      <span class="grass-bottom-right"></span>
-      <span class="sand-top"></span>
-      <span class="sand-top"></span>
-      <span class="sand-top"></span>
-      <span class="grass-bottom-left"></span>
-      <span class="grass-bottom"></span>
-      <span class="grass-bottom-right"></span>
-      <span class="cliff"></span>
-      <span class="cliff"></span>
-
-      <!-- Row 10 -->
-      <span class="cliff"></span>
-      <span class="cliff"></span>
-      <span class="cliff"></span>
-      <span class="cliff"></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="cliff"></span>
-      <span class="cliff"></span>
-      <span class="cliff"></span>
-      <span class=""></span>
-      <span class=""></span>
-
-    </div>
-
-    <!-- =========================================================================
-    ELEMENTS
-    ========================================================================= -->
-    <div class="elements">
-      <!-- Row 1 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="rocks"></span>
-      <span class="tree"></span>
-      <span class="farm clickable" onclick="poolModal(this);" name="Curve Farm" data-token="CRV">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Curve Farm"></div>
-      </span>
-      <span class="crv"></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 2 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class="grass-small"></span>
-      <span class="gas clickable" data-toggle="modal" data-target="#gasModal" onclick="document.getElementById('btn-click').play();">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Gas Station"></div>
-      </span>
-      <span class="gas-prices">
-        <label>Average</label>
-        <p id="gas-med"></p>
-      </span>
-      <span class="road-curve-right-bottom"></span>
-      <span class="road-end-90"></span>
-      <span class="hay"></span>
-      <span class="hay"></span> <!--remove this -->
-      <!-- <span class="farm clickable" onclick="poolModal(this)" name="Comp Farm" data-token="COMP">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Comp Farm"></div>
-      </span> -->
-      <!-- <span class="comp"></span> -->
-      <span class=""></span> <!-- remove this -->
-      <span class=""></span>
-
-      <!-- Row 3 -->
-      <span class="tree"></span>
-      <span class="road-end-270"></span>
-      <span class="road-hor"></span>
-      <span class="road-hor"></span>
-      <span class="road-hor"></span>
-      <span class="road-hor"></span>
-      <span class="road-curve-left-top"></span>
-      <span class="tree"></span>
-      <span class="grass-small"></span>
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-
-      <!-- Row 4 -->
-      <span class="flowers-white"></span>
-      <span class="poi-lend clickable" onclick="poolModal(this)" name="Aave Tower" data-token="AAVE">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Aave Tower"></div>
-      </span>
-      <span class="rocks"></span>
-      <span class="tree"></span>
-      <span class="grass-small"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="poi-sushi clickable" onclick="poolModal(this)" name="Sushi Restaurant" data-token="SUSHI">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Sushi Restaurant"></div>
-      </span>
-      <span class="flowers-white"></span>
-      <span class="tree"></span>
-
-      <!-- Row 5 -->
-      <span class=""></span>
-      <span class="flower-white"></span>
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class="poi-snx clickable" onclick="poolModal(this)" name="Synthetix Factory" data-token="SNX">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Synthetix Factory"></div>
-      </span>
-      <span class="road-curve-right-bottom"></span>
-      <span class="road-hor"></span>
-      <span class="road-hor"></span>
-      <span class="road-hor"></span>
-      <span class="road-end-90"></span>
-      <span class="tree"></span>
-      <span class=""></span>
-
-      <!-- Row 6 -->
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="ss-01"></span>
-      <span class="ss-02 clickable" onclick="nftModal(this)" name="Vending Machine">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="NFT Vending Machine"></div>
-      </span>
-      <span class="ss-03"></span>
-      <span class="flowers-white"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="tree"></span>
-      <span class="grass-tall"></span>
-
-      <!-- Row 7 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class="ss-04"></span>
-      <span class="ss-05"></span>
-      <span class="ss-06"></span>
-      <span class="tree"></span> <!-- remove this -->
-      <!-- <span class="poi-maker clickable" onclick="poolModal(this)" name="Maker Farm" data-token="MKR">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Maker Farm"></div>
-      </span> -->
-      <span class="tree"></span>
-      <span class="flowers-white"></span>
-      <span class=""></span>
-      <span class=""></span> <!-- remove this -->
-      <!-- <span class="poi-yfi clickable" onclick="poolModal(this)" name="YFI Temple" data-token="YFI">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="YFI Temple"></div>
-      </span> -->
-      <span class="rocks"></span>
-
-      <!-- Row 8 -->
-      <span class="tree"></span>
-      <span class="poi-link clickable" onclick="poolModal(this)" name="Link Fortress" data-token="LINK">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Link Fortress"></div>
-      </span>
-      <span class="road-curve-right-bottom"></span>
-      <span class="road-hor"></span>
-      <span class="road-hor"></span>
-      <span class="road-curve-left-top"></span>
-      <span class="hay"></span>
-      <span class="tree"></span>
-      <span class=""></span>
-      <span class="tree"></span>
-      <span class=""></span>
-      <span class="grass-small"></span>
-
-      <!-- Row 9 -->
-      <span class="grass-small"></span>
-      <span class="road-end-270"></span>
-      <span class="road-curve-left-top"></span>
-      <span class="rocks"></span>
-      <span class=""></span>
-      <span class="camping"></span>
-      <span class=""></span>
-      <span class="flowers-white"></span>
-      <span class=""></span>
-      <span class="rocks"></span>
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 10 -->
-      <!-- <span class="github clickable" onclick="window.open('https://www.github.com', '_blank'); document.getElementById('btn-click').play();">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Github"></div>
-      </span> -->
-      <span class="twitter clickable" onclick="window.open('https://twitter.com/defivillegame', '_blank'); document.getElementById('btn-click').play();">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Twitter"></div>
-      </span>
-      <span class="telegram clickable" onclick="window.open('https://t.me/joinchat/FyS6I9P3VbQ4urxl', '_blank'); document.getElementById('btn-click').play();">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Telegram"></div>
-      </span>
-      <span class="discord clickable" onclick="window.open('https://discord.gg/Hut5vegPUq', '_blank'); document.getElementById('btn-click').play();">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Discord"></div>
-      </span>
-      <span class=""></span>
-      <span class="ship-01" onclick="document.getElementById('boat-click').play();"></span>
-      <span class="ship-02" onclick="document.getElementById('boat-click').play();"></span>
-      <span class="ship-03" onclick="document.getElementById('boat-click').play();"></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-
-    </div>
-
-  </div>
-
-  <footer class="footer">
-    <p class="white ml-5" id="countdown"></p>
-  </footer>
-
-  <img class="chad" src="img/PNG/chad.png" height="120" onclick="document.getElementById('chad-click').play();">
-
-  <!-- =========================================================================
-  MODAL WALLET
-  ========================================================================= -->
-  <div class="modal fade" id="walletModal" tabindex="-1" aria-labelledby="walletModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Select wallet</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <button type="button" class="btn btn-primary btn-lg btn-block btn-metamask" data-dismiss="modal" onclick="getMetamaskWallet()">
-            Metamask
-          </button>
-        </div>
-        <div class="modal-footer">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-  MODAL GAS
-  ========================================================================= -->
-  <div class="modal fade" id="gasModal" tabindex="-1" aria-labelledby="gasModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Eth Gas Station</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Fast</p>
-          <p id="gasfast"></p>
-          <p>Average</p>
-          <p id="gasaverage"></p>
-          <p>Safe Low</p>
-          <p id="gaslow"></p>
-        </div>
-        <div class="modal-footer">
-          <p><i>Gas prices offered by ethgasstation.info</i></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-  MODAL PROTOCOL
-  ========================================================================= -->
-  <div class="modal fade" id="farmModal" tabindex="-1" aria-labelledby="farmModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="farmModalLabel">Protocol Name</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <ul class="list-group list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#poolModal">Pool One</a>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#poolModal">Pool Two</a>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#poolModal">Pool Three</a>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#poolModal">Pool Four</a>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#poolModal">Pool Five</a>
-          </ul>
-        </div>
-        <div class="modal-footer">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-  MODAL POOL
-  ========================================================================= -->
-  <div class="modal fade" id="poolModal" tabindex="-1" aria-labelledby="poolModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="poolModalLabel">Pool Name</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6">
-              <p id="stakeText"></p>
-            </div>
-            <div class="col-md-6">
-              <p id="availableToStake">Available:</p>
+    <div class="row mr-2 ml-2">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body pb-0">
+            Depleted from their resources we had no other choice and abandon the island we came from.
+            We are now sailing in the open sea, searching for the next place to call home.
+            We heard stories of a small archipelago with plenty of coins to farm and that's where we are heading...<br><br>
+            TO BE CONTINUED IN SEASON TWO
+            <div class="mt-4">
+              <a href="https://twitter.com/defivillegame" target="_blank">
+                <img src="img/PNG/twitter.png" height="92">
+              </a>
+              <a href="https://t.me/joinchat/FyS6I9P3VbQ4urxl" target="_blank">
+                <img src="img/PNG/telegram.png" height="92">
+              </a>
+              <a href="https://discord.gg/Hut5vegPUq" target="black">
+                <img src="img/PNG/discord.png" height="92">
+              </a>
             </div>
           </div>
-          <input type="number" id="tokenAmount" class="form-control" placeholder="Insert the amount"></input>
-          <span id="errorMessage">Please add an amount of token</span>
-          <div class="row mt-4 text-center">
-            <div class="col-md-6">
-              <div class="pool-box p-2">
-                <p>Rewards</p>
-                <h1 id="poolReward">-</h1>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="pool-box p-2">
-                <p class="text-center">Staked</p>
-                <h1 id="poolStaked">-</h1>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-md-6">
-              <p id="dailyRewards">Daily rewards:</p>
-            </div>
-            <div class="col-md-6">
-              <p id="poolTvl">TVL:</p>
-              <p id="currentPrice"></p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <input class="d-none" type="text" id="currentPoolToken"></input>
-          <div class="row w-100">
-            <div class="col-md-6 pl-0">
-              <button id="btnApprove" class="nav-link btn btn-approve btn-block text-uppercase" onclick="approve()">Approve</button>
-              <button id="btnStake" class="nav-link btn btn-approve btn-block text-uppercase" onclick="stake()">Stake</button>
-            </div>
-            <div class="col-md-6 pr-0">
-              <button class="nav-link btn btn-withdraw btn-block text-uppercase" onclick="withdraw()">Withdraw</button>
-            </div>
-          </div>
-
-          <div class="row w-100">
-            <div class="col-md-6 pl-0">
-              <button class="nav-link btn btn-primary btn-block text-uppercase" onclick="harvest()">Harvest</button>
-            </div>
-            <div class="col-md-6 pr-0">
-              <button class="nav-link btn btn-primary btn-block text-uppercase" onclick="harvestAndUnstake()">Harvest & unstake</button>
-            </div>
+          <div class="card-footer">
+            <img src="img/PNG/chad_.png" height="92">
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-  NFT VENDING MACHINE MODAL
-  ========================================================================= -->
-  <div class="modal fade" id="nftModal" tabindex="-1" aria-labelledby="nftModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header nft-modal-header">
-          <h5 class="nft-modal-title">NFT VENDING MACHINE</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body nft-modal-body">
-          <div class="container">
-            <div class="row text-center mt-2">
-              <div class="col-md-4">
-                <div class="card-container">
-                  <img class="img-fluid nft-card" src="img/PNG/defiville-card-sample.png">
-                </div>
-                <p class="mb-0" id="slot0salePrice">-</p>
-                <p class="btn btn-buy disabled">SOLD OUT</p>
-                <p id="saleAmountLeft" class="m-0"></p>
-              </div>
-              <div class="col-md-4">
-                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
-                <!-- <p class="mb-0">ETH 0.14</p>
-                <p class="btn btn-buy">BUY</p> -->
-              </div>
-              <div class="col-md-4">
-                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
-                <!-- <p class="mb-0">ETH 0.14</p>
-                <p class="btn btn-buy">BUY</p> -->
-              </div>
-            </div>
-
-            <div class="row mt-4 text-center">
-              <div class="col-md-4">
-                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
-                <!-- <p class="mb-0">ETH 0.14</p>
-                <p class="btn btn-buy">BUY</p> -->
-              </div>
-              <div class="col-md-4">
-                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
-                <!-- <p class="mb-0">ETH 0.14</p>
-                <p class="btn btn-buy">BUY</p> -->
-              </div>
-              <div class="col-md-4">
-                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
-                <!-- <p class="mb-0">ETH 0.14</p>
-                <p class="btn btn-buy">BUY</p> -->
-              </div>
-            </div>
-
-            <div class="row mt-4 text-center">
-              <div class="col-md-4">
-                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
-                <!-- <p class="mb-0">ETH 0.14</p>
-                <p class="btn btn-buy">BUY</p> -->
-              </div>
-              <div class="col-md-4">
-                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
-                <!-- <p class="mb-0">ETH 0.14</p>
-                <p class="btn btn-buy">BUY</p> -->
-              </div>
-              <div class="col-md-4">
-                <img class="img-fluid nft-card" src="img/PNG/comingsoon-card-sample.png">
-                <!-- <p class="mb-0">ETH 0.14</p>
-                <p class="btn btn-buy">BUY</p> -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer nft-modal-footer">
-        </div>
+      <div class="col-md-8 d-flex align-items-center justify-content-center">
+        <div class="cargo-ship" onclick="document.getElementById('boat-click').play();"></div>
       </div>
     </div>
+
+    <!-- <img src="img/PNG/cargo-ship.gif" height="192"> -->
   </div>
 
   <!-- =========================================================================
@@ -673,6 +133,8 @@
     </div>
   </div>
 
+
+
   <!-- =========================================================================
   SCRIPTS
   ========================================================================= -->
@@ -680,11 +142,5 @@
     <script src="vendors/bootstrap-4.5.0/js/popper.min.js"></script>
     <script src="vendors/bootstrap-4.5.0/js/bootstrap.min.js"></script>
     <script src="js/tooltip.js"></script>
-    <script src="js/gas.js"></script>
-    <script src="js/wallet.js"></script>
-    <script src="js/vending.js"></script>
-    <script src="js/nft-modal.js"></script>
-    <script src="js/pool-modal.js"></script>
-    <script src="js/countdown.js"></script>
   </body>
 </html>

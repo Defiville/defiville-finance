@@ -1,0 +1,109 @@
+/* ===============================================================================
+DEFIVILLE
+A project created by:
+Andrea Zuccarini and Fabio Monzani
+2020-2021
+=============================================================================== */
+
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-image: url('../img/PNG/seaTest.png') !important;
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  animation: wiggle 3s linear infinite;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-color: transparent;
+  background-image: url('../img/PNG/waves.png');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 64px 64px;
+  animation: waves 3s linear infinite;
+
+}
+@keyframes waves {
+        0%   { background-position: 0 0 ; }
+        100%   { background-position: -128px 0 ; }
+}
+
+@keyframes wiggle {
+        0%   { background-position: 0 0 ; }
+        50% { background-position: 0 calc(1vw - 1px) ; }
+        100%   { background-position: 0 0 ; }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.btn {
+  border-radius: 0;
+  font-size: .6rem;
+}
+
+.btn-primary {
+  background-color: #A5744E;
+  border: none;
+  border-bottom: 4px solid #654731;
+}
+.btn-primary:hover {
+  background-color: #4F3826;
+  border-bottom: 4px solid #302216;
+}
+
+.board {
+  position: sticky;
+  top: 1em;
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+  min-height: 300px;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.cargo-ship {
+  height: 192px;
+  width: 375px;
+  background-size: contain;
+  animation: cargoShip 0.5s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes cargoShip {
+        0%   { background-image: url('../img/PNG/boat-01.png'); }
+        100%   { background-image: url('../img/PNG/boat-02.png'); }
+}
+
+.card {
+  border: 2px solid black;
+  outline: 2px solid white;
+  border-radius: 0;
+}
+
+.card-footer {
+  padding: 0;
+  background-color: #FFF;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .board {
+    height: unset;
+    margin-top: 5rem;
+  }
+}
