@@ -100,6 +100,8 @@ async function balanceOfIsla() {
     }
 }
 
+
+
 // data -> '0x18160ddd' function name (totalSupply())
 async function rewardsTvl() {
     fetchTxInfos()
@@ -117,20 +119,24 @@ async function rewardsTvl() {
             ]
         })
         var tvl = response / (10**18);
-        var tokenId = getCoingeckoToken()[tokenCode]
-        var priceTvl = 'https://api.coingecko.com/api/v3/simple/price?ids=' + tokenId + '&vs_currencies=usd';
-        $.ajax({
-            url: priceTvl,
-            contentType: "application/json",
-            dataType: 'json',
-            success: function(result){
-                var unitPrice = result[tokenId]['usd'] * tvl;
-                $('#poolTvl').text('TVL: $ ' + unitPrice.toFixed(2))
-            },
-            error: function(errorMessage){
-          }
-        })
-        console.log(tvl.toString().substr(0, 8));
+        if (tokenCode == 'ISLAETH') {
+            console.log(tvl)
+            $('#poolTvl').text('TVL: ' + tvl.toString().substring(0, 4) + ' UNILP');
+        } else {
+            var tokenId = getCoingeckoToken()[tokenCode]
+            var priceTvl = 'https://api.coingecko.com/api/v3/simple/price?ids=' + tokenId + '&vs_currencies=usd';
+            $.ajax({
+                url: priceTvl,
+                contentType: "application/json",
+                dataType: 'json',
+                success: function(result){
+                    var unitPrice = result[tokenId]['usd'] * tvl;
+                    $('#poolTvl').text('TVL: $ ' + unitPrice.toFixed(2))
+                },
+                error: function(errorMessage){
+              }
+            })
+        }
         const myStake = await fetchTokensStaked()
         const totalDailyReward = getPoolRewardPerSecond()[tokenCode + 'LP'] * 60 * 60 * 24
         const myStakePercentage = myStake * 100 / tvl
@@ -143,7 +149,7 @@ async function rewardsTvl() {
     } catch (error) {
         console.log(error);
     }
-    return tvl
+    return
 }
 
 // data -> '0xa694fc3a' function name (stake(uint256))
@@ -298,6 +304,7 @@ async function fetchTokenRewards() {
         const amountEarned = response / (10**18)
         if (amountEarned > 0) {
           $('#poolReward').text(amountEarned.toString().substring(0,7));
+          $('#farmingRewards').text(amountEarned.toString().substring(0,7));
         } else {
           $('#poolReward').text(0);
         }
@@ -323,12 +330,12 @@ async function isAlreadyApproved(){
         })
         if (response > 0) {
             console.log('already approved the token')
-            $('#btnApprove').hide();
-            $('#btnStake').show();
+            $('.btn_approve').hide();
+            $('.btn_stake').show();
         } else {
             console.log('not approved yet')
-            $('#btnApprove').show();
-            $('#btnStake').hide();
+            $('.btn_approve').show();
+            $('.btn_stake').hide();
         }
     } catch (error) {
         console.log(error);
@@ -341,6 +348,7 @@ function fetchTxInfos() {
     lpPoolAddress = getSeason1Pools()[tokenCode + "LP"]
     gasPrice = $('#gas-med').html();
     gasPriceGWei = gasPrice * 10 ** 8;
+    //tokenId = $('#token-id').val()
 }
 
 function getSeason1Tokens() {
@@ -348,12 +356,10 @@ function getSeason1Tokens() {
         CRV: '0xD533a949740bb3306d119CC777fa900bA034cd52',
         SNX: '0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F',
         SUSHI: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
-        // MKR: '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2',
-        // YFI: '0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e',
-        // COMP: '0xc00e94cb662c3520282e6f5717214004a7f26888',
         AAVE: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9',
         LINK: '0x514910771AF9Ca656af840dff83E8264EcF986CA',
         ISLAND: '0x20a68F9e34076b2dc15ce726d7eEbB83b694702d',
+        ISLAETH: '0x8bd78ad73eE85dfc1395a0cE3E90ef061Ae6017C'
     }
 }
 
@@ -362,11 +368,9 @@ function getSeason1Pools() {
         CRVLP: '0x99Cf79d898e306E382F70c6b63EbcE8CA0610cc1',
         SNXLP: '0x30353c2b2536223600054DADC79C7283D6111314',
         SUSHILP: '0x50DbD9f08798D3A2Ea542E64764E3334fE2553e1',
-        // MKRLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
-        // YFILP: '0x514910771af9ca656af840dff83e8264ecf986ca',
-        // COMPLP: '0x514910771af9ca656af840dff83e8264ecf986ca',
         AAVELP: '0xe27E43e3cde491A28Cf1DF4b6cbF6e4edF8e6298',
         LINKLP: '0xCe4d7780d760E5D6F3F2b436756D2507478feDB9',
+        ISLAETHLP: '0x9Eb44E6FC22cD22bD62d95cFD637353E3dBEc39C'
     }
 }
 
@@ -386,7 +390,8 @@ function getPoolRewardPerSecond() {
         SNXLP: 0.03858,
         SUSHILP: 0.03858,
         AAVELP: 0.03858,
-        LINKLP: 0.06430
+        LINKLP: 0.06430,
+        ISLAETHLP: 0.05144
     }
 }
 

@@ -9,7 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendors/bootstrap-4.5.0/css/bootstrap.min.css">
     <!-- Custom styling -->
-    <link rel="stylesheet" href="css/intra-style.css">
+    <link rel="stylesheet" href="css/v2-style.css">
+    <link rel="stylesheet" href="css/v2-island.css">
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -24,6 +25,7 @@
   <body>
     <audio id="btn-click" src="sounds/button-click.mp3" preload="auto"></audio>
     <audio id="chad-click" src="sounds/brah.mp3" preload="auto"></audio>
+    <audio id="buy-click" src="sounds/fairy-dust.mp3" preload="auto"></audio>
     <audio id="boat-click" src="sounds/boathorn.mp3" preload="auto"></audio>
 
     <!-- =========================================================================
@@ -38,94 +40,391 @@
     </button>
     <div class="collapse navbar-collapse justify-content-between align-items-center w-100" id="navbarNav">
       <ul class="navbar-nav mx-auto text-center">
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#faqModal" onclick="document.getElementById('btn-click').play();">FAQs</a>
-            </li>
         </ul>
       <ul class="navbar-nav flex-row justify-content-center flex-nowrap">
+        <li class="nav-item d-flex align-items-center">
+            <span class="btn-gas"></span>
+            <span id="gas-med" class="mr-2">-</span>
+        </li>
         <li class="nav-item">
-          <a id="con-wallet" class="nav-link btn btn-primary text-uppercase" href="v1" onclick="document.getElementById('btn-click').play();">Back to Season One</a>
+          <span id="islaBalance" class="nav-link text-uppercase mr-2">- ISLA</span>
+        </li>
+        <li class="nav-item">
+          <a id="con-wallet" class="nav-link btn btn-primary text-uppercase" href="#" data-toggle="modal" data-target="#walletModal" onclick="document.getElementById('btn-click').play();">Connect Wallet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary ml-1" href="https://snapshot.page/#/defiville.eth" onclick="document.getElementById('btn-click').play();" target="_blank">GOV
+            <!-- <img src="img/SVG/circle.svg" height="8"> -->
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary ml-1" href="#" data-toggle="modal" data-target="#challengesModal" onclick="document.getElementById('btn-click').play();">
+            <span class="btn-challenges"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary ml-1" href="info.html" onclick="document.getElementById('btn-click').play();">i</a>
         </li>
       </ul>
     </div>
   </nav>
+
   <div class="board">
-    <div class="row mr-2 ml-2">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body pb-0">
-            Depleted from their resources we had no other choice and abandon the island we came from.
-            We are now sailing in the open sea, searching for the next place to call home.
-            We heard stories of a small archipelago with plenty of coins to farm and that's where we are heading...<br><br>
-            TO BE CONTINUED IN SEASON TWO
-            <div class="mt-4">
-              <a href="https://twitter.com/defivillegame" target="_blank">
-                <img src="img/PNG/twitter.png" height="92">
-              </a>
-              <a href="https://t.me/joinchat/FyS6I9P3VbQ4urxl" target="_blank">
-                <img src="img/PNG/telegram.png" height="92">
-              </a>
-              <a href="https://discord.gg/Hut5vegPUq" target="black">
-                <img src="img/PNG/discord.png" height="92">
-              </a>
-            </div>
-          </div>
-          <div class="card-footer">
-            <img src="img/PNG/chad_.png" height="92">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-8 d-flex align-items-center justify-content-center">
-        <div class="cargo-ship" onclick="document.getElementById('boat-click').play();"></div>
-      </div>
+    <!-- =========================================================================
+    LAND OVERLAY
+    ========================================================================= -->
+    <div class="overlay">
+      <!-- Row 1 -->
+      <span class="a1"></span>
+      <span class="a2"></span>
+      <span class="a3"></span>
+      <span class="a4"></span>
+      <span class="a5"></span>
+      <span class="a6"></span>
+      <span class="a7"></span>
+      <span class="a8"></span>
+      <span class="a9"></span>
+      <span class="a10"></span>
+      <span class="a11"></span>
+      <span class=""></span>
+
+      <!-- Row 2 -->
+      <span class="b1"></span>
+      <span class="b2"></span>
+      <span class="b3"></span>
+      <span class="b4"></span>
+      <span class="b5"></span>
+      <span class="b6"></span>
+      <span class="b7"></span>
+      <span class="b8"></span>
+      <span class="b9"></span>
+      <span class="b10"></span>
+      <span class="b11"></span>
+      <span class=""></span>
+
+      <!-- Row 3 -->
+      <span class="c1"></span>
+      <span class="c2"></span>
+      <span class="c3"></span>
+      <span class="c4"></span>
+      <span class="c5"></span>
+      <span class="c6"></span>
+      <span class="c7"></span>
+      <span class="c8"></span>
+      <span class="c9"></span>
+      <span class="c10"></span>
+      <span class="c11"></span>
+      <span class=""></span>
+
+      <!-- Row 4 -->
+      <span class="d1"></span>
+      <span class="d2"></span>
+      <span class="d3"></span>
+      <span class="d4"></span>
+      <span class="d5"></span>
+      <span class="d6"></span>
+      <span class="d7"></span>
+      <span class="d8"></span>
+      <span class="d9"></span>
+      <span class="d10"></span>
+      <span class="d11"></span>
+      <span class="d12"></span>
+
+      <!-- Row 5 -->
+      <span class="e1"></span>
+      <span class="e2"></span>
+      <span class="e3"></span>
+      <span class="e4"></span>
+      <span class="e5"></span>
+      <span class="e6"></span>
+      <span class="e7"></span>
+      <span class="e8"></span>
+      <span class="e9"></span>
+      <span class="e10"></span>
+      <span class="e11"></span>
+      <span class=""></span>
+
+      <!-- Row 6 -->
+      <span class="f1"></span>
+      <span class="f2"></span>
+      <span class="f3"></span>
+      <span class="f4"></span>
+      <span class="f5"></span>
+      <span class="f6"></span>
+      <span class="f7"></span>
+      <span class="f8"></span>
+      <span class="f9"></span>
+      <span class="f10"></span>
+      <span class="f11"></span>
+      <span class=""></span>
+
+      <!-- Row 7 -->
+      <span class="g1"></span>
+      <span class="g2"></span>
+      <span class="g3"></span>
+      <span class="g4"></span>
+      <span class="g5"></span>
+      <span class="g6"></span>
+      <span class="g7"></span>
+      <span class="g8"></span>
+      <span class="g9"></span>
+      <span class="g10"></span>
+      <span class="g11"></span>
+      <span class="g12"></span>
+
+      <!-- Row 8 -->
+      <span class="h1"></span>
+      <span class="h2"></span>
+      <span class="h3"></span>
+      <span class="h4"></span>
+      <span class="h5"></span>
+      <span class=""></span>
+      <span class="h7"></span>
+      <span class=""></span>
+      <span class="h9"></span>
+      <span class="h10"></span>
+      <span class="h11"></span>
+      <span class="h12"></span>
+
+      <!-- Row 9 -->
+      <span class="i1"></span>
+      <span class="i2"></span>
+      <span class="i3"></span>
+      <span class="i4"></span>
+      <span class="i5"></span>
+      <span class=""></span>
+      <span class="i7"></span>
+      <span class="i8"></span>
+      <span class="i9"></span>
+      <span class="i10"></span>
+      <span class="i11"></span>
+      <span class="i12"></span>
+
+      <!-- Row 10 -->
+      <span class=""></span>
+      <span class="l2"></span>
+      <span class="l3"></span>
+      <span class="l4"></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class="l9"></span>
+      <span class="l10"></span>
+      <span class="l11"></span>
+      <span class="l12"></span>
+
     </div>
 
-    <!-- <img src="img/PNG/cargo-ship.gif" height="192"> -->
+    <!-- =========================================================================
+    ELEMENTS
+    ========================================================================= -->
+    <div class="elements">
+
+      <!-- Row 1 -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+
+      <!-- Row 2 -->
+      <span class=""></span>
+      <span class=""></span>
+      <!-- <span class="usdc clickable" onclick="poolStableModal(this);" name="USDC Residence" data-token="USDC" token-id="usdc">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="USDC Residence"></div>
+      </span> -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+
+      <!-- Row 3 -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <!-- <span class="zoo"></span> -->
+      <!-- <span class="stake-dao clickable" onclick="poolStableModal(this);" name="Stake DAO Zoo" data-token="CRV" token-id="curve-dao-token">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Stake DAO Zoo"></div>
+      </span> -->
+      <span class=""></span>
+      <span class=""></span>
+
+      <!-- Row 4 -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class="light"></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+
+      <!-- Row 5 -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class="uni-pool clickable" onclick="poolModal(this);" name="UNILP ETH/ISLA Pool" data-token="ISLAETH" token-id="">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="UNILP Pool"></div>
+      </span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+
+      <!-- Row 6 -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+
+      <!-- Row 7 -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+
+      <!-- Row 8 -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <!-- <span class="usdt clickable" onclick="poolStableModal(this);" name="USDT Pyramids" data-token="CRV" token-id="curve-dao-token">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="USDT Pyramid"></div>
+      </span> -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <!-- <span class="dai clickable" onclick="poolStableModal(this);" name="Dai Oasis" data-token="DAI" token-id="curve-dao-token">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="DAI Oasis"></div>
+      </span> -->
+      <span class=""></span>
+      <span class=""></span>
+
+      <!-- Row 9 -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+
+      <!-- Row 10 -->
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+
+    </div>
+
   </div>
 
+  <footer class="footer">
+    <div>
+      <a href="v1/" class="btn ml-4" onclick="document.getElementById('btn-click').play();">< Back to Season One</a>
+    </div>
+    <div>
+      <a class="btn" href="https://twitter.com/defivillegame" target="_blank">
+        <img src="img/SVG/twitter.svg" height="16">
+        Twitter
+      </a>
+      <a class="btn" href="https://discord.gg/Hut5vegPUq" target="_blank">
+        <img src="img/SVG/discord.svg" height="16">
+        Discord
+      </a>
+      <a class="btn" href="https://t.me/joinchat/FyS6I9P3VbQ4urxl" target="_blank">
+        <img src="img/SVG/telegram.svg" height="16">
+        Telegram
+      </a>
+      <a class="btn" href="https://info.uniswap.org/token/0x20a68f9e34076b2dc15ce726d7eebb83b694702d" target="_blank">
+        <img src="img/SVG/uniswap.svg" height="16">
+        Uniswap
+      </a>
+    </div>
+    <div>
+
+    </div>
+
+  </footer>
+
+  <img class="chad" src="img/PNG/chad.png" height="120" onclick="document.getElementById('chad-click').play();">
+
+
   <!-- =========================================================================
-  MODAL FAQ
+  MODAL WALLET
   ========================================================================= -->
-  <div class="modal fade" id="faqModal" tabindex="-1" aria-labelledby="faqModal" aria-hidden="true">
+  <div class="modal fade" id="walletModal" tabindex="-1" aria-labelledby="walletModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">FAQs</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Select wallet</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <h6 class="text-uppercase">What is defiville?</h6>
-          <p>Welcome to DeFiVille, a strange world made of farmers, seasons and animals.
-            You can see this 2D game as a social experiment, where the community is put on top of the platform and every decision is made using governance mechanisms.
-            The community will be driven by accomplishing challenges and common goals.
-            Oh….and there is a secret treasure to find.</p>
-
-          <h6 class="text-uppercase">What is island?</h6>
-          <p>$ISLAND is the token of Defiville</p>
-
-          <h6 class="text-uppercase">What are the tokenomics of island?</h6>
-          <p>Total $ISLAND supply: 7.000.000<br>
-          Circulating supply at launch: 0<br>
-          Season 1: 1.000.000<br>
-          Governance treasury: 1.000.000</p>
-
-          <h6 class="text-uppercase">Why are you launching defiville?</h6>
-          <p>Defiville is a new concept of yield farming gamified that will evolve as the time progress.
-          Different season has different goals and it will introduce new concepts like NFTs and other cool stuff.
-        The project will be 100% community led, so everyone gets a fair share of what the future of DefiVille will look like.</p>
-
-          <h6 class="text-uppercase">What is the roadmap for defiville?</h6>
-          <p>Defiville is divided into seasons.
-          You can think of seasons like sprints or projects on a roadmap.
-        Different seasons will last until the pools will stop emitting ISLAND tokens.
-      Before each season the community gets to propose and vote for new proposals and change the course of the history of DefiVille.</p>
-
-          <h6 class="text-uppercase">Smart contract</h6>
-          <p>You can check the smart contract here:</p>
-          <a href="https://etherscan.io/address/0x20a68f9e34076b2dc15ce726d7eebb83b694702d#code">ISLA Smart Contract</a>
-
+          <button type="button" class="btn btn-primary btn-lg btn-block btn-metamask" data-dismiss="modal" onclick="getMetamaskWallet()">
+            Metamask
+          </button>
         </div>
         <div class="modal-footer">
         </div>
@@ -133,6 +432,232 @@
     </div>
   </div>
 
+  <!-- =========================================================================
+  MODAL GAS
+  ========================================================================= -->
+  <div class="modal fade" id="gasModal" tabindex="-1" aria-labelledby="gasModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eth Gas Station</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Fast</p>
+          <p id="gasfast"></p>
+          <p>Average</p>
+          <p id="gasaverage"></p>
+          <p>Safe Low</p>
+          <p id="gaslow"></p>
+        </div>
+        <div class="modal-footer">
+          <p><i>Gas prices offered by ethgasstation.info</i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  MODAL CHALLENGES
+  ========================================================================= -->
+  <div class="modal fade" id="challengesModal" tabindex="-1" aria-labelledby="challengesModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Challenges</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p>As a community we will need to build all the necessary infrastructure on the island.<br>
+          We will need the help of everyone to complete the weekly challenges that will start appearing here in the next days.<br>
+        Good luck degens!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+  MODAL POOL
+  ========================================================================= -->
+  <div class="modal fade" id="poolModal" tabindex="-1" aria-labelledby="poolModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="poolModalLabel">Pool Name</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <p id="stakeText"></p>
+            </div>
+            <div class="col-md-6">
+              <p id="availableToStake">Available:</p>
+            </div>
+          </div>
+          <input type="number" id="tokenAmount" class="form-control" placeholder="Insert the amount"></input>
+          <span id="errorMessage">Please add an amount of token</span>
+          <div class="row mt-4 text-center">
+            <div class="col-md-6">
+              <div class="pool-box p-2">
+                <p>Rewards</p>
+                <h1 id="poolReward">-</h1>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pool-box p-2">
+                <p class="text-center">Staked</p>
+                <h1 id="poolStaked">-</h1>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <p id="dailyRewards">Daily rewards:</p>
+            </div>
+            <div class="col-md-6">
+              <p id="poolTvl">TVL:</p>
+              <p id="currentPrice"></p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input class="d-none" type="text" id="currentPoolToken"></input>
+          <div class="row w-100">
+            <div class="col-md-6 pl-0">
+              <button id="" class="btn_approve nav-link btn btn-approve btn-block text-uppercase" onclick="approve()">Approve</button>
+              <button id="" class="btn_stake nav-link btn btn-approve btn-block text-uppercase" onclick="stake()">Stake</button>
+            </div>
+            <div class="col-md-6 pr-0">
+              <button class="nav-link btn btn-withdraw btn-block text-uppercase" onclick="withdraw()">Withdraw</button>
+            </div>
+          </div>
+
+          <div class="row w-100">
+            <div class="col-md-6 pl-0">
+              <button class="nav-link btn btn-primary btn-block text-uppercase" onclick="harvest()">Harvest</button>
+            </div>
+            <div class="col-md-6 pr-0">
+              <button class="nav-link btn btn-primary btn-block text-uppercase" onclick="harvestAndUnstake()">Harvest & unstake</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  MODAL POOL STABLECOINS TABS
+  ========================================================================= -->
+  <div class="modal fade" id="poolModal2" tabindex="-1" aria-labelledby="poolModal2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="poolStableModalLabel">Pool Name</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <nav>
+            <div class="nav nav-tabs justify-content-between" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active col-md-6 text-center" id="nav-stake-tab" data-toggle="tab" href="#nav-stake" role="tab" aria-controls="nav-stake" aria-selected="true">STAKE</a>
+              <a class="nav-item nav-link col-md-6 text-center" id="nav-withdraw-tab" data-toggle="tab" href="#nav-withdraw" role="tab" aria-controls="nav-withdraw" aria-selected="false">WITHDRAW</a>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <!-- STAKE TAB -->
+            <div class="tab-pane fade show active" id="nav-stake" role="tabpanel" aria-labelledby="nav-stake-tab">
+              <div class="row mt-2">
+                <div class="col-md-6">
+                  <p id="stakeText"></p>
+                </div>
+                <div class="col-md-6">
+                  <p id="availableToStake">Available:</p>
+                </div>
+              </div>
+              <input type="number" id="tokenAmount" class="form-control" placeholder="Insert the amount"></input>
+              <span class="errorMessage">Please add an amount of token</span>
+              <div class="row mt-4 text-center">
+                <div class="col-md-6">
+                  <div class="pool-box p-2">
+                    <p>Earned</p>
+                    <h1 id="poolReward">-</h1>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="pool-box p-2">
+                    <p class="text-center">Staked</p>
+                    <h1 id="poolStaked">-</h1>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-md-12">
+                  <button id="" class="btn_approve nav-link btn btn-approve btn-block text-uppercase btn-block" onclick="approve()">Approve</button>
+                  <button id="" class="btn_stake nav-link btn btn-approve btn-block text-uppercase btn-block" onclick="stake()">Stake</button>
+                </div>
+              </div>
+            </div>
+            <!-- WITHDRAW TAB -->
+            <div class="tab-pane fade" id="nav-withdraw" role="tabpanel" aria-labelledby="nav-withdraw-tab">
+              <div class="row mt-4 text-center">
+                <div class="col-md-12">
+                  <div class="pool-box p-2">
+                    <p>Earned</p>
+                    <h1 id="poolReward">-</h1>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-5">Choose your withdraw option</p>
+              <nav>
+                <div class="nav nav-tabs justify-content-between mt-2" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active col-md-4 text-center" id="nav-0-tab" data-toggle="tab" href="#nav-0" role="tab" aria-controls="nav-0" aria-selected="true">OPT 1</a>
+                  <a class="nav-item nav-link col-md-4 text-center" id="nav-50-tab" data-toggle="tab" href="#nav-50" role="tab" aria-controls="nav-50" aria-selected="false">OPT 2</a>
+                  <a class="nav-item nav-link col-md-4 text-center" id="nav-100-tab" data-toggle="tab" href="#nav-100" role="tab" aria-controls="nav-100" aria-selected="false">OPT 3</a>
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-0" role="tabpanel" aria-labelledby="nav-0-tab">
+                  <div class="row mt-2">
+                    <div class="col-md-12">
+                      <p class="mt-1">If you withdraw using this option you will receive your initial collateral and all the ISLA that you have farmed but no interests.</p>
+                      <button class="nav-link btn btn-withdraw btn-block text-uppercase btn-block" onclick="withdrawOpt1()">Withdraw</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="nav-50" role="tabpanel" aria-labelledby="nav-50-tab">
+                  <div class="row mt-2">
+                    <div class="col-md-12">
+                      <p>If you withdraw using this option you will receive your initial collateral 50% of the ISLA that you have farmed and 50% of the interest earned.</p>
+                      <button class="nav-link btn btn-withdraw btn-block text-uppercase btn-block" onclick="withdrawOpt2()">Withdraw</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="nav-100" role="tabpanel" aria-labelledby="nav-100-tab">
+                  <div class="row mt-2">
+                    <div class="col-md-12">
+                      <p>If you withdraw using this option you will receive your initial collateral and all the interest earned but no ISLA.</p>
+                      <button class="nav-link btn btn-withdraw btn-block text-uppercase btn-block" onclick="withdrawOpt3()">Withdraw</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!-- =========================================================================
@@ -142,5 +667,9 @@
     <script src="vendors/bootstrap-4.5.0/js/popper.min.js"></script>
     <script src="vendors/bootstrap-4.5.0/js/bootstrap.min.js"></script>
     <script src="js/tooltip.js"></script>
+    <script src="js/gas.js"></script>
+    <script src="js/wallet.js"></script>
+    <script src="js/pool-modal.js"></script>
+    <script src="js/pool-stable-modal.js"></script>
   </body>
 </html>

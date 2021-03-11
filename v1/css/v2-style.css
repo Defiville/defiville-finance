@@ -1,0 +1,337 @@
+/* ===============================================================================
+DEFIVILLE
+A project created by:
+Andrea Zuccarini and Fabio Monzani
+2020-2021
+=============================================================================== */
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: #00A8BE;
+  background-image: url('../img/PNG/waves.png');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 64px 64px;
+  animation: waves 3s linear infinite;
+}
+@keyframes waves {
+        0%   { background-position: 0 0 ; }
+        50% { background-position: calc(1vw - 4px) 0 ; }
+        100%   { background-position: 0 0 ; }
+    }
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0;
+}
+
+p {
+  font-size: 12px;
+}
+/*.cloud class to be removed in production*/
+.cloud {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../img/PNG/clouds.png');
+  background-repeat: no-repeat,;
+  background-position: center;
+  background-size: 100% auto;
+  z-index: 2;
+}
+
+
+.white {
+  color: #FFF;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.btn {
+  border-radius: 0;
+  font-size: .6rem;
+}
+
+.btn-primary {
+  background-color: #A5744E;
+  border: none;
+  border-bottom: 4px solid #654731;
+}
+.btn-primary:hover {
+  background-color: #4F3826;
+  border-bottom: 4px solid #302216;
+}
+
+.btn-approve {
+  color: #FFF;
+  background-color: #1e7e34;
+  border: none;
+  border-bottom: 4px solid #125020;
+}
+.btn-approve:hover {
+  color: #F2F2F2;
+  background-color: #1c672d;
+  border-bottom: 4px solid #125020;
+}
+
+.btn-withdraw {
+  color: #FFF;
+  background-color: #ff5722;
+  border: none;
+  border-bottom: 4px solid #a52920;
+}
+.btn-withdraw:hover {
+  color: #FFF;
+  background-color: #b5411d;
+  border: none;
+  border-bottom: 4px solid #a52920;
+}
+
+.btn-metamask::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: sub;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url('../img/metamask-fox.png');
+  background-size: cover;
+}
+
+.btn-buy {
+  color: #FFF;
+  background-color: #ffc107;
+  border: none;
+  border-top: 4px solid #ff9800;
+}
+
+.btn-gas {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: text-top;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image: url('../img/PNG/v2/icon-gas.png');
+}
+
+.modal-content {
+  border: 2px solid black;
+  outline: 2px solid white;
+  border-radius: 0;
+}
+.modal-title {
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0px #bababa;
+}
+
+.nft-modal-title {
+  text-transform: uppercase;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+.modal-header, .modal-footer {
+  border: none;
+}
+
+.board {
+  position: sticky;
+  top: 1em;
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+  min-height: 300px;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* span {
+  border: 1px solid red;
+} */
+
+@media screen and (max-width: 576px) {
+  .board {
+    justify-content: flex-start !important;
+    padding-top: 120px !important;
+    padding-left: 60px;
+  }
+  body {
+    background-size: 64px 64px, cover;
+  }
+}
+
+.overlay, .elements {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  position: absolute;
+  width: 768px;
+  height: 640px;
+}
+
+.tooltip-helper {
+  height: 100%;
+}
+
+.tooltip > .tooltip-inner {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+  border-radius: 0px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+}
+
+.form-control {
+  border: 2px solid #333333;
+  border-radius: 0;
+}
+
+.form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: : 0.1rem;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-size: : 0.5rem;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-size: : 0.5rem;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-size: : 0.5rem;
+}
+
+.pool-box {
+  border: 2px solid black;
+}
+
+#poolStaked, #poolReward {
+  font-size: 1.2rem;
+}
+
+.btn-block+.btn-block {
+  margin-top: 0;
+}
+
+#errorMessage {
+  color: #F0422B;
+  font-size: 0.8rem;
+}
+
+#availableToStake, #dailyRewards, #poolTvl, #currentPrice {
+  opacity: 0.3;
+}
+
+.farming-rewards {
+  font-size: 0.5rem;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: red;
+}
+
+#islaBalance {
+  border-radius: 0;
+  font-size: .6rem;
+  background-color: #A5744E;
+  border: none;
+  border-bottom: 4px solid #654731;
+}
+
+/* NFT MODAL */
+
+.nft-modal-body {
+  height: 800px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../img/PNG/vending-machine-body.png');
+}
+
+.nft-modal-header {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../img/PNG/vending-machine-header.png');
+  color: #FFF;
+}
+
+.nft-modal-footer {
+  height: 110px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../img/PNG/vending-machine-footer.png');
+}
+
+.card-container {
+  display: inline-block;
+  position: relative;
+}
+
+.card-container::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background: url('../img/PNG/glare-card.png') no-repeat;
+  background-size: contain;
+  animation: reflection 5s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+@keyframes reflection {
+      0%, 10%   { background-position: 0 -200px ; }
+      90%, 100% { background-position: 0 200px; }
+  }
+
+
+.nft-card:hover {
+  filter: drop-shadow(0 0 6px rgba(255,242,193,0.75));
+}
+
+#saleAmountLeft {
+  font-size: 0.55rem;
+  opacity: 0.5;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  background-color: #A5744E;
+  color: rgba(0,0,0,0.5);
+  border: 2px solid #654731;
+  border-radius: 0;
+}
+.nav-tabs .nav-link {
+  color: #654731;
+}
+.nav-tabs {
+  border-bottom: 2px solid #654731;
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+  border: 2px solid #654731;
+  border-radius: 0;
+}

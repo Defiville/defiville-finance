@@ -1,0 +1,387 @@
+.land {
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/PNG/grass.png');
+}
+
+.snow {
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/PNG/grass-snow.png');
+}
+
+span {
+  background-size: contain;
+}
+/* =============================================================================
+GRASS
+============================================================================= */
+
+.grass-top-left {
+  background-image: url('../img/PNG/grass-top-left.png');
+}
+.grass-top {
+  background-image: url('../img/PNG/grass-top.png');
+}
+.grass-top-right {
+  background-image: url('../img/PNG/grass-top-right.png');
+}
+.grass-right {
+  background-image: url('../img/PNG/grass-right.png');
+}
+.grass-bottom-right {
+  background-image: url('../img/PNG/grass-bottom-right.png');
+}
+.grass-bottom {
+  background-image: url('../img/PNG/grass-bottom.png');
+}
+.grass-bottom-left {
+  background-image: url('../img/PNG/grass-bottom-left.png');
+}
+.grass-left {
+  background-image: url('../img/PNG/grass-left.png');
+}
+
+/* SNOWY GRASS */
+
+.grass-top-left-snow {
+  background-image: url('../img/PNG/grass-top-left-snow.png');
+}
+.grass-top-snow {
+  background-image: url('../img/PNG/grass-top-snow.png');
+}
+.grass-top-right-snow {
+  background-image: url('../img/PNG/grass-top-right-snow.png');
+}
+.grass-right-snow {
+  background-image: url('../img/PNG/grass-right-snow.png');
+}
+.grass-bottom-right-snow {
+  background-image: url('../img/PNG/grass-bottom-right-snow.png');
+}
+.grass-bottom-snow {
+  background-image: url('../img/PNG/grass-bottom-snow.png');
+}
+.grass-bottom-left-snow {
+  background-image: url('../img/PNG/grass-bottom-left-snow.png');
+}
+.grass-left-snow {
+  background-image: url('../img/PNG/grass-left-snow.png');
+}
+
+
+.cliff {
+  background-image: url('../img/PNG/cliff.png');
+}
+.boat {
+  background-image: url('../img/PNG/boat.png');
+}
+
+/* =============================================================================
+ELEMENTS
+============================================================================= */
+.tree {
+  background-image: url('../img/PNG/tree.png');
+}
+
+.tree-snow {
+  background-image: url('../img/PNG/tree-snow.png');
+}
+
+.carrots {
+  background-image: url('../img/PNG/carrots.png');
+}
+
+.salad {
+  background-image: url('../img/PNG/salad.png');
+}
+
+.wheat {
+  background-image: url('../img/PNG/wheat.png');
+}
+
+.shop {
+  background-image: url('../img/PNG/shop.png');
+}
+
+.farm {
+  background-image: url('../img/PNG/farm.png');
+}
+
+.rocks {
+  background-image: url('../img/PNG/rocks.png');
+}
+
+.rocks-snow {
+  background-image: url('../img/PNG/rocks-snow.png');
+}
+
+.camping {
+  background-image: url('../img/PNG/camping.png');
+}
+
+.cottage {
+  background-image: url('../img/PNG/cottage.png');
+}
+
+.enclosure {
+  background-image: url('../img/PNG/enclosure.png');
+}
+
+.hay {
+  background-image: url('../img/PNG/hay.png');
+}
+
+.hay-snow {
+  background-image: url('../img/PNG/hay-snow.png');
+}
+
+.tulips {
+  background-image: url('../img/PNG/tulips.png');
+}
+
+.grass-tall {
+  background-image: url('../img/PNG/grass-tall.png');
+}
+
+.grass-small {
+  background-image: url('../img/PNG/grass-small.png');
+}
+
+.grass-small-snow {
+  background-image: url('../img/PNG/grass-small-snow.png');
+}
+
+.gas {
+  background-image: url('../img/PNG/gas.png');
+}
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  -webkit-box-shadow: 0px 0px 0px 2px rgba(255,0,43,1);
+  -moz-box-shadow: 0px 0px 0px 2px rgba(255,0,43,1);
+  box-shadow: 0px 0px 0px 2px rgba(255,0,43,1);
+}
+
+.gas-prices {
+  font-size: 8px !important;
+  text-transform: uppercase;
+}
+
+.comp {
+  background-image: url('../img/PNG/comp.png');
+}
+
+.comp-snow {
+  background-image: url('../img/PNG/comp-snow.png');
+}
+
+.crv {
+  background-image: url('../img/PNG/crv.png');
+}
+
+.poi-link {
+  background-image: url('../img/PNG/link.png');
+}
+
+.poi-lend {
+  background-image: url('../img/PNG/lend.png');
+}
+
+.poi-maker {
+  background-image: url('../img/PNG/maker.png');
+}
+
+.poi-sushi {
+  background-image: url('../img/PNG/sushi.png');
+}
+
+.poi-snx {
+  background-image: url('../img/PNG/snx.png');
+}
+
+.poi-yfi {
+  background-image: url('../img/PNG/yfi.png');
+}
+
+.flowers-white {
+  background-image: url('../img/PNG/flowers-white.png');
+}
+
+.flowers-white-snow {
+  background-image: url('../img/PNG/flowers-white-snow.png');
+}
+
+
+/* =============================================================================
+SAND
+============================================================================= */
+
+.sand-top {
+  background-image: url('../img/PNG/sand-top.png');
+}
+
+.sand-top-snow {
+  background-image: url('../img/PNG/sand-top-snow.png');
+}
+
+/* =============================================================================
+ROAD
+============================================================================= */
+
+.road-curve-bottom-left {
+  background-image: url('../img/PNG/road-curve-bottom-left.png');
+}
+
+.road-curve-left-top {
+  background-image: url('../img/PNG/road-curve-left-top.png');
+}
+
+.road-curve-right-bottom {
+  background-image: url('../img/PNG/road-curve-right-bottom.png');
+}
+
+.road-curve-top-right {
+  background-image: url('../img/PNG/road-curve-top-right.png');
+}
+
+.road-end-0 {
+  background-image: url('../img/PNG/road-end-0.png');
+}
+
+.road-end-180 {
+  background-image: url('../img/PNG/road-end-180.png');
+}
+
+.road-end-270 {
+  background-image: url('../img/PNG/road-end-270.png');
+}
+
+.road-end-90 {
+  background-image: url('../img/PNG/road-end-90.png');
+}
+
+.road-hor {
+  background-image: url('../img/PNG/road-hor.png');
+}
+
+.road-ver {
+  background-image: url('../img/PNG/road-ver.png');
+}
+
+/* SNOWY ROAD */
+
+.road-curve-bottom-left-snow {
+  background-image: url('../img/PNG/road-curve-bottom-left-snow.png');
+}
+
+.road-curve-left-top-snow {
+  background-image: url('../img/PNG/road-curve-left-top-snow.png');
+}
+
+.road-curve-right-bottom-snow {
+  background-image: url('../img/PNG/road-curve-right-bottom-snow.png');
+}
+
+.road-curve-top-right-snow {
+  background-image: url('../img/PNG/road-curve-top-right-snow.png');
+}
+
+.road-end-0-snow {
+  background-image: url('../img/PNG/road-end-0-snow.png');
+}
+
+.road-end-180-snow {
+  background-image: url('../img/PNG/road-end-180-snow.png');
+}
+
+.road-end-270-snow {
+  background-image: url('../img/PNG/road-end-270-snow.png');
+}
+
+.road-end-90-snow {
+  background-image: url('../img/PNG/road-end-90-snow.png');
+}
+
+.road-hor-snow {
+  background-image: url('../img/PNG/road-hor-snow.png');
+}
+
+.road-ver-snow {
+  background-image: url('../img/PNG/road-ver-snow.png');
+}
+
+/* =============================================================================
+SERVICE STATION
+============================================================================= */
+
+.ss-01 {
+  background-image: url('../img/PNG/ss-01.png');
+}
+
+.ss-02 {
+  background-image: url('../img/PNG/ss-02.png');
+}
+
+.ss-03 {
+  background-image: url('../img/PNG/ss-03.png');
+}
+
+.ss-04 {
+  background-image: url('../img/PNG/ss-04.png');
+}
+
+.ss-05 {
+  background-image: url('../img/PNG/ss-05.png');
+}
+
+.ss-06 {
+  background-image: url('../img/PNG/ss-06.png');
+}
+
+
+/* =============================================================================
+SOCIAL
+============================================================================= */
+
+.github {
+  background-image: url('../img/PNG/github.png');
+}
+
+.twitter {
+  background-image: url('../img/PNG/twitter.png');
+}
+
+.telegram {
+  background-image: url('../img/PNG/telegram.png');
+}
+
+.discord {
+  background-image: url('../img/PNG/discord.png');
+}
+
+.chad {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* =============================================================================
+CARGO SHIP
+============================================================================= */
+.ship-01, .ship-02, .ship-03 {
+  cursor: pointer;
+}
+
+.ship-01 {
+  background-image: url('../img/PNG/ship-01.png');
+}
+
+.ship-02 {
+  background-image: url('../img/PNG/ship-02.png');
+}
+
+.ship-03 {
+  background-image: url('../img/PNG/ship-03.png');
+}
