@@ -713,3 +713,13 @@ CARGO SHIP
 .ship-03 {
   background-image: url('../img/PNG/ship-03.png');
 }
+
+/* =============================================================================
+Penguin Swap
+============================================================================= */
+.penguinswap {
+  background-image: url('../img/PNG/penguinswap.png');
+}
+.small-iceberg {
+  background-image: url('../img/PNG/small-iceberg.png');
+}
