@@ -723,3 +723,13 @@ Penguin Swap
 .small-iceberg {
   background-image: url('../img/PNG/small-iceberg.png');
 }
+
+/* =============================================================================
+SEASON TWO BUILDINGS
+============================================================================= */
+.usdc-construction-01 {
+  background-image: url('../img/PNG/usdc-construction-01.png');
+}
+.usdc-construction-02 {
+  background-image: url('../img/PNG/usdc-construction-02.png');
+}
