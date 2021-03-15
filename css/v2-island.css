@@ -733,3 +733,13 @@ SEASON TWO BUILDINGS
 .usdc-construction-02 {
   background-image: url('../img/PNG/usdc-construction-02.png');
 }
+
+.ghost-galleon {
+  background-image: url('../img/PNG/ghost-galleon.png');
+  animation: floating 3s linear infinite;
+}
+@keyframes floating {
+        0%   { background-position: 0 0 ; }
+        50% { background-position: 0 3px ; }
+        100%   { background-position: 0 0 ; }
+}
