@@ -17,6 +17,7 @@ html, body {
   background-position: center;
   background-size: 64px 64px;
   animation: waves 3s linear infinite;
+  cursor: url('../img/pointer.png'), auto;
 }
 @keyframes waves {
         0%   { background-position: 0 0 ; }
@@ -255,7 +256,7 @@ p {
   margin-top: 0;
 }
 
-#errorMessage {
+.errorMessage {
   color: #F0422B;
   font-size: 0.8rem;
 }

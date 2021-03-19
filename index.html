@@ -237,13 +237,10 @@
 
       <!-- Row 2 -->
       <span class=""></span>
-      <span class="usdc-construction-01">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Coming Soon"></div>
-      </span>
-      <!-- <span class="usdc clickable" onclick="poolStableModal(this);" name="USDC Residence" data-token="USDC" token-id="usdc">
+      <span class="usdc clickable" onclick="poolStableModal(this);" name="USDC Residence" data-token="USDC" token-id="usdc">
         <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="USDC Residence"></div>
-      </span> -->
-      <span class="usdc-construction-02"></span>
+      </span>
+      <span class=""></span>
       <span class=""></span>
       <span class=""></span>
       <span class=""></span>
@@ -590,29 +587,29 @@
                   <p id="stakeText"></p>
                 </div>
                 <div class="col-md-6">
-                  <p id="availableToStake">Available:</p>
+                  <p id="availableToStakeStable">Available:</p>
                 </div>
               </div>
-              <input type="number" id="tokenAmount" class="form-control" placeholder="Insert the amount"></input>
+              <input type="number" id="tokenAmountStable" class="form-control" placeholder="Insert the amount"></input>
               <span class="errorMessage">Please add an amount of token</span>
               <div class="row mt-4 text-center">
                 <div class="col-md-6">
                   <div class="pool-box p-2">
                     <p>Earned</p>
-                    <h1 id="poolReward">-</h1>
+                    <h1 id="poolRewardStable">-</h1>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="pool-box p-2">
                     <p class="text-center">Staked</p>
-                    <h1 id="poolStaked">-</h1>
+                    <h1 id="poolStakedStable">-</h1>
                   </div>
                 </div>
               </div>
               <div class="row mt-4">
                 <div class="col-md-12">
                   <button id="" class="btn_approve nav-link btn btn-approve btn-block text-uppercase btn-block" onclick="approve()">Approve</button>
-                  <button id="" class="btn_stake nav-link btn btn-approve btn-block text-uppercase btn-block" onclick="stake()">Stake</button>
+                  <button id="" class="btn_stake nav-link btn btn-approve btn-block text-uppercase btn-block" onclick="stakeStable()">Stake</button>
                 </div>
               </div>
             </div>
@@ -622,7 +619,7 @@
                 <div class="col-md-12">
                   <div class="pool-box p-2">
                     <p>Earned</p>
-                    <h1 id="poolReward">-</h1>
+                    <h1 id="poolRewardStableW">-</h1>
                   </div>
                 </div>
               </div>
@@ -646,7 +643,7 @@
                 <div class="tab-pane fade" id="nav-50" role="tabpanel" aria-labelledby="nav-50-tab">
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <p>If you withdraw using this option you will receive your initial collateral 50% of the ISLA that you have farmed and 50% of the interest earned.</p>
+                      <p>If you withdraw using this option you will receive your initial collateral, 50% of the ISLA that you have farmed and 50% of the interest earned.</p>
                       <button class="nav-link btn btn-withdraw btn-block text-uppercase btn-block" onclick="withdrawOpt2()">Withdraw</button>
                     </div>
                   </div>
@@ -663,7 +660,7 @@
             </div>
           </div>
         <div class="modal-footer">
-
+          <input class="d-none" type="text" id="currentPoolToken"></input>
         </div>
       </div>
     </div>

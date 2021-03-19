@@ -8,20 +8,19 @@ function poolStableModal(f) {
     $('.errorMessage').hide();
     $('#poolStableModalLabel').text(poolName);
     $('#stakeText').text('Staked ' + tokenName);
-    $('#poolTvl').text('Loading TVL...');
-    $('#availableToStake').text('Available:');
-    $('#dailyRewards').text('Daily rewards:')
-    $('#currentStablePoolToken').val(tokenName);
-    fetchTokensStaked();
-    fetchTokenRewards();
+    //$('#poolTvl').text('Loading TVL...');
+    $('#currentPoolToken').val(tokenName);
+    //fetchTokenRewards();
     isAlreadyApproved();
-    balanceOf();
-    rewardsTvl();
+    balanceOfStable();
+    //fetchStableStaked();
+    fetchStableEarned();
+    //rewardsTvl();
   } else {
     $('#walletModal').modal();
   }
 }
 
 $('#poolModal2').on('hidden.bs.modal', function () {
-  $('#tokenAmount').val('');
+  $('#tokenAmountStable').val('');
 });
