@@ -185,8 +185,8 @@ async function rewardsTvl() {
 async function stakeStable() {
     const tokenAmount = $("#tokenAmountStable").val();
     if (tokenAmount > 0) {
-        const islandDecimals = 6 // to edit
-        const tokenAmountDecimals = BigInt(tokenAmount * 10 ** islandDecimals)
+        const usdcDecimals = 6
+        const tokenAmountDecimals = BigInt(tokenAmount * 10 ** usdcDecimals)
         const padding = 32 * 2
         const hexAmount = tokenAmountDecimals.toString(16);
         const zeroToAdd = padding - hexAmount.length
@@ -319,6 +319,32 @@ async function withdrawOpt(plugPercentage) {
     }
 }
 
+// data -> '0xb121500a' function  name (usersTokenWant())
+async function TVLStable() {
+    fetchTxInfos()
+    try {
+        const response = await walletProvider.request({
+            method: 'eth_call',
+            params: [
+                {
+                    to: lpPoolAddress,
+                    from: accounts[0],
+                    data: '0xb121500a'
+                }
+            ]
+        })
+        var tvl = parseInt(response)
+        const usdcDecimals = 6
+        if (tvl > 0) {
+          $('#tvl').text('Pool TVL:' + tvl / (10** usdcDecimals))
+        } else {
+          $('#tvl').text(0);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // data -> '0x3d18b912' function name (getReward())
 async function harvest() {
     fetchTxInfos()
@@ -376,7 +402,7 @@ async function fetchStableStaked() {
                 }
             ]
         })
-        var amountStaked = response // to edit
+        var amountStaked = response
         if (amountStaked > 0) {
           $('#poolStakedStable').text(amountStaked / (10**6))
         } else {
@@ -429,10 +455,11 @@ async function fetchStableEarned() {
             ]
         })
         const tokenPrice = parseInt(response)
+        const usdcDecimals = 6;
         const tokenEarned = (tokenPrice * strategyStaked / (10**18)) - stableStaked
         var amountEarnedDecimal = 0
         if (tokenEarned > 0) {
-            amountEarnedDecimal = tokenEarned / 10**18
+          amountEarnedDecimal = tokenEarned / 10**usdcDecimals
         }
         if (amountEarnedDecimal > 0) {
             $('#poolRewardStable').text(amountEarnedDecimal.toString().substring(0,4));

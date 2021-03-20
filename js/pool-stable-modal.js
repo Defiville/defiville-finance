@@ -13,9 +13,9 @@ function poolStableModal(f) {
     //fetchTokenRewards();
     isAlreadyApproved();
     balanceOfStable();
-    //fetchStableStaked();
+    fetchStableStaked();
     fetchStableEarned();
-    //rewardsTvl();
+    TVLStable();
   } else {
     $('#walletModal').modal();
   }
