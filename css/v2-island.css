@@ -743,3 +743,17 @@ SEASON TWO BUILDINGS
         50% { background-position: 0 3px ; }
         100%   { background-position: 0 0 ; }
 }
+
+.hammer {
+  background-image: url('../img/PNG/hammer-1.png');
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  animation: hammering .5s linear infinite;
+}
+@keyframes hammering {
+  0% { background-image: url('../img/PNG/hammer-1.png');}
+  50% { background-image: url('../img/PNG/hammer-1.png');}
+  51% { background-image: url('../img/PNG/hammer-2.png');}
+  100% { background-image: url('../img/PNG/hammer-2.png');}
+}
