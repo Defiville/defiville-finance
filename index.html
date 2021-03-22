@@ -11,6 +11,7 @@
     <!-- Custom styling -->
     <link rel="stylesheet" href="css/v2-style.css">
     <link rel="stylesheet" href="css/v2-island.css">
+    <link rel="stylesheet" href="css/player.css">
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -302,8 +303,8 @@
       <!-- Row 6 -->
       <span class=""></span>
       <span class=""></span>
-      <span id="pirate-radio" class="ghost-galleon">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="???"></div>
+      <span id="pirate-radio" class="pirate-radio clickable" onclick="galleonModal(this);">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Pirate Radio"></div>
       </span>
       <span class=""></span>
       <span class=""></span>
@@ -561,6 +562,158 @@
   </div>
 
   <!-- =========================================================================
+  MODAL PIRATE RADIO
+  ========================================================================= -->
+  <div class="modal fade" id="pirateRadioModal" tabindex="-1" aria-labelledby="pirateRadioModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Defiville Pirate Radio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-header">
+          <div class="example2">
+              <ul class="playlist">
+                <!-- song 1 -->
+                  <li data-cover="https://ipfs.io/ipfs/QmSxA5HT6aXX2EBuXe6kT2Wir8RzgcvBRuckuYGra77SGs/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmSxA5HT6aXX2EBuXe6kT2Wir8RzgcvBRuckuYGra77SGs/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      LoFi beats for those in need of rehabilitation
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:7', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 2 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmVsj8JHaKfrtk54GoM6cwtcd586GnLEQjutzHxZDE63i3/image.jpeg" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmegLhZjM8ET1ucNdJXAmvsjqngSMwmBmgYtB3ZN1omY5i/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Granular Synthesis - Moscow
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:11', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 3 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmeuHEgYAMggaGpVT5ozgX8fgTr7QgtS92TTAdhAzcyyie/image.jpeg" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmeuHEgYAMggaGpVT5ozgX8fgTr7QgtS92TTAdhAzcyyie/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Granular Synthesis - Jacksonville
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:16', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 4 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/Qmbit7bRym9iF7ykcuuupZBPfgeWtRBz8nNWTbZvvD1rLc/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/Qmbit7bRym9iF7ykcuuupZBPfgeWtRBz8nNWTbZvvD1rLc/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      French Press
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:21', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 5 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmUnXAfBC5kMkNKcwXLHoBofsWSVGjbLp9VxL3Treq2AYw/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmUnXAfBC5kMkNKcwXLHoBofsWSVGjbLp9VxL3Treq2AYw/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Cezve
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:22', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 6 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmUFjGe9j6mcUBFW71RHTQ3aZsXswiufCkhV53bsXKnUCP/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmUFjGe9j6mcUBFW71RHTQ3aZsXswiufCkhV53bsXKnUCP/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Rehab Cigs
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:24', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 7 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmVncUbahY2n8etZHQmo8CsCjoXQ3qGJgTc9dbNJqiF7qU/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmVncUbahY2n8etZHQmo8CsCjoXQ3qGJgTc9dbNJqiF7qU/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Painkiller
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:26', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 8 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmeGNhDqRS3bsA8pkM6uRAjp7xSAqdM3PvrDcBG5MPjy8r/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmeGNhDqRS3bsA8pkM6uRAjp7xSAqdM3PvrDcBG5MPjy8r/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      IV Drip
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:29', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 9 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmTHGB8ijyecnopBkc2R6zYK5RCUHHJAQdRVRpU99H9jcL/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmTHGB8ijyecnopBkc2R6zYK5RCUHHJAQdRVRpU99H9jcL/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Sunglasses
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:30', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 10 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmNaaQqXb1ueDDwkCU8yjDWLtiv4diefNVRatfMezxn5GK/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmNaaQqXb1ueDDwkCU8yjDWLtiv4diefNVRatfMezxn5GK/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Beanie
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:32', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 11 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmQJKCubwjiFmvLxzKVvtSu3gdH788vrHdJH7zK7vphtvT/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmQJKCubwjiFmvLxzKVvtSu3gdH788vrHdJH7zK7vphtvT/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Disposable Cup
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:37', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 12 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmbkcX3B8Y4BnoFh4D9Qw3aS1JJ2AHEcbjikYYY2XRtjsg/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmbkcX3B8Y4BnoFh4D9Qw3aS1JJ2AHEcbjikYYY2XRtjsg/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Unpullable Rug
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:38', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 13 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmY9U91amqDyLKC7tnrWGtpWBVUudnt82uTpFTnLiH5G1F/image.png" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmY9U91amqDyLKC7tnrWGtpWBVUudnt82uTpFTnLiH5G1F/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Matryoshka Prelude
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:40', '_blank')"></button>
+                  </li>
+                  <hr>
+                  <!-- song 14 -->
+                  <li data-cover="https://ipfs.rarible.com/ipfs/QmdMeXvf16kEtcDvShweabCEBDuWuS9XPYEyserckeP3pm/image.jpeg" data-artist="NFT Rehab">
+                    <a href="https://ipfs.io/ipfs/QmdMeXvf16kEtcDvShweabCEBDuWuS9XPYEyserckeP3pm/animation.mpga">
+                      <img src="img/play-track.png" height="20"/>
+                      Granular Synthesis - Budapest
+                    </a>
+                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:43', '_blank')"></button>
+                  </li>
+                  <hr>
+
+              </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
   MODAL POOL STABLECOINS TABS
   ========================================================================= -->
   <div class="modal fade" id="poolModal2" tabindex="-1" aria-labelledby="poolModal2" aria-hidden="true">
@@ -677,10 +830,35 @@
     <script src="vendors/bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
     <script src="vendors/bootstrap-4.5.0/js/popper.min.js"></script>
     <script src="vendors/bootstrap-4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/musicplayer-min.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/gas.js"></script>
     <script src="js/wallet.js"></script>
     <script src="js/pool-modal.js"></script>
     <script src="js/pool-stable-modal.js"></script>
+    <script src="js/galleon-modal.js"></script>
+
+    <script>
+    $(".example2").musicPlayer({
+        elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],
+        playerAbovePlaylist: true,
+        autoPlay: true,
+        loop: true,
+        onLoad: function () {
+          //$('.playlist').hide();
+          //Add Audio player
+          plElem = "<div class='pl'></div>";
+          $('.example2').find('.player').append(plElem);
+          // show playlist
+          $('.pl').click(function (e) {
+              e.preventDefault();
+              $('.example2').find('.playlist').toggleClass("hidden");
+          });
+        },
+
+    });
+
+    </script>
+
   </body>
 </html>

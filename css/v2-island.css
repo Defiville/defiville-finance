@@ -744,6 +744,17 @@ SEASON TWO BUILDINGS
         100%   { background-position: 0 0 ; }
 }
 
+.pirate-radio {
+  background-image: url('../img/PNG/pirate-radio.png');
+  animation: pirate-music 3s linear infinite;
+}
+@keyframes pirate-music {
+  0% { background-image: url('../img/PNG/pirate-radio.png');}
+  50% { background-image: url('../img/PNG/pirate-radio-01.png');}
+  100% { background-image: url('../img/PNG/pirate-radio-02.png');}
+
+}
+
 .hammer {
   background-image: url('../img/PNG/hammer-1.png');
   background-size: 32px 32px;
