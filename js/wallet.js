@@ -148,24 +148,19 @@ async function rewardsTvl() {
             ]
         })
         var tvl = response / (10**18);
-        if (tokenCode == 'ISLAETH') {
-            console.log(tvl)
-            $('#poolTvl').text('TVL: ' + tvl.toString().substring(0, 4) + ' UNILP');
-        } else {
-            var tokenId = getCoingeckoToken()[tokenCode]
-            var priceTvl = 'https://api.coingecko.com/api/v3/simple/price?ids=' + tokenId + '&vs_currencies=usd';
-            $.ajax({
-                url: priceTvl,
-                contentType: "application/json",
-                dataType: 'json',
-                success: function(result){
-                    var unitPrice = result[tokenId]['usd'] * tvl;
-                    $('#poolTvl').text('TVL: $ ' + unitPrice.toFixed(2))
-                },
-                error: function(errorMessage){
-              }
-            })
-        }
+        var tokenId = getCoingeckoToken()[tokenCode]
+        var priceTvl = 'https://api.coingecko.com/api/v3/simple/price?ids=' + tokenId + '&vs_currencies=usd';
+        $.ajax({
+            url: priceTvl,
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(result){
+                var unitPrice = result[tokenId]['usd'] * tvl;
+                $('#poolTvl').text('TVL: $ ' + unitPrice.toFixed(2))
+            },
+            error: function(errorMessage){
+            }
+        })
         const myStake = await fetchTokensStaked()
         const totalDailyReward = getPoolRewardPerSecond()[tokenCode + 'LP'] * 60 * 60 * 24
         const myStakePercentage = myStake * 100 / tvl
@@ -340,6 +335,83 @@ async function TVLStable() {
         } else {
           $('#tvl').text(0);
         }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// data -> '0x18160ddd' function name (totalSupply())
+// data -> '0x0902f1ac' function name (getReserves())
+// data -> '0x18160ddd' function name (totalSupply())
+async function ApyTvlUNILP() {
+    fetchTxInfos()
+    const tvlResponse = await walletProvider.request({
+        method: 'eth_call',
+        params: [
+            {
+                to: lpPoolAddress,
+                from: accounts[0],
+                data: '0x18160ddd',
+            }
+        ]
+    })
+    const tvl = tvlResponse / (10**18);
+    $('#poolTvl').text('TVL: ' + tvl.toString().substring(0, 4) + ' UNILP');
+    var lpAmount
+    const uniLPAddress = '0x8bd78ad73eE85dfc1395a0cE3E90ef061Ae6017C'
+    try {
+        const lpTotalSupply = await walletProvider.request({
+            method: 'eth_call',
+            params: [
+                {
+                    to: uniLPAddress,
+                    from: accounts[0],
+                    data: '0x18160ddd'
+                }
+            ]
+        })
+        lpAmount = parseInt(lpTotalSupply) / (10 ** 18)
+        console.log(lpAmount)
+    } catch (error) {
+        console.log(error);
+    }
+    try {
+        const reserves = await walletProvider.request({
+            method: 'eth_call',
+            params: [
+                {
+                    to: uniLPAddress,
+                    from: accounts[0],
+                    data: '0x0902f1ac'
+                }
+            ]
+        })
+        const reserveISLA = parseInt(reserves.substring(0,66)) / (10**18)
+        const reserveETH = parseInt('0x' + reserves.substring(66,130)) / (10**18)
+        const lpISLA = reserveISLA / lpAmount
+        const lpETH =  reserveETH / lpAmount
+        var tokenId = getCoingeckoToken()['ETH']
+            var priceETH = 'https://api.coingecko.com/api/v3/simple/price?ids=' + tokenId + '&vs_currencies=usd';
+            $.ajax({
+                url: priceETH,
+                contentType: "application/json",
+                dataType: 'json',
+                success: function(result){
+                    const unitPrice = result[tokenId]['usd'];
+                    const lpUSD = (unitPrice * lpETH) * 2 // uni lp price usd
+                    const tvlUSD = tvl * lpUSD // tvl in usd
+                    $('#poolTvlvalue').text('$ ' + tvlUSD.toFixed(2));
+                    const lpPercentage = 100 / tvl // % of 1 LP pool
+                    const islaPerWeek = (31111 / 100) * lpPercentage
+                    const islaPerYear = islaPerWeek * 52
+                    const islaUSD = (lpUSD / 2) / lpISLA
+                    const yearEarn = (islaPerYear * islaUSD)
+                    const apy = yearEarn * 100 / lpUSD // APY
+                    $('#LPapy').text('APY: ' + apy.toFixed(2) + '%');
+                },
+                error: function(errorMessage){
+              }
+            })
     } catch (error) {
         console.log(error);
     }
@@ -599,7 +671,8 @@ function getCoingeckoToken() {
         SUSHI: 'sushi',
         SNX: 'havven',
         AAVE: 'aave',
-        LINK: 'chainlink'
+        LINK: 'chainlink',
+        ETH: 'ethereum'
     }
 }
 

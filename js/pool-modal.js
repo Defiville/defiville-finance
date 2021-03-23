@@ -16,7 +16,11 @@ function poolModal(e) {
     fetchTokenRewards();
     isAlreadyApproved();
     balanceOf();
-    rewardsTvl();
+    if (tokenName == 'ISLAETH') {
+      ApyTvlUNILP()
+    } else {
+      rewardsTvl()
+    }
   } else {
     $('#walletModal').modal();
   }
