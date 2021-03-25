@@ -8,14 +8,12 @@ function poolStableModal(f) {
     $('.errorMessage').hide();
     $('#poolStableModalLabel').text(poolName);
     $('#stakeText').text('Staked ' + tokenName);
-    //$('#poolTvl').text('Loading TVL...');
     $('#currentPoolToken').val(tokenName);
-    //fetchTokenRewards();
     isAlreadyApproved();
     balanceOfStable();
-    fetchStableStaked();
     fetchStableEarned();
     TVLStable();
+    getAPY()
   } else {
     $('#walletModal').modal();
   }

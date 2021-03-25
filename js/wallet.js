@@ -66,12 +66,12 @@ async function balanceOf() {
                 }
             ]
         })
-        const tokenBalance = response / (10**18)
+        const tokenBalance = response / (10**6) // to edit
         if (tokenBalance > 0) {
             $('#availableToStake').append(tokenBalance.toString().substring(0,7))
-          } else {
+        } else {
             $('#availableToStake').text('Available:' + 0);
-          }
+        }
     } catch (error) {
         console.log(error);
     }
@@ -93,9 +93,8 @@ async function balanceOfStable() {
                 }
             ]
         })
-        console.log(response)
-        const tokenBalance = response / (10**6) // to edit
-        console.log(tokenBalance)
+        const tokenDecimals = getTokenDecimals()[tokenCode]
+        const tokenBalance = response / (10 ** tokenDecimals)
         if (tokenBalance > 0) {
             $('#availableToStakeStable').text('Available: ' + tokenBalance.toString().substring(0,7))
         } else {
@@ -123,7 +122,10 @@ async function balanceOfIsla() {
         })
         const tokenBalance = response / (10**18)
         $('#islaBalance').text(tokenBalance.toFixed(2) + " ISLA")
-        console.log(tokenBalance)
+        if (tokenBalance >= 10) {
+            // $('#pirate-radio').removeClass('ghost-galleon');
+            // $('#pirate-radio').addClass('pirate-radio');
+          }
     } catch (error) {
         console.log(error);
     }
@@ -180,8 +182,8 @@ async function rewardsTvl() {
 async function stakeStable() {
     const tokenAmount = $("#tokenAmountStable").val();
     if (tokenAmount > 0) {
-        const usdcDecimals = 6
-        const tokenAmountDecimals = BigInt(tokenAmount * 10 ** usdcDecimals)
+        const tokenDecimals = getTokenDecimals()[tokenCode]
+        const tokenAmountDecimals = BigInt(tokenAmount * 10 ** tokenDecimals)
         const padding = 32 * 2
         const hexAmount = tokenAmountDecimals.toString(16);
         const zeroToAdd = padding - hexAmount.length
@@ -208,7 +210,6 @@ async function stakeStable() {
       $('.errorMessage').show(1).delay(3000).hide(1);
     }
 }
-
 
 // data -> '0xa694fc3a' function name (stake(uint256))
 async function stake() {
@@ -329,9 +330,9 @@ async function TVLStable() {
             ]
         })
         var tvl = parseInt(response)
-        const usdcDecimals = 6
+        const tokenDecimals = getTokenDecimals()[tokenCode]
         if (tvl > 0) {
-          $('#tvl').text('Pool TVL:' + tvl / (10** usdcDecimals))
+          $('#tvl').text('TVL:' + tvl / (10 ** tokenDecimals))
         } else {
           $('#tvl').text(0);
         }
@@ -463,6 +464,7 @@ async function harvestAndUnstake() {
 // data -> '0xc134a215' function  name (tokenWantAmounts(address))
 async function fetchStableStaked() {
     fetchTxInfos()
+    const tokenDecimals = getTokenDecimals()[tokenCode]
     try {
         const response = await walletProvider.request({
             method: 'eth_call',
@@ -476,9 +478,15 @@ async function fetchStableStaked() {
         })
         var amountStaked = response
         if (amountStaked > 0) {
-          $('#poolStakedStable').text(amountStaked / (10**6))
+          $('#poolStakedStable').text(amountStaked / (10 ** tokenDecimals));
+          $('.msgCollateral').each(function() {
+            $('.msgCollateral').text(amountStaked / (10 ** tokenDecimals));
+          })
         } else {
           $('#poolStakedStable').text(0);
+          $('.msgCollateral').each(function() {
+            $('.msgCollateral').text(0);
+          })
         }
     } catch (error) {
         console.log(error);
@@ -509,43 +517,93 @@ async function fetchStrategyStaked() {
 // data -> '0x29272b1a' function name (getRedeemPrice(address, address))
 async function fetchStableEarned() {
     const stableStaked = await fetchStableStaked();
+    if (stableStaked == 0) {
+        $('#poolRewardStable').text(0);
+        $('#poolRewardStableW').text(0);
+        $('#msgISLA').text(0);
+        $('#msgHalfISLA').text(0);
+        $('#msgStableEarned').text(0);
+        return
+    }
     const strategyStaked = parseInt(await fetchStrategyStaked());
     const idleTokenHelper = '0x04Ce60ed10F6D2CfF3AA015fc7b950D13c113be5';
-    const idleUSDCYield = '0x5274891bEC421B39D23760c04A6755eCB444797C'
+    const idleUSDCYield = getIdlePools()[tokenCode]
     const zeroA = '000000000000000000000000'
+    var response
     try {
-        const response = await walletProvider.request({
+        response = await walletProvider.request({
             method: 'eth_call',
             params: [
                 {
                     to: idleTokenHelper,
                     from: accounts[0],
-                    data: '0x095ea7b3' + zeroA + idleUSDCYield +   zeroA + lpPoolAddress.substring(2),
-                    // gasPrice: gasPriceGWei.toString(16),
-                    // gas: '0xf4240'
+                    data: '0x095ea7b3' + zeroA + idleUSDCYield + zeroA + lpPoolAddress.substring(2),
                 }
             ]
         })
-        const tokenPrice = parseInt(response)
-        const usdcDecimals = 6;
-        const tokenEarned = (tokenPrice * strategyStaked / (10**18)) - stableStaked
-        var amountEarnedDecimal = 0
-        if (tokenEarned > 0) {
-          amountEarnedDecimal = tokenEarned / 10**usdcDecimals
-        }
-        if (amountEarnedDecimal > 0) {
-            $('#poolRewardStable').text(amountEarnedDecimal.toString().substring(0,4));
-            $('#poolRewardStableW').text(amountEarnedDecimal.toString().substring(0,4));
-          } else {
-            $('#poolRewardStable').text(0);
-            $('#poolRewardStableW').text(0);
-          }
     } catch (error) {
         console.log(error);
     }
+    const tokenPrice = parseInt(response)
+    const tokenDecimals = getTokenDecimals()[tokenCode];
+    const tokenEarned = (tokenPrice * strategyStaked / (10 ** 18)) - stableStaked
+    var amountEarnedDecimal = 0
+    if (tokenEarned > 0) {
+        amountEarnedDecimal = tokenEarned / 10 ** tokenDecimals
+    }
+    if (amountEarnedDecimal > 0) {
+        $('#poolRewardStable').text(amountEarnedDecimal.toString().substring(0,4));
+        $('#poolRewardStableW').text(amountEarnedDecimal.toString().substring(0,4));
+        $('#msgISLA').text(amountEarnedDecimal.toString().substring(0,4));
+        $('#msgHalfISLA').text(amountEarnedDecimal.toString().substring(0,4)/2);
+        $('#msgHalfStable').text(amountEarnedDecimal.toString().substring(0,4)/2);
+        $('#msgStableEarned').text(amountEarnedDecimal.toString().substring(0,4));
+    } else {
+        $('#poolRewardStable').text(0);
+        $('#poolRewardStableW').text(0);
+        $('#msgISLA').text(0);
+        $('#msgHalfISLA').text(0);
+        $('#msgStableEarned').text(0);
+    }
 }
 
-// data -> '0x70a08231' function  name (balancedOf(address))
+// data -> '0x1f80b18a' function name (getAvgAPR())
+async function getAPY() {
+    console.log('apy')
+    const stablePool = getIdlePools()[tokenCode]
+    var avgAPR
+    try {
+        const response = await walletProvider.request({
+            method: 'eth_call',
+            params: [
+                {
+                    to: stablePool,
+                    from: accounts[0],
+                    data: '0x1f80b18a'
+                }
+            ]
+        })
+        avgAPR = parseInt(response) / (10**18)
+    } catch (error) {
+        console.log(error);
+    }
+    var priceISLA = 'https://api.coingecko.com/api/v3/simple/price?ids=defiville-island&vs_currencies=usd';
+    $.ajax({
+        url: priceISLA,
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(result){
+            const price = result['defiville-island']['usd'];
+            const apy = price * avgAPR
+            console.log(apy)
+            $('#stableAPY').text('APY: ' + apy.toFixed(2) + '%');
+        },
+        error: function(errorMessage){
+        }
+    })
+}
+
+// data -> '0x70a08231' function  name (balanceOf(address))
 async function fetchTokensStaked() {
     fetchTxInfos()
     try {
@@ -632,7 +690,6 @@ function fetchTxInfos() {
     lpPoolAddress = getSeason1Pools()[tokenCode + "LP"]
     gasPrice = $('#gas-med').html();
     gasPriceGWei = gasPrice * 10 ** 8;
-    //tokenId = $('#token-id').val()
 }
 
 function getSeason1Tokens() {
@@ -647,7 +704,6 @@ function getSeason1Tokens() {
         USDC: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
         DAI: '',
         USDT: ''
-
     }
 }
 
@@ -684,6 +740,20 @@ function getPoolRewardPerSecond() {
         AAVELP: 0.03858,
         LINKLP: 0.06430,
         ISLAETHLP: 0.05144
+    }
+}
+
+function getTokenDecimals() {
+    return {
+        USDC: '6', // so stupid, coinbase right
+        DAI: '18',
+        USDT: '6' // so stupid again, centralize right
+    }
+}
+
+function getIdlePools() {
+    return {
+        USDC: '0x5274891bEC421B39D23760c04A6755eCB444797C'
     }
 }
 

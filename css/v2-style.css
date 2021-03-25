@@ -261,7 +261,7 @@ p {
   font-size: 0.8rem;
 }
 
-#availableToStake, #dailyRewards, #currentPrice, #tvl {
+#availableToStake, #dailyRewards, #currentPrice {
   opacity: 0.3;
 }
 
