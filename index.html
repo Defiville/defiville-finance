@@ -562,6 +562,9 @@
             </div>
           </div>
         </div>
+        <div class="modal-footer text-center">
+          <p id="countdown"></p>
+        </div>
       </div>
     </div>
   </div>
@@ -803,7 +806,7 @@
                 <div class="tab-pane fade show active" id="nav-0" role="tabpanel" aria-labelledby="nav-0-tab">
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <p class="mt-1">If you withdraw using this option you will receive your initial collateral and all the ISLA that you have farmed but no interests.</p>
+                      <p class="mt-1">If you withdraw using this option you will receive your initial collateral of <span class="msgCollateral">-</span> and <span id="msgISLA">0</span> ISLA that you have farmed but no stablecoin interests.</p>
                       <button class="nav-link btn btn-withdraw btn-block text-uppercase btn-block" onclick="withdrawOpt1()">Withdraw</button>
                     </div>
                   </div>
@@ -811,7 +814,7 @@
                 <div class="tab-pane fade" id="nav-50" role="tabpanel" aria-labelledby="nav-50-tab">
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <p>If you withdraw using this option you will receive your initial collateral, 50% of the ISLA that you have farmed and 50% of the interest earned.</p>
+                      <p>If you withdraw using this option you will receive your initial collateral of <span class="msgCollateral">-</span> , <span id="msgHalfISLA">0</span> ISLA that you have farmed and <span id="msgHalfStable">0</span> stablecoin earned.</p>
                       <button class="nav-link btn btn-withdraw btn-block text-uppercase btn-block" onclick="withdrawOpt2()">Withdraw</button>
                     </div>
                   </div>
@@ -819,7 +822,7 @@
                 <div class="tab-pane fade" id="nav-100" role="tabpanel" aria-labelledby="nav-100-tab">
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <p>If you withdraw using this option you will receive your initial collateral and all the interest earned but no ISLA.</p>
+                      <p>If you withdraw using this option you will receive your initial collateral of <span class="msgCollateral">-</span> and <span id="msgStableEarned">0</span> in stablecoin interest earned but 0 ISLA.</p>
                       <button class="nav-link btn btn-withdraw btn-block text-uppercase btn-block" onclick="withdrawOpt3()">Withdraw</button>
                     </div>
                   </div>
@@ -849,6 +852,7 @@
     <script src="js/pool-modal.js"></script>
     <script src="js/pool-stable-modal.js"></script>
     <script src="js/galleon-modal.js"></script>
+    <script src="js/countdown.js"></script>
 
     <script>
     $(".example2").musicPlayer({
