@@ -68,7 +68,7 @@ async function balanceOf() {
         })
         const tokenBalance = response / (10**6) // to edit
         if (tokenBalance > 0) {
-            $('#availableToStake').append(tokenBalance.toString().substring(0,7))
+            $('#availableToStake').append(tokenBalance.toLocaleString())
         } else {
             $('#availableToStake').text('Available:' + 0);
         }
