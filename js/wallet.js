@@ -61,12 +61,10 @@ async function balanceOf() {
                     to: tokenAddress,
                     from: accounts[0],
                     data: '0x70a08231000000000000000000000000' + accounts[0].substring(2),
-                    // gasPrice: gasPriceGWei.toString(16),
-                    // gas: '0x493e0'
                 }
             ]
         })
-        const tokenBalance = response / (10**6) // to edit
+        const tokenBalance = response / (10**18)
         if (tokenBalance > 0) {
             $('#availableToStake').append(tokenBalance.toLocaleString())
         } else {
