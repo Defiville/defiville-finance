@@ -64,9 +64,9 @@ async function balanceOf() {
                 }
             ]
         })
-        const tokenBalance = response / (10**18)
+        const tokenBalance = response / (10**18);
         if (tokenBalance > 0) {
-            $('#availableToStake').append(tokenBalance.toLocaleString())
+            $('#availableToStake').append(tokenBalance.toString().substring(0,7));
         } else {
             $('#availableToStake').text('Available:' + 0);
         }
