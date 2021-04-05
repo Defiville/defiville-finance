@@ -121,8 +121,8 @@ async function balanceOfIsla() {
         const tokenBalance = response / (10**18)
         $('#islaBalance').text(tokenBalance.toFixed(2) + " ISLA")
         if (tokenBalance >= 10) {
-            // $('#pirate-radio').removeClass('ghost-galleon');
-            // $('#pirate-radio').addClass('pirate-radio');
+            $('#pirate-radio').removeClass('ghost-galleon');
+            $('#pirate-radio').addClass('pirate-radio');
           }
     } catch (error) {
         console.log(error);
