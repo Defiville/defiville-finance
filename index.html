@@ -608,6 +608,7 @@
               <a class="nav-item nav-link" id="nav-3lau-tab" data-toggle="tab" href="#nav-3lau" role="tab" aria-controls="nav-3lau" aria-selected="true">3LAU</a>
               <a class="nav-item nav-link" id="nav-rehab-tab" data-toggle="tab" href="#nav-rehab" role="tab" aria-controls="nav-rehab" aria-selected="false">Rehab</a>
               <a class="nav-item nav-link" id="nav-catalog-tab" data-toggle="tab" href="#nav-catalog" role="tab" aria-controls="nav-catalog" aria-selected="false">Catalog</a>
+              <a class="nav-item nav-link" id="nav-daorecords-tab" data-toggle="tab" href="#nav-daorecords" role="tab" aria-controls="nav-daorecords" aria-selected="false">DaoRecords</a>
             </div>
           </nav>
         </div>
@@ -1126,6 +1127,51 @@
               </ul>
             </div>
           </div>
+
+          <div class="tab-pane fade show" id="nav-daorecords" role="tabpanel" aria-labelledby="nav-daorecords-tab">
+            <div class="player5">
+              <ul class="playlist">
+                <!-- daorecords -->
+                <!-- song 1 -->
+                <li data-cover="https://arweave.net/MdZ9tVhMbYMzVJzAA_-Zwn5oqbfuqopzT3esuXULt4U" data-artist="napoleondalegend">
+                  <a href="https://yzpvjejf7zjzqis7eoyff4oxuevv7al2mrlueyqyzkxvdm223hpa.arweave.net/xl9UkSX-U5giXyOwUvHXoStfgXpkV0JiGMqvUbNa2d4">
+                    <img src="img/play-track.png" height="20"/>
+                    Father
+                  </a>
+                  <button class="buy-track" onclick="window.open('https://mintbase.io/pez-dispenser/0x5d7ca4bbb351f9f69ef9bcb057c54f3faa9be4d5/2aLQc4d7PxQJCvv2_MB5DgPle8w0nO010RH_rwYZ5hA', '_blank')"></button>
+                </li>
+                <hr>
+                <!-- song 2 -->
+                <li data-cover="https://arweave.net/4JDrJrzIXdv56xgLPSV3nF6m-DO01lakdhIxXckKiq8" data-artist="lilsiri x jessiejess">
+                  <a href="https://arweave.net/XXGCJ9ElNOWJeQIivj7tzrB_tavxArcpIyOytOhrwv8">
+                    <img src="img/play-track.png" height="20"/>
+                    DAO Gang
+                  </a>
+                  <button class="buy-track" onclick="window.open('https://mintbase.io/pez-dispenser/0x5d7ca4bbb351f9f69ef9bcb057c54f3faa9be4d5/0oJXyCaPLWvyT1BU_1OjQKYZPu-QwOePuoAGHkV0GFg', '_blank')"></button>
+                </li>
+                <hr>
+                <!-- song 3 -->
+                <li data-cover="https://arweave.net/NY0svkPPIqC1IPvq0tpJvizdPeWVylvlWQVzUOOCOG0" data-artist="vandal">
+                  <a href="https://arweave.net/u64CtrHjBa_HjMSZyIbrB3wUKrqAVI_YwxlCEjqRyak">
+                    <img src="img/play-track.png" height="20"/>
+                    OK Boomer - Gold Edition
+                  </a>
+                  <button class="buy-track" onclick="window.open('https://mintbase.io/pez-dispenser/0x5d7ca4bbb351f9f69ef9bcb057c54f3faa9be4d5/Aonbrh6JnOLBLOj0ly0eKPtiWAapMSMivrD-ElMIwJA', '_blank')"></button>
+                </li>
+                <hr>
+                <!-- song 4 -->
+                <li data-cover="https://arweave.net/XzoTJ3hR77F9Ufz_BKPBKAqpYVfMQmeUak-xFsMePDk" data-artist="vandal">
+                  <a href="https://arweave.net/Ih5vS2jo3EqM8t87S8FAllxs68PpRqd9xczgVIXMMts">
+                    <img src="img/play-track.png" height="20"/>
+                    MintTape Vol 1 Audio NFT
+                  </a>
+                  <button class="buy-track" onclick="window.open('https://mintbase.io/pez-dispenser/0x5d7ca4bbb351f9f69ef9bcb057c54f3faa9be4d5/GEW3EYKpDpjmnzsNW-pALbxqx38wjDxrNtX6oJdm1VM', '_blank')"></button>
+                </li>
+                <hr>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
         <div class="modal-footer">
@@ -1340,6 +1386,25 @@
           $('.pl').click(function (e) {
               e.preventDefault();
               $('.player4').find('.playlist').toggleClass("hidden");
+          });
+        },
+
+    });
+
+    $(".player5").musicPlayer({
+        elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],
+        playerAbovePlaylist: true,
+        autoPlay: false,
+        loop: true,
+        onLoad: function () {
+          //$('.playlist').hide();
+          //Add Audio player
+          plElem = "<div class='pl'></div>";
+          $('.player5').find('.player').append(plElem);
+          // show playlist
+          $('.pl').click(function (e) {
+              e.preventDefault();
+              $('.player5').find('.playlist').toggleClass("hidden");
           });
         },
 
