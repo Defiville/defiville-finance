@@ -1,3 +1,5 @@
 # defiville-finance
 
-Main public repository for Defiville
+`npm-install`
+
+`npm-start`
