@@ -4,7 +4,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Press Start 2P', cursive;
-  background: #00A8BE;
+  background-color: #00A8BE !important;
   background-image: url('img/PNG/waves.png');
   background-repeat: repeat;
   background-position: center;
