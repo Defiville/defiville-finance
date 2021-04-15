@@ -512,9 +512,9 @@ async function fetchStrategyStaked() {
     }
 }
 
-// data -> '0x29272b1a' function name (getRedeemPrice(address, address))
+// data -> '0x20e8e826' function name (getRedeemPrice(address, address))
 async function fetchStableEarned() {
-    const stableStaked = await fetchStableStaked();
+  const stableStaked = parseInt(await fetchStableStaked());
     if (stableStaked == 0) {
         $('#poolRewardStable').text(0);
         $('#poolRewardStableW').text(0);
@@ -535,7 +535,7 @@ async function fetchStableEarned() {
                 {
                     to: idleTokenHelper,
                     from: accounts[0],
-                    data: '0x095ea7b3' + zeroA + idleUSDCYield + zeroA + lpPoolAddress.substring(2),
+                    data: '0x20e8e826' + zeroA + idleUSDCYield.substring(2) + zeroA + lpPoolAddress.substring(2),
                 }
             ]
         })
