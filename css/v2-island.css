@@ -372,6 +372,38 @@ BASE
   background-image: url('../img/PNG/L12.png');
 }
 
+.x2 {
+  background-image: url('../img/PNG/X2.png');
+}
+.x3 {
+  background-image: url('../img/PNG/X3.png');
+}
+.x4 {
+  background-image: url('../img/PNG/X4.png');
+}
+.y1 {
+  background-image: url('../img/PNG/Y1.png');
+}
+.y2 {
+  background-image: url('../img/PNG/Y2.png');
+}
+.y3 {
+  background-image: url('../img/PNG/Y3.png');
+}
+.y4 {
+  background-image: url('../img/PNG/Y4.png');
+}
+.z2 {
+  background-image: url('../img/PNG/Z2.png');
+}
+.z3 {
+  background-image: url('../img/PNG/Z3.png');
+}
+.z4 {
+  background-image: url('../img/PNG/Z4.png');
+}
+
+
 /* =============================================================================
 ELEMENTS
 ============================================================================= */
