@@ -388,4 +388,43 @@ p {
   grid-template-rows: repeat(5, 1fr);
   width: 384px;
   height: 320px;
+  border: 5px solid #654731;
+  box-shadow: 0px 0px 40px 20px #0ff;
+}
+.map span {
+  border: 1px dashed #654731;
+}
+
+
+.shop-modal {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.shop-header {
+  border: 2px solid black;
+  outline: 2px solid #654731;
+  background-color: #654731;
+  background-image: url('../img/PNG/bg-nft.jpeg');
+  color: #FFFFFF;
+}
+.shop-footer {
+  border: 2px solid black;
+  outline: 2px solid #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+.shop-body {
+  height: 64vh;
+  overflow: scroll;
+  border: 2px solid black;
+  outline: 2px solid #654731;
+  background-color: #654731;
+  background-image: url('../img/PNG/bg-nft.jpeg');
+  color: #FFFFFF;
+  padding: 5px;
+}
+.pepe-seller {
+  position: absolute;
+  bottom: 0;
 }

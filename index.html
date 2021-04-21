@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/v2-style.css">
     <link rel="stylesheet" href="css/v2-island.css">
     <link rel="stylesheet" href="css/player.css">
+    <link rel="stylesheet" href="css/map-style.css">
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -28,6 +29,7 @@
     <audio id="chad-click" src="sounds/brah.mp3" preload="auto"></audio>
     <audio id="buy-click" src="sounds/fairy-dust.mp3" preload="auto"></audio>
     <audio id="boat-click" src="sounds/boathorn.mp3" preload="auto"></audio>
+    <audio id="bongo" src="sounds/bongo.mp3" preload="auto"></audio>
 
     <!-- =========================================================================
     NAVBAR
@@ -65,6 +67,11 @@
         </li>
         <li class="nav-item">
           <a class="nav-link btn btn-primary ml-1" href="info.html" onclick="document.getElementById('btn-click').play();">i</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary ml-1" href="#" data-toggle="modal" data-target="#mapModal" onclick="document.getElementById('btn-click').play();">
+            MAP
+          </a>
         </li>
       </ul>
     </div>
@@ -243,7 +250,9 @@
       </span>
       <span class=""></span>
       <span class=""></span>
-      <span class="hammer"></span>
+      <span class="clickable" onclick="nftModal(this)">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="NFT Shop"></div>
+      </span>
       <span class=""></span>
       <span class=""></span>
       <span class=""></span>
@@ -488,6 +497,62 @@
     </div>
   </div>
 
+  <!-- =========================================================================
+  MODAL MAP
+  ========================================================================= -->
+  <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-map">
+        <div class="modal-header">
+          <h5 class="modal-title map-title" id="exampleModalLabel">Defiville Map</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body modal-body-map text-center d-flex justify-content-center">
+          <div class="map">
+            <span class="map-1"></span>
+            <span class="map-2"></span>
+            <span class="map-3"></span>
+            <span class="map-4"></span>
+            <span class="map-5"></span>
+            <span class="map-6"></span>
+            <span class="map-7"></span>
+            <span class="map-8" onclick="window.location.href='v1'">
+              <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Homeland"></div>
+            </span>
+            <span class="map-9"></span>
+            <span class="map-10"></span>
+            <span class="map-11" onclick="window.location.href='tipping-xdai.html'">
+              <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="XDAI Land"></div>
+            </span>
+            <span class="map-12"></span>
+            <span class="map-13"></span>
+            <span class="map-14"></span>
+            <span class="map-15"></span>
+            <span class="map-16">
+              <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Arcipelago"></div>
+            </span>
+            <span class="map-17"></span>
+            <span class="map-18"></span>
+            <span class="map-19"></span>
+            <span class="map-20"></span>
+            <span class="map-21"></span>
+            <span class="map-22"></span>
+            <span class="map-23"></span>
+            <span class="map-24"></span>
+            <span class="map-25"></span>
+            <span class="map-26"></span>
+            <span class="map-27"></span>
+            <span class="map-28"></span>
+            <span class="map-29"></span>
+            <span class="map-30"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- =========================================================================
   MODAL POOL
@@ -564,6 +629,35 @@
         </div>
         <div class="modal-footer text-center">
           <p id="countdown"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  MODAL NFT SHOP
+  ========================================================================= -->
+  <div class="modal fade" id="shopModal" tabindex="-1" aria-labelledby="shopModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content shop-modal">
+        <div class="modal-header shop-header mb-3">
+          <h5 class="modal-title" id="exampleModalLabel">NFT Shop</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body pt-0 pb-0">
+          <div class="row">
+            <div class="col-md-6 shop-body">
+              <p>NFTs are comign soon...</p>
+            </div>
+            <div class="col-md-6">
+              <img class="img-fluid pepe-seller" src="img/PNG/pepe-seller.png" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer shop-footer">
+          <p>Welcome to the NFT Shop, have a look around</p>
         </div>
       </div>
     </div>
@@ -1565,6 +1659,7 @@
     <script src="js/pool-stable-modal.js"></script>
     <script src="js/galleon-modal.js"></script>
     <script src="js/countdown.js"></script>
+    <script src="js/nft-modal.js"></script>
 
     <script>
     $(".player1").musicPlayer({
