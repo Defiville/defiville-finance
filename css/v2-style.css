@@ -428,3 +428,6 @@ p {
   position: absolute;
   bottom: 0;
 }
+.nft-artist {
+  font-size: .5rem;
+}

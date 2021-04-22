@@ -649,7 +649,14 @@
         <div class="modal-body pt-0 pb-0">
           <div class="row">
             <div class="col-md-6 shop-body">
-              <p>NFTs are comign soon...</p>
+              <div class="col-md-6">
+                <img src="https://lh3.googleusercontent.com/RdiixT65xqz2LTmjLAzxh8mc5Gj1LSy9cQvGJlDM0AOliveUUrdXF4-FOdsbxo_-zYIC0hAYh2tPlPb67HTPiUAUBYvpJqnvPV0h0Q=s0" class="img-fluid">
+                <p class="text-center nft-title">Coinhead - Defiville</p>
+                <p class="text-center nft-artist">Rehab Creations</p>
+                <p class="text-center nft-artist">Price: 0.05 ETH</p>
+                <p id="saleAmountLeft" class="text-center"></p>
+                <button class="btn btn-buy btn-block" onclick="buyNFT() ">BUY</button>
+              </div>
             </div>
             <div class="col-md-6">
               <img class="img-fluid pepe-seller" src="img/PNG/pepe-seller.png" />
@@ -1660,6 +1667,7 @@
     <script src="js/galleon-modal.js"></script>
     <script src="js/countdown.js"></script>
     <script src="js/nft-modal.js"></script>
+    <script src="js/vending.js"></script>
 
     <script>
     $(".player1").musicPlayer({
