@@ -209,8 +209,8 @@ function getArtistsID() {
         rac: 1,
         threelau: 2,
         catalog: 3,
-        daorecords: 4
-
+        daorecords: 4,
+        analognft: 5
     }
 }
 
