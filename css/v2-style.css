@@ -261,7 +261,7 @@ p {
   font-size: 0.8rem;
 }
 
-#availableToStake, #dailyRewards, #currentPrice {
+#availableToStake, #dailyRewards, #currentPrice, #poolTvl, #currentPrice {
   opacity: 0.3;
 }
 
@@ -272,7 +272,7 @@ p {
   background-color: red;
 }
 
-#islaBalance, #xdaiBalance {
+#islaBalance, #xdaiBalance, #maticBalance {
   border-radius: 0;
   font-size: .6rem;
   background-color: #A5744E;
@@ -373,6 +373,7 @@ p {
   background-color: #F2453D;
   color: #FFFFFF;
   font-size: 12px;
+  display: flex;
 }
 .banner a {
   color: #FDAB2D;

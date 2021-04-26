@@ -387,6 +387,9 @@ BASE
 .y2 {
   background-image: url('../img/PNG/Y2.png');
 }
+.y2-alt {
+  background-image: url('../img/PNG/Y2-alt.png');
+}
 .y3 {
   background-image: url('../img/PNG/Y3.png');
 }
