@@ -197,6 +197,104 @@ async function isAlreadyApproved(){
     }
 }
 
+// data -> '0xbeff9577' function name (buyProduct(uint256,uint256,uint256))
+async function buyNFTCommon() {
+    const crowdAddress = getCrowdAddress()
+    const zeros = '0'.repeat(191)
+    const amount = '1'.toString(16)
+    try {
+        const transactionHash = await walletProvider.request({
+            method: 'eth_sendTransaction',
+            params: [
+                {
+                    to: crowdAddress,
+                    from: accounts[0],
+                    data: '0xbeff9577' + zeros + amount,
+                    value: '0x192512b6786930000'
+                }
+            ]
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// data -> '0xbeff9577' function name (buyProduct(uint256,uint256,uint256))
+async function buyNFTRare() {
+    getNFTRareLeft()
+    const crowdAddress = getCrowdAddress()
+    const zeros = '0'.repeat()
+    try {
+        const transactionHash = await walletProvider.request({
+            method: 'eth_sendTransaction',
+            params: [
+                {
+                    to: crowdAddress,
+                    from: accounts[0],
+                    data: '0xbeff9577' + '0'.repeat(64) + '0'.repeat(63) + '1' + '0'.repeat(63) + '1',
+                    value: '0x2549b293aae0b0000'
+                }
+            ]
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// data -> '0x7acc0b20' function name (products(uint256))
+async function getNFTCommonLeft() {
+    const crowdAddress = getCrowdAddress()
+    const padding = 32 * 2
+    const hexAmount = '0'.toString(16);
+    const zeroToAdd = padding - hexAmount.length
+    const zeros = '0'.repeat(zeroToAdd)
+    const dataHex = '0x7acc0b20' + zeros + hexAmount
+    try {
+        const response = await walletProvider.request({
+            method: 'eth_call',
+            params: [
+                {
+                    to: crowdAddress,
+                    from: accounts[0],
+                    data: dataHex
+                }
+            ]
+        })
+        const amountLeft = parseInt('0x' + response.substring(196, 258).toString(16))
+        $('#commonLeft').text(amountLeft + '/150')
+        console.log(amountLeft);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// data -> '0x7acc0b20' function name (products(uint256))
+async function getNFTRareLeft() {
+    const crowdAddress = getCrowdAddress()
+    const padding = 32 * 2
+    const hexAmount = '1'.toString(16);
+    const zeroToAdd = padding - hexAmount.length
+    const zeros = '0'.repeat(zeroToAdd)
+    const dataHex = '0x7acc0b20' + zeros + hexAmount
+    try {
+        const response = await walletProvider.request({
+            method: 'eth_call',
+            params: [
+                {
+                    to: crowdAddress,
+                    from: accounts[0],
+                    data: dataHex
+                }
+            ]
+        })
+        const amountLeft = parseInt('0x' + response.substring(196, 258).toString(16))
+        $('#rareLeft').text(amountLeft + '/50')
+        console.log(amountLeft)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 function getMaticTokens() {
     return {
         XDAI: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'
@@ -212,6 +310,10 @@ function getArtistsID() {
         daorecords: 4,
         analognft: 5
     }
+}
+
+function getCrowdAddress() {
+    return '0x83a0C1eCfB2C99cb613d03Aa4b5B99f7DEBCF483'
 }
 
 function getTokenDecimals() {

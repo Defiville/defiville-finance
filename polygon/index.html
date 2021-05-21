@@ -26,6 +26,7 @@
   </head>
   <body>
     <audio id="btn-click" src="../sounds/button-click.mp3" preload="auto"></audio>
+    <audio id="bongo" src="../sounds/bongo.mp3" preload="auto"></audio>
 
     <!-- =========================================================================
     NAVBAR
@@ -80,56 +81,38 @@
   <div class="container h-100 d-flex justify-content-center align-items-center">
     <div class="small-island">
       <span class=""></span>
+      <span class=""></span>
+      <span class=""></span>
+      <span class="w4"></span>
+      <span class="w5"></span>
+      <span class="w6"></span>
+
+      <span class=""></span>
       <span class="x2"></span>
       <span class="x3"></span>
       <span class="x4"></span>
-      <span class="y1"></span>
+      <span class="x5" data-toggle="modal" data-target="#shopModal" onclick="document.getElementById('bongo').play();">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="NFT Shop"></div>
+      </span>
+      <span class="x6"></span>
+
+      <span class="y1" data-toggle="modal" data-target="#tipModal" onclick="document.getElementById('btn-click').play();">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Pirate Radio Tip"></div>
+      </span>
       <span class="y2-alt"></span>
-      <span class="y3"></span>
+      <span class="y3" onclick="maticModal(this);">
+        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Crowdfunding Market"></div>
+      </span>
       <span class="y4"></span>
+      <span class="y5"></span>
+      <span class="y6"></span>
+
       <span class=""></span>
       <span class="z2"></span>
       <span class="z3"></span>
       <span class="z4"></span>
-    </div>
-    <div class="card m-5">
-      <div class="card-header">
-        Pirate Radio Tip
-      </div>
-      <div class="card-body">
-        <p class="card-text">Show your appreciation for your favourite artist and tip them using the Matic network and save gas.<br>We are going to need this gas to refuel our ship arrr!</p>
-        <div class="row">
-          <div class="col-md-6">
-            <p class="text-uppercase">Tip an artist</p>
-            <select class="custom-select" id="artistSelection">
-              <option selected>Select artist</option>
-              <option value="rac">RAC</option>
-              <option value="threelau">3LAU</option>
-              <option value="rehab">Rehab</option>
-              <option value="catalog">Catalog</option>
-              <option value="daorecords">DAO Records</option>
-              <option value="analognft">"Analog NFT</option>
-            </select>
-            <input id="artistTip" type="number" placeholder="Matic amount" class="form-control mt-2">
-          </div>
-          <div class="col-md-6">
-            <p class="text-uppercase">Tip the radio</p>
-            <input id="radioTip" type="number" class="form-control" placeholder="Matic amount">
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-md-6">
-            <button id="tipButton" class="btn btn-primary btn-block btn-lg" onclick="tipArtist()">Tip artist</button>
-          </div>
-          <div class="col-md-6">
-            <button id="tipRadioButton" class="btn btn-primary btn-block btn-lg" onclick="tipRadio()">Tip radio</button>
-          </div>
-        </div>
-
-
-
-        <span class="errorMessage"></span>
-      </div>
+      <span class="z5"></span>
+      <span class="z6"></span>
     </div>
   </div>
 
@@ -242,6 +225,136 @@
     </div>
   </div>
 
+  <!-- =========================================================================
+  MODAL RADIO TIP
+  ========================================================================= -->
+  <div class="modal fade" id="tipModal" tabindex="-1" aria-labelledby="tipModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Pirate Radio Tip</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="card-text">Show your appreciation for your favourite artist and tip them using the Matic network and save gas.<br>We are going to need this gas to refuel our ship arrr!</p>
+          <div class="row">
+            <div class="col-md-6">
+              <p class="text-uppercase">Tip an artist</p>
+              <select class="custom-select" id="artistSelection">
+                <option selected>Select artist</option>
+                <option value="rac">RAC</option>
+                <option value="threelau">3LAU</option>
+                <option value="rehab">Rehab</option>
+                <option value="catalog">Catalog</option>
+                <option value="daorecords">DAO Records</option>
+                <option value="analognft">Analog NFT</option>
+              </select>
+              <input id="artistTip" type="number" placeholder="Matic amount" class="form-control mt-2">
+            </div>
+            <div class="col-md-6">
+              <p class="text-uppercase">Tip the radio</p>
+              <input id="radioTip" type="number" class="form-control" placeholder="Matic amount">
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <button id="tipButton" class="btn btn-primary btn-block btn-lg" onclick="tipArtist()">Tip artist</button>
+            </div>
+            <div class="col-md-6">
+              <button id="tipRadioButton" class="btn btn-primary btn-block btn-lg" onclick="tipRadio()">Tip radio</button>
+            </div>
+          </div>
+          <span class="errorMessage"></span>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  MODAL NFT SHOP
+  ========================================================================= -->
+  <div class="modal fade" id="shopModal" tabindex="-1" aria-labelledby="shopModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content shop-modal">
+        <div class="modal-header shop-header mb-3">
+          <h5 class="modal-title" id="exampleModalLabel">NFT Shop</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body pt-0 pb-0">
+          <div class="row">
+            <div class="col-md-6 shop-body">
+              <!-- <div class="col-md-6">
+                <img src="https://lh3.googleusercontent.com/RdiixT65xqz2LTmjLAzxh8mc5Gj1LSy9cQvGJlDM0AOliveUUrdXF4-FOdsbxo_-zYIC0hAYh2tPlPb67HTPiUAUBYvpJqnvPV0h0Q=s0" class="img-fluid">
+                <p class="text-center nft-title">Coinhead - Defiville</p>
+                <p class="text-center nft-artist">Rehab Creations</p>
+                <p class="text-center nft-artist">Price: 0.05 ETH</p>
+                <p id="saleAmountLeft" class="text-center"></p>
+                <button class="btn btn-buy btn-block" onclick="buyNFT() ">BUY</button>
+              </div> -->
+            </div>
+            <div class="col-md-6">
+              <img class="img-fluid pepe-seller" src="../img/PNG/pepe-seller.png" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer shop-footer">
+          <p>Welcome to the NFT Shop, have a look around</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+  MODAL CROWDFUNDING
+  ========================================================================= -->
+  <div class="modal fade" id="fundingModal" tabindex="-1" aria-labelledby="fundingModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crowdfunding Campaigns</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5 class="mb-3" id="exampleModalLabel">Defiville x RehabNFT Campaign</h5>
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <img src="../img/PNG/vinyl-black.png" class="img-fluid">
+              <p class="text-center nft-title">12" Vinyl - Black Common Edition</p>
+              <p class="text-center nft-artist">Rehab Creations</p>
+              <p id="commonLeft" class="text-center nft-artist"></p>
+              <p class="text-center nft-artist">Price: 28.99 Matic</p>
+              <a class="nft-artist" href="https://ipfs.io/ipfs/QmYdrtTV8gYzZe9CukLDhg18hn5XqqQvzpNNx4jxBFndtT" target="_blank">Listen preview</a>
+              <p id="saleAmountLeft" class="text-center"></p>
+              <button class="btn btn-buy btn-block" onclick="buyNFTCommon()">BUY</button>
+            </div>
+
+            <div class="col-md-6 text-center">
+              <img src="../img/PNG/vinyl-limited.png" class="img-fluid">
+              <p class="text-center nft-title">12" Vinyl - Coloured Limited Edition</p>
+              <p class="text-center nft-artist">Rehab Creations</p>
+              <p id="rareLeft" class="text-center nft-artist"></p>
+              <p class="text-center nft-artist">Price: 42.99 Matic</p>
+              <a class="nft-artist" href="https://ipfs.io/ipfs/QmX2A2WeTTqTMMJpVTi5nd3BWYxeFYc4k249Z7a46xqfsA" target="_blank">Listen preview</a>
+              <p id="saleAmountLeft" class="text-center"></p>
+              <button class="btn btn-buy btn-block" onclick="buyNFTRare()">BUY</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
   <!-- =========================================================================
   SCRIPTS
@@ -252,6 +365,7 @@
     <!-- <script src="js/gas.js"></script> -->
     <script src="../js/tooltip.js"></script>
     <script type="text/javascript" src="../js/walletMatic.js"></script>
+    <script type="text/javascript" src="../js/matic-modal.js"></script>
 
   </body>
 </html>

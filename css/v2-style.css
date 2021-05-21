@@ -141,7 +141,7 @@ p {
     opacity: 0.5;
 }
 
-.modal-content {
+.modal-content, .card {
   border: 2px solid black;
   outline: 2px solid white;
   border-radius: 0;
@@ -357,12 +357,12 @@ p {
 
 .small-island {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  min-width: 256px;
-  min-height: 192px;
+  min-width: 384px;
+  min-height: 256px;
 }
 .custom-select {
   border-radius: 0;
