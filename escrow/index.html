@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DeFiVille Escrow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../vendors/bootstrap-4.5.0/css/bootstrap.min.css">
+    <!-- Custom styling -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="#">Defiville Escrow</a>
+      <div class="nav navbar-right">
+        <button id="logout" class="btn btn-primary" style="display:none;">Logout</button>
+      </div>
+    </nav>
+
+    <div id="loginForm" class="container h-100 d-flex justify-content-center align-items-center flex-column">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Login</h5>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Username</label>
+              <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username">
+              <small class="form-text text-muted">This is the username assigned to you by the admin.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+
+            <p id="loginBtn" class="btn btn-primary btn-block">Login</p>
+        </div>
+      </div>
+      <small class="form-text text-muted">This service is provided by escrow.com</small>
+      <a href="https://www.escrow.com/" target="_blank">
+        <img class="img-fluid mt-3 mb-2" src="escrow-logo.svg" width="150">
+      </a>
+      <ul class="list-inline">
+        <small><a class="text-muted" href="https://www.escrow.com/legal" target="_blank"><li class="list-inline-item">Privacy Policy |</li></a></small>
+        <small><a class="text-muted" href="https://www.escrow.com/escrow-licenses" target="_blank"><li class="list-inline-item">License and complain |</li></a></small>
+        <small><a class="text-muted" href="https://www.escrow.com/legal" target="_blank"><li class="list-inline-item">Legal</li></a></small>
+      </ul>
+    </div>
+
+    <div id="contract" class="container mb-5" style="display: none;">
+      <div class="card mb-5">
+        <div class="card-header">
+          Escrow Agreement
+        </div>
+        <div class="card-body">
+          The following agreement is between Fabio M. (The Defiville Party) and Mr. D. Bastien (The Beneficiary Party).
+          As per term of the agreement, the Defiville Party will send 2.000.000.000 (2 million) ISLA tokens to the Beneficiary Party on the Ethereum address specified in the Beneficiary details.
+          The Beneficiary Party will abide to send a lump sum of euro 2.000.000.000 (2 million) to the Escrow contract bank coordinate specified.
+          Once both party have deposited the amount above mentioned, Escrow.com (the intermediary) will settle the transaction.
+
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              Defiville party details
+            </div>
+            <div class="card-body">
+              <small class="form-text text-muted">IBAN</small>
+              <p>LT503780000059490996</p>
+              <small class="form-text text-muted">BIC/SWIFT CODE</small>
+              <p>TRYULT21</p>
+              <small class="form-text text-muted">ACCOIUNT HOLDER NAME</small>
+              <p>Fabio Monzani</p>
+              <small class="form-text text-muted">INSTITUTION NAME</small>
+              <p>Transactive Systems UAB</p>
+              <small class="form-text text-muted">BANK INSTITUTION ADDRESS</small>
+              <p>Jogailos St 9, Vilnius, 01103, Lithuania</p>
+              <small class="form-text text-muted">BANK INSTITUTION COUNTRY</small>
+              <p>Lithuania</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              Beneficiary party details
+            </div>
+            <div class="card-body">
+              <span class="badge badge-warning">Waiting for Ethereum address</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../vendors/bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
+    <script src="../vendors/bootstrap-4.5.0/js/popper.min.js"></script>
+    <script src="../vendors/bootstrap-4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+      $('#loginBtn').click(function() {
+        var username = $('#username').val();
+        var password = $('#password').val();
+        console.log(username, password);
+
+        if (username == 'fabio' && password == 'password') {
+          $('#loginForm').addClass('hidden');
+          console.log('hide!')
+          $('#contract').show();
+          $('#logout').show();
+        } else {
+          console.log('wrong!')
+        }
+      });
+      $('#logout').click(function() {
+        $('#loginForm').removeClass('hidden');
+        $('#contract').addClass('hidden');
+        $('#logout').addClass('hidden');
+      })
+    </script>
+
+
+  </body>
+</html>

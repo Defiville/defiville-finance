@@ -210,7 +210,7 @@ async function buyNFTCommon() {
                     to: crowdAddress,
                     from: accounts[0],
                     data: '0xbeff9577' + zeros + amount,
-                    value: '0x192512b6786930000'
+                    value: '0x2b5e3af16b1880000'
                 }
             ]
         })
@@ -232,7 +232,7 @@ async function buyNFTRare() {
                     to: crowdAddress,
                     from: accounts[0],
                     data: '0xbeff9577' + '0'.repeat(64) + '0'.repeat(63) + '1' + '0'.repeat(63) + '1',
-                    value: '0x2549b293aae0b0000'
+                    value: '0x410d586a20a4c0000'
                 }
             ]
         })
