@@ -1,18 +1,26 @@
 <!doctype html>
 <html lang="en">
   <head>
+
     <meta charset="utf-8">
-    <title>DeFiVille</title>
+    <title>Defiville</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:site_name" content="Defiville" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://www.defiville.finance/img/jumbotron.png" />
+    <meta property="og:url" content="https://defiville.finance" />
+    <meta property="og:title" content="Defiville" />
+    <meta property="og:description" content="An experimental metaverse for everyone." />
+
     <!-- Custom font -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendors/bootstrap-4.5.0/css/bootstrap.min.css">
     <!-- Custom styling -->
-    <link rel="stylesheet" href="css/v2-style.css">
-    <link rel="stylesheet" href="css/v2-island.css">
-    <link rel="stylesheet" href="css/player.css">
-    <link rel="stylesheet" href="css/map-style.css">
+    <link rel="stylesheet" href="css/style.css">
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -23,1770 +31,167 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+
+
   </head>
   <body>
-    <audio id="btn-click" src="sounds/button-click.mp3" preload="auto"></audio>
     <audio id="chad-click" src="sounds/brah.mp3" preload="auto"></audio>
-    <audio id="chad-preview" src="sounds/track-preview.mp3" preload="auto"></audio>
-    <audio id="buy-click" src="sounds/fairy-dust.mp3" preload="auto"></audio>
-    <audio id="boat-click" src="sounds/boathorn.mp3" preload="auto"></audio>
-    <audio id="bongo" src="sounds/bongo.mp3" preload="auto"></audio>
 
-    <!-- =========================================================================
-    NAVBAR
-    ========================================================================= -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-      <a class="navbar-brand" href="#">
-        <img src="img/SVG/logo.svg" height="50" alt="defiville logo" loading="lazy">
-      </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-between align-items-center w-100" id="navbarNav">
-      <ul class="navbar-nav mx-auto text-center">
-        </ul>
-      <ul class="navbar-nav flex-row justify-content-center flex-nowrap">
-        <li class="nav-item d-flex align-items-center">
-            <span class="btn-gas"></span>
-            <span id="gas-med" class="mr-2">-</span>
-        </li>
-        <li class="nav-item">
-          <span id="islaBalance" class="nav-link text-uppercase mr-2">- ISLA</span>
-        </li>
-        <li class="nav-item">
-          <a id="con-wallet" class="nav-link btn btn-primary text-uppercase" href="#" data-toggle="modal" data-target="#walletModal" onclick="document.getElementById('btn-click').play();">Connect Wallet</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-primary ml-1" href="https://snapshot.page/#/defiville.eth" onclick="document.getElementById('btn-click').play();" target="_blank">GOV
-            <!-- <img src="img/SVG/circle.svg" height="8"> -->
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-primary ml-1" href="#" data-toggle="modal" data-target="#challengesModal" onclick="document.getElementById('btn-click').play();">
-            <span class="btn-challenges"></span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-primary ml-1" href="info.html" onclick="document.getElementById('btn-click').play();">i</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-primary ml-1" href="#" data-toggle="modal" data-target="#mapModal" onclick="document.getElementById('btn-click').play();">
-            MAP
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="board">
-    <!-- =========================================================================
-    LAND OVERLAY
-    ========================================================================= -->
-    <div class="overlay">
-      <!-- Row 1 -->
-      <span class="a1"></span>
-      <span class="a2"></span>
-      <span class="a3"></span>
-      <span class="a4"></span>
-      <span class="a5"></span>
-      <span class="a6"></span>
-      <span class="a7"></span>
-      <span class="a8"></span>
-      <span class="a9"></span>
-      <span class="a10"></span>
-      <span class="a11"></span>
-      <span class=""></span>
-
-      <!-- Row 2 -->
-      <span class="b1"></span>
-      <span class="b2"></span>
-      <span class="b3"></span>
-      <span class="b4"></span>
-      <span class="b5"></span>
-      <span class="b6"></span>
-      <span class="b7"></span>
-      <span class="b8"></span>
-      <span class="b9"></span>
-      <span class="b10"></span>
-      <span class="b11"></span>
-      <span class=""></span>
-
-      <!-- Row 3 -->
-      <span class="c1"></span>
-      <span class="c2"></span>
-      <span class="c3"></span>
-      <span class="c4"></span>
-      <span class="c5"></span>
-      <span class="c6"></span>
-      <span class="c7"></span>
-      <span class="c8"></span>
-      <span class="c9"></span>
-      <span class="c10"></span>
-      <span class="c11"></span>
-      <span class=""></span>
-
-      <!-- Row 4 -->
-      <span class="d1"></span>
-      <span class="d2"></span>
-      <span class="d3"></span>
-      <span class="d4"></span>
-      <span class="d5"></span>
-      <span class="d6"></span>
-      <span class="d7"></span>
-      <span class="d8"></span>
-      <span class="d9"></span>
-      <span class="d10"></span>
-      <span class="d11"></span>
-      <span class="d12"></span>
-
-      <!-- Row 5 -->
-      <span class="e1"></span>
-      <span class="e2"></span>
-      <span class="e3"></span>
-      <span class="e4"></span>
-      <span class="e5"></span>
-      <span class="e6"></span>
-      <span class="e7"></span>
-      <span class="e8"></span>
-      <span class="e9"></span>
-      <span class="e10"></span>
-      <span class="e11"></span>
-      <span class=""></span>
-
-      <!-- Row 6 -->
-      <span class="f1"></span>
-      <span class="f2"></span>
-      <span class="f3"></span>
-      <span class="f4"></span>
-      <span class="f5"></span>
-      <span class="f6"></span>
-      <span class="f7"></span>
-      <span class="f8"></span>
-      <span class="f9"></span>
-      <span class="f10"></span>
-      <span class="f11"></span>
-      <span class=""></span>
-
-      <!-- Row 7 -->
-      <span class="g1"></span>
-      <span class="g2"></span>
-      <span class="g3"></span>
-      <span class="g4"></span>
-      <span class="g5"></span>
-      <span class="g6"></span>
-      <span class="g7"></span>
-      <span class="g8"></span>
-      <span class="g9"></span>
-      <span class="g10"></span>
-      <span class="g11"></span>
-      <span class="g12"></span>
-
-      <!-- Row 8 -->
-      <span class="h1"></span>
-      <span class="h2"></span>
-      <span class="h3"></span>
-      <span class="h4"></span>
-      <span class="h5"></span>
-      <span class=""></span>
-      <span class="h7"></span>
-      <span class=""></span>
-      <span class="h9"></span>
-      <span class="h10"></span>
-      <span class="h11"></span>
-      <span class="h12"></span>
-
-      <!-- Row 9 -->
-      <span class="i1"></span>
-      <span class="i2"></span>
-      <span class="i3"></span>
-      <span class="i4"></span>
-      <span class="i5"></span>
-      <span class=""></span>
-      <span class="i7"></span>
-      <span class="i8"></span>
-      <span class="i9"></span>
-      <span class="i10"></span>
-      <span class="i11"></span>
-      <span class="i12"></span>
-
-      <!-- Row 10 -->
-      <span class=""></span>
-      <span class="l2"></span>
-      <span class="l3"></span>
-      <span class="l4"></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="l9"></span>
-      <span class="l10"></span>
-      <span class="l11"></span>
-      <span class="l12"></span>
-
-    </div>
-
-    <!-- =========================================================================
-    ELEMENTS
-    ========================================================================= -->
-    <div class="elements">
-
-      <!-- Row 1 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 2 -->
-      <span class=""></span>
-      <span class="usdc clickable" onclick="poolStableModal(this);" name="USDC Residence" data-token="USDC" token-id="usdc">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="USDC Residence"></div>
-      </span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="clickable" onclick="nftModal(this)">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="NFT Shop"></div>
-      </span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 3 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <!-- <span class="zoo"></span> -->
-      <!-- <span class="stake-dao clickable" onclick="poolStableModal(this);" name="Stake DAO Zoo" data-token="CRV" token-id="curve-dao-token">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Stake DAO Zoo"></div>
-      </span> -->
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 4 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="light"></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 5 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="uni-pool clickable" onclick="poolModal(this);" name="UNILP ETH/ISLA Pool" data-token="ISLAETH" token-id="">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="UNILP Pool"></div>
-      </span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class="penguinswap clickable" onclick="window.open('https://penguinswap.eth.link/#/swap'); document.getElementById('btn-click').play();">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="PenguinSwap"></div>
-      </span>
-      <span class="small-iceberg"></span>
-
-      <!-- Row 6 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span id="pirate-radio" class="ghost-galleon" onclick="galleonModal(this);">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Pirate Radio - 85 songs"></div>
-      </span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 7 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 8 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class="hammer"></span>
-      <!-- <span class="usdt clickable" onclick="poolStableModal(this);" name="USDT Pyramids" data-token="CRV" token-id="curve-dao-token">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="USDT Pyramid"></div>
-      </span> -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <!-- <span class="dai clickable" onclick="poolStableModal(this);" name="Dai Oasis" data-token="DAI" token-id="curve-dao-token">
-        <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="DAI Oasis"></div>
-      </span> -->
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 9 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-
-      <!-- Row 10 -->
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-      <span class=""></span>
-
-    </div>
-
-  </div>
-
-  <footer class="footer">
-    <div>
-      <a href="v1/" class="btn ml-4" onclick="document.getElementById('btn-click').play();">< Back to Season One</a>
-    </div>
-    <div>
-      <a class="btn" href="https://twitter.com/defivillegame" target="_blank">
-        <img src="img/SVG/twitter.svg" height="16">
-        Twitter
-      </a>
-      <a class="btn" href="https://discord.gg/Hut5vegPUq" target="_blank">
-        <img src="img/SVG/discord.svg" height="16">
-        Discord
-      </a>
-      <a class="btn" href="https://t.me/joinchat/FyS6I9P3VbQ4urxl" target="_blank">
-        <img src="img/SVG/telegram.svg" height="16">
-        Telegram
-      </a>
-      <a class="btn" href="https://info.uniswap.org/token/0x20a68f9e34076b2dc15ce726d7eebb83b694702d" target="_blank">
-        <img src="img/SVG/uniswap.svg" height="16">
-        Uniswap
-      </a>
-      <a class="btn" href="https://defiville.medium.com/" target="_blank">
-        <img src="img/SVG/medium-m.svg" height="16">
-        Medium
-      </a>
-    </div>
-    <div>
-
-    </div>
-
-  </footer>
-
-  <img class="chad" src="img/PNG/chad.png" height="120" onclick="document.getElementById('chad-preview').play();">
-
-
-  <!-- =========================================================================
-  MODAL WALLET
-  ========================================================================= -->
-  <div class="modal fade" id="walletModal" tabindex="-1" aria-labelledby="walletModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Select wallet</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <button type="button" class="btn btn-primary btn-lg btn-block btn-metamask" data-dismiss="modal" onclick="getMetamaskWallet()">
-            Metamask
-          </button>
-        </div>
-        <div class="modal-footer">
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="img/logo.svg" height="20" alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse  justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Products
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#defiville">Defiville</a>
+                <a class="dropdown-item" href="#pirates">Pirates</a>
+                <a class="dropdown-item" href="#niftymusic">NiftyMusic</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#governance">Governance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tokenomics">Tokenomics</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.coingecko.com/en/coins/defiville-island" target="_blank"><img src="img/coingecko.svg" height="20"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://app.uniswap.org/#/swap?inputCurrency=0x20a68f9e34076b2dc15ce726d7eebb83b694702d" target="_blank"><img src="img/uniswap.svg" height="20"></a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </div>
+    </nav>
 
-  <!-- =========================================================================
-  MODAL GAS
-  ========================================================================= -->
-  <div class="modal fade" id="gasModal" tabindex="-1" aria-labelledby="gasModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Eth Gas Station</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <div class="jumbotron m-0 jumbotron-fluid h-100 d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="display-4">An experimental metaverse for</h1>
+            <h1 class="typewrite" data-period="800" data-type='[ "Everyone", "Developers", "Musicians", "Artists", "Creators" ]'>
+              <span class="wrap"></span>
+            </h1>
+          </div>
         </div>
-        <div class="modal-body">
-          <p>Fast</p>
-          <p id="gasfast"></p>
-          <p>Average</p>
-          <p id="gasaverage"></p>
-          <p>Safe Low</p>
-          <p id="gaslow"></p>
-        </div>
-        <div class="modal-footer">
-          <p><i>Gas prices offered by ethgasstation.info</i></p>
-        </div>
+
+        <a class="btn btn-primary btn-lg" href="#defiville" role="button">Explore</a>
+        <a class="btn btn-link btn-lg arrow" href="https://defiville.medium.com/" role="button" target="_blank">Read more</a>
       </div>
     </div>
-  </div>
 
-  <!-- =========================================================================
-  MODAL CHALLENGES
-  ========================================================================= -->
-  <div class="modal fade" id="challengesModal" tabindex="-1" aria-labelledby="challengesModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Challenges</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <section id="defiville" class="vh-100 d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <img class="mb-4" src="img/defiville-logo.svg" height="60">
+            <h2 class="white bold">The original gamified farming experience</h2>
+            <p class="white">Launched in January 2021, the goal of Defiville was to stand out from the ordinary copy-paste farms on Ethereum and offer a different experience built around the community.</p>
+          </div>
         </div>
-        <div class="modal-body text-center">
-          <p>As a community we will need to build all the necessary infrastructure on the island.<br>
-          We will need the help of everyone to complete the weekly challenges that will start appearing here in the next days.<br>
-        Good luck degens!</p>
-        </div>
+        <a class="btn btn-primary btn-lg" href="v2" role="button">Visit Season Two</a>
+        <a class="btn btn-link btn-lg" href="https://defiville.medium.com/entering-season-one-c5026446de41" role="button">Read more</a>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- =========================================================================
-  MODAL MAP
-  ========================================================================= -->
-  <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content modal-content-map">
-        <div class="modal-header">
-          <h5 class="modal-title map-title" id="exampleModalLabel">Defiville Map</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <section id="niftymusic" class="vh-100 d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <img class="mb-4" src="img/niftymusic.svg" height="150">
+            <h2 class="white bold">Listen to your favourite NFT artists</h2>
+            <p class="white">Nifty Music was originally launched as the Pirate Radio on Defiville, quickly growing in popularity we decided it deserved a special place on its own.</p>
+          </div>
         </div>
-        <div class="modal-body modal-body-map text-center d-flex justify-content-center">
-          <div class="map">
-            <span class="map-1"></span>
-            <span class="map-2"></span>
-            <span class="map-3"></span>
-            <span class="map-4"></span>
-            <span class="map-5"></span>
-            <span class="map-6"></span>
-            <span class="map-7"></span>
-            <span class="map-8" onclick="window.location.href='v1'">
-              <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Homeland"></div>
-            </span>
-            <span class="map-9"></span>
-            <span class="map-10"></span>
-            <span class="map-11" onclick="window.location.href='xdai/index.html'"></span>
-            <span class="map-12" onclick="window.location.href='polygon/index.html'">
-              <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="MATIC Land"></div>
-            </span>
-            <span class="map-13"></span>
-            <span class="map-14"></span>
-            <span class="map-15"></span>
-            <span class="map-16">
-              <div class="tooltip-helper" data-toggle="tooltip" data-placement="top" title="Arcipelago"></div>
-            </span>
-            <span class="map-17"></span>
-            <span class="map-18"></span>
-            <span class="map-19"></span>
-            <span class="map-20"></span>
-            <span class="map-21"></span>
-            <span class="map-22"></span>
-            <span class="map-23"></span>
-            <span class="map-24"></span>
-            <span class="map-25"></span>
-            <span class="map-26"></span>
-            <span class="map-27"></span>
-            <span class="map-28"></span>
-            <span class="map-29"></span>
-            <span class="map-30"></span>
+        <a class="btn btn-primary btn-lg" href="https://music.defiville.finance/app/" role="button">Listen Now</a>
+      </div>
+    </section>
+
+    <section id="pirates" class="vh-100 d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h2 class="bold">Pirates of Defiville</h2>
+            <p>is an upcoming original Defiville project that aims to redefine randomly generated NFTs collections with a unique take.</p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg disabled" href="#" role="button">Coming soon</a>
+      </div>
+
+    </section>
+
+    <section id="governance" class="vh-100 d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h2 class="bold white">Governance</h2>
+            <p class="white">Defiville is a community project first, governed by the people of the island and holder of the ISLA token.</p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg" href="https://snapshot.org/#/defiville.eth" role="button" target="_blank">Join the governance</a>
+      </div>
+    </section>
+
+    <section id="tokenomics" class="vh-100 d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h2 class="bold white">Tokenomics</h2>
+            <p class="white">The ISLA token is a utility token and it is being used inside the virtual world of Defiville.
+It can be used for voting at governance proposal, being rewarded for providing liquidity or simply helping the community grow and in the near future as an in-game currency.</p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg" href="https://defiville.medium.com/defiville-isla-tokenomics-ee763e95774b" target="_blank">Read more</a>
+      </div>
+    </section>
+
+    <footer class="pt-5 pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="img/logo.svg" height="20">
+            <p class="small white mt-2">A community owned metaverse</p>
+          </div>
+          <div class="col-md-4">
+            <ul class="white">
+              <li class="text-uppercase bold">Social</li>
+              <li class="opacity-50"><a class="text-decoration-none arrow" href="https://twitter.com/defivillegame" target="_blank">Twitter</a></li>
+              <li class="opacity-50"><a class="text-decoration-none arrow" href="https://defiville.medium.com/" target="_blank">Medium</a></li>
+              <li class="opacity-50"><a class="text-decoration-none arrow" href="https://discord.gg/Hut5vegPUq" target="_blank">Discord</a></li>
+              <li class="opacity-50"><a class="text-decoration-none arrow" href="https://t.me/joinchat/FyS6I9P3VbQ4urxl" target="_blank">Telegram</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="white">
+              <li class="text-uppercase bold">Defiville</li>
+              <li class="opacity-50"><a class="text-decoration-none arrow" href="v2">Season One</a></li>
+              <li class="opacity-50"><a class="text-decoration-none arrow" href="v1">Season Two</a></li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+      <img class="chad" src="img/chad.png" height="120" onclick="document.getElementById('chad-click').play();">
+
+    </footer>
 
 
-  <!-- =========================================================================
-  MODAL POOL
-  ========================================================================= -->
-  <div class="modal fade" id="poolModal" tabindex="-1" aria-labelledby="poolModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="poolModalLabel">Pool Name</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6">
-              <p id="stakeText"></p>
-            </div>
-            <div class="col-md-6">
-              <p id="availableToStake">Available:</p>
-            </div>
-          </div>
-          <input type="number" id="tokenAmount" class="form-control" placeholder="Insert the amount"></input>
-          <span id="errorMessage">Please add an amount of token</span>
-          <div class="row mt-4 text-center">
-            <div class="col-md-6">
-              <div class="pool-box p-2">
-                <p>Rewards</p>
-                <h1 id="poolReward">-</h1>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="pool-box p-2">
-                <p class="text-center">Staked</p>
-                <h1 id="poolStaked">-</h1>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-md-6">
-              <p id="LPapy">APY: Loading...</p>
-            </div>
-            <div class="col-md-6">
-              <p id="poolTvl">TVL:</p>
-            </div>
-            <div class="col-md-6">
-              <p>Daily: 4444 ISLA</p>
-            </div>
-            <div class="col-md-6">
-              <p id="poolTvlvalue">$ Loading...</p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <input class="d-none" type="text" id="currentPoolToken"></input>
-          <div class="row w-100">
-            <div class="col-md-6 pl-0">
-              <button id="" class="btn_approve nav-link btn btn-approve btn-block text-uppercase" onclick="approve()">Approve</button>
-              <button id="" class="btn_stake nav-link btn btn-approve btn-block text-uppercase" onclick="stake()">Stake</button>
-            </div>
-            <div class="col-md-6 pr-0">
-              <button class="nav-link btn btn-withdraw btn-block text-uppercase" onclick="withdraw()">Withdraw</button>
-            </div>
-          </div>
 
-          <div class="row w-100">
-            <div class="col-md-6 pl-0">
-              <button class="nav-link btn btn-primary btn-block text-uppercase" onclick="harvest()">Harvest</button>
-            </div>
-            <div class="col-md-6 pr-0">
-              <button class="nav-link btn btn-primary btn-block text-uppercase" onclick="harvestAndUnstake()">Harvest & unstake</button>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer text-center">
-          <p id="countdown"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-  MODAL NFT SHOP
-  ========================================================================= -->
-  <div class="modal fade" id="shopModal" tabindex="-1" aria-labelledby="shopModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content shop-modal">
-        <div class="modal-header shop-header mb-3">
-          <h5 class="modal-title" id="exampleModalLabel">NFT Shop</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body pt-0 pb-0">
-          <div class="row">
-            <div class="col-md-6 shop-body">
-              <div class="col-md-6">
-                <img src="https://lh3.googleusercontent.com/RdiixT65xqz2LTmjLAzxh8mc5Gj1LSy9cQvGJlDM0AOliveUUrdXF4-FOdsbxo_-zYIC0hAYh2tPlPb67HTPiUAUBYvpJqnvPV0h0Q=s0" class="img-fluid">
-                <p class="text-center nft-title">Coinhead - Defiville</p>
-                <p class="text-center nft-artist">Rehab Creations</p>
-                <p class="text-center nft-artist">Price: 0.05 ETH</p>
-                <p id="saleAmountLeft" class="text-center"></p>
-                <button class="btn btn-buy btn-block" onclick="buyNFT() ">BUY</button>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <img class="img-fluid pepe-seller" src="img/PNG/pepe-seller.png" />
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer shop-footer">
-          <p>Welcome to the NFT Shop, have a look around</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-  MODAL GHOST GALLEON
-  ========================================================================= -->
-  <div class="modal fade" id="ghostGalleonModal" tabindex="-1" aria-labelledby="ghostGalleonModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">The Ghost Galleon</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body text-center">
-          <p>Only the true islander and degen at hearth can see past the appearance of the ghosts.<br>
-          Hold 10 or more ISLA to unlock the pirate ship.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-  MODAL PIRATE RADIO
-  ========================================================================= -->
-  <div class="modal fade" id="pirateRadioModal" tabindex="-1" aria-labelledby="pirateRadioModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Defiville Pirate Radio</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-header">
-          <nav class="w-100">
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-dva-tab" data-toggle="tab" href="#nav-dva" role="tab" aria-controls="nav-dva" aria-selected="true">Defiville artists</a>
-              <a class="nav-item nav-link" id="nav-rac-tab" data-toggle="tab" href="#nav-rac" role="tab" aria-controls="nav-rac" aria-selected="true">Rac</a>
-              <a class="nav-item nav-link" id="nav-3lau-tab" data-toggle="tab" href="#nav-3lau" role="tab" aria-controls="nav-3lau" aria-selected="true">3LAU</a>
-              <a class="nav-item nav-link" id="nav-rehab-tab" data-toggle="tab" href="#nav-rehab" role="tab" aria-controls="nav-rehab" aria-selected="false">Rehab</a>
-              <a class="nav-item nav-link" id="nav-catalog-tab" data-toggle="tab" href="#nav-catalog" role="tab" aria-controls="nav-catalog" aria-selected="false">Catalog</a>
-              <a class="nav-item nav-link" id="nav-daorecords-tab" data-toggle="tab" href="#nav-daorecords" role="tab" aria-controls="nav-daorecords" aria-selected="false">DaoRecords</a>
-            </div>
-          </nav>
-        </div>
-        <div class="modal-header">
-          <div class="tab-content w-100" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-dva" role="tabpanel" aria-labelledby="nav-dva-tab">
-              <div class="player-dv">
-                <ul class="playlist">
-                  <!-- Defiville Artists -->
-                  <!-- song 1 -->
-                  <li data-cover="https://lh3.googleusercontent.com/1HBox4cs0F7BFn9LMIlYkBim9PVi8RqFx05Hhq8allmNkDlUjnCQ6NA5cvcnXPzrdphoq412KcZ54ZdwdVLt5nGefuyg4aN5lRBd=s286" data-artist="Analog NFT">
-                    <a href="https://storage.opensea.io/files/515c1f03190a6831840d2d34048d9a1a.wav">
-                      <img src="img/play-track.png" height="20"/>
-                      Defiville NFT Beat 1st Gen
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/26872432739588491449416731329270265024160864673536690491736315987997388439553', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 2 -->
-                  <li data-cover="https://lh3.googleusercontent.com/1HBox4cs0F7BFn9LMIlYkBim9PVi8RqFx05Hhq8allmNkDlUjnCQ6NA5cvcnXPzrdphoq412KcZ54ZdwdVLt5nGefuyg4aN5lRBd=s286" data-artist="Analog NFT">
-                    <a href="https://storage.opensea.io/files/c889ce50c7275e1e899b549a34f01d50.wav">
-                      <img src="img/play-track.png" height="20"/>
-                      Survey the Land
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/26872432739588491449416731329270265024160864673536690491736315989096900067329', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 3 -->
-                  <li data-cover="https://lh3.googleusercontent.com/1HBox4cs0F7BFn9LMIlYkBim9PVi8RqFx05Hhq8allmNkDlUjnCQ6NA5cvcnXPzrdphoq412KcZ54ZdwdVLt5nGefuyg4aN5lRBd=s286" data-artist="Analog NFT">
-                    <a href="https://storage.opensea.io/files/05571bcf3426b5a0104ed470da6c59dc.wav">
-                      <img src="img/play-track.png" height="20"/>
-                      Island Showdown (There Can Only Be One)
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/26872432739588491449416731329270265024160864673536690491736315990196411695105', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 4 -->
-                  <li data-cover="https://lh3.googleusercontent.com/1HBox4cs0F7BFn9LMIlYkBim9PVi8RqFx05Hhq8allmNkDlUjnCQ6NA5cvcnXPzrdphoq412KcZ54ZdwdVLt5nGefuyg4aN5lRBd=s286" data-artist="Analog NFT">
-                    <a href="https://storage.opensea.io/files/c6d92745fcebc39e619b3fef488588ee.wav">
-                      <img src="img/play-track.png" height="20"/>
-                      Spelunking
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/26872432739588491449416731329270265024160864673536690491736315992395434950657', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 5 -->
-                  <li data-cover="https://lh3.googleusercontent.com/1HBox4cs0F7BFn9LMIlYkBim9PVi8RqFx05Hhq8allmNkDlUjnCQ6NA5cvcnXPzrdphoq412KcZ54ZdwdVLt5nGefuyg4aN5lRBd=s286" data-artist="Analog NFT">
-                    <a href="https://storage.opensea.io/files/d7d30bd61c2a3b780b30280b0e43e073.wav">
-                      <img src="img/play-track.png" height="20"/>
-                      Submarine Exploration
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/26872432739588491449416731329270265024160864673536690491736315991295923322881', '_blank')"></button>
-                  </li>
-                  <hr>
-                </ul>
-              </div>
-            </div>
-
-            <div class="tab-pane fade show" id="nav-rac" role="tabpanel" aria-labelledby="nav-rac-tab">
-              <div class="player1">
-                <ul class="playlist">
-                  <!-- rac -->
-                  <!-- song 1 -->
-                  <li data-cover="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455467/AMatthew/RACMarch26/Objects/Hotel_u3hykz.png" data-artist="RAC x Reisinger Andrs">
-                    <a href="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455467/AMatthew/RACMarch26/Objects/Hotel_u3hykz.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Hotel Card
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://niftygateway.com/itemdetail/primary/0x07bca0695746b4644d674a7e2e5a816fada2fdfb/5', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 2 -->
-                  <li data-cover="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455504/AMatthew/RACMarch26/Objects/Glass_znb0kf.png" data-artist="RAC x Reisinger Andrs">
-                    <a href="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455504/AMatthew/RACMarch26/Objects/Glass_znb0kf.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Glass
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://niftygateway.com/itemdetail/primary/0x07bca0695746b4644d674a7e2e5a816fada2fdfb/4', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 3 -->
-                  <li data-cover="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455567/AMatthew/RACMarch26/Objects/Keys_e4rbqq.png" data-artist="RAC x Reisinger Andrs">
-                    <a href="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455567/AMatthew/RACMarch26/Objects/Keys_e4rbqq.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Keys
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://niftygateway.com/itemdetail/primary/0x07bca0695746b4644d674a7e2e5a816fada2fdfb/6', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 4 -->
-                  <li data-cover="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455134/AMatthew/RACMarch26/Objects/Pen_k6thc4.png" data-artist="RAC x Reisinger Andrs">
-                    <a href="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455134/AMatthew/RACMarch26/Objects/Pen_k6thc4.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Pen
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://niftygateway.com/itemdetail/primary/0x07bca0695746b4644d674a7e2e5a816fada2fdfb/7', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 5-->
-                  <li data-cover="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455486/AMatthew/RACMarch26/Objects/Polaroid_ofj5tm.png" data-artist="RAC x Reisinger Andrs">
-                    <a href="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455486/AMatthew/RACMarch26/Objects/Polaroid_ofj5tm.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Polaroid
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://niftygateway.com/itemdetail/primary/0x07bca0695746b4644d674a7e2e5a816fada2fdfb/8', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 6-->
-                  <li data-cover="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455551/AMatthew/RACMarch26/Objects/Shell_f8ixj7.png" data-artist="RAC x Reisinger Andrs">
-                    <a href="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455551/AMatthew/RACMarch26/Objects/Shell_f8ixj7.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Shell from a trip to the beach
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://niftygateway.com/itemdetail/primary/0x07bca0695746b4644d674a7e2e5a816fada2fdfb/10', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 7-->
-                  <li data-cover="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455533/AMatthew/RACMarch26/Objects/Postcard_h1uwza.png" data-artist="RAC x Reisinger Andrs">
-                    <a href="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455533/AMatthew/RACMarch26/Objects/Postcard_h1uwza.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Handwritten Postcard
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://niftygateway.com/itemdetail/primary/0x07bca0695746b4644d674a7e2e5a816fada2fdfb/9', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 8-->
-                  <li data-cover="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455564/AMatthew/RACMarch26/Objects/CD_v2_nbeoyl.png" data-artist="RAC x Reisinger Andrs">
-                    <a href="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455564/AMatthew/RACMarch26/Objects/CD_v2_nbeoyl.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      CD
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://niftygateway.com/itemdetail/primary/0x07bca0695746b4644d674a7e2e5a816fada2fdfb/3', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 9-->
-                  <li data-cover="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455483/AMatthew/RACMarch26/1-1_Room_remh1e.png" data-artist="RAC x Reisinger Andrs">
-                    <a href="https://res.cloudinary.com/nifty-gateway/video/upload/v1616455483/AMatthew/RACMarch26/1-1_Room_remh1e.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Hotel room
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://niftygateway.com/itemdetail/primary/0x07bca0695746b4644d674a7e2e5a816fada2fdfb/2', '_blank')"></button>
-                  </li>
-                  <hr>
-                </ul>
-              </div>
-            </div>
-            <div class="tab-pane fade show" id="nav-3lau" role="tabpanel" aria-labelledby="nav-3lau-tab">
-              <div class="player2">
-                <ul class="playlist">
-                  <!-- 3lau -->
-                  <!-- song 1 -->
-                  <li data-cover="https://nft.3lau.com/images/nfts/lg/touch.jpg" data-artist="3Lau">
-                    <a href="https://nft.3lau.com/images/nfts/lg/touch-cut.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Touch
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x26b365dd6c6c2c5c1b19658ede5ef00c12402702/35', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 2 -->
-                  <li data-cover="https://nft.3lau.com/images/nfts/lg/fire.jpg" data-artist="3Lau">
-                    <a href="https://nft.3lau.com/images/nfts/lg/fire-cut.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Fire
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x26b365dd6c6c2c5c1b19658ede5ef00c12402702/42', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 3 -->
-                  <li data-cover="https://nft.3lau.com/images/nfts/lg/walk-away.jpg" data-artist="3Lau">
-                    <a href="https://nft.3lau.com/images/nfts/lg/walk-away-cut.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Walk Away
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x26b365dd6c6c2c5c1b19658ede5ef00c12402702/50', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 4 -->
-                  <li data-cover="https://nft.3lau.com/images/nfts/lg/star-crossed.jpg" data-artist="3Lau">
-                    <a href="https://nft.3lau.com/images/nfts/lg/star-crossed-cut.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Star Crossed
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x26b365dd6c6c2c5c1b19658ede5ef00c12402702/58', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 5-->
-                  <li data-cover="https://nft.3lau.com/images/nfts/lg/you-want-more.jpg" data-artist="3Lau">
-                    <a href="https://nft.3lau.com/images/nfts/lg/you-want-more-cut.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      You Want More
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x26b365dd6c6c2c5c1b19658ede5ef00c12402702/69', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 6-->
-                  <li data-cover="https://nft.3lau.com/images/nfts/lg/close.jpg" data-artist="3Lau">
-                    <a href="https://nft.3lau.com/images/nfts/lg/close-cut.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Close
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x26b365dd6c6c2c5c1b19658ede5ef00c12402702/95', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 7-->
-                  <li data-cover="https://nft.3lau.com/images/nfts/lg/worlds-away.jpg" data-artist="3Lau">
-                    <a href="https://nft.3lau.com/images/nfts/lg/worlds-away-cut.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Worlds Away
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x26b365dd6c6c2c5c1b19658ede5ef00c12402702/103', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 8 -->
-                  <li data-cover="https://nft.3lau.com/images/nfts/lg/ultraviolet.jpg" data-artist="3Lau">
-                    <a href="https://nft.3lau.com/images/nfts/lg/ultraviolet-cut.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Ultraviolet
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x26b365dd6c6c2c5c1b19658ede5ef00c12402702/117', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 9 -->
-                  <li data-cover="https://nft.3lau.com/images/nfts/lg/arcana2.jpg" data-artist="3Lau">
-                    <a href="https://nft.3lau.com/images/nfts/lg/arcana2-cut.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Arcana
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x26b365dd6c6c2c5c1b19658ede5ef00c12402702/142', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 10 -->
-                  <li data-cover="https://nft.3lau.com/images/nfts/lg/winter.jpg" data-artist="3Lau">
-                    <a href="https://nft.3lau.com/images/nfts/lg/winter-cut.mp4">
-                      <img src="img/play-track.png" height="20"/>
-                      Winter
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x26b365dd6c6c2c5c1b19658ede5ef00c12402702/153', '_blank')"></button>
-                  </li>
-                  <hr>
-                </ul>
-              </div>
-            </div>
-          <div class="tab-pane fade" id="nav-rehab" role="tabpanel" aria-labelledby="nav-rehab-tab">
-            <div class="player3">
-              <ul class="playlist">
-                <!-- song 1 -->
-                  <li data-cover="https://ipfs.io/ipfs/QmSxA5HT6aXX2EBuXe6kT2Wir8RzgcvBRuckuYGra77SGs/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmSxA5HT6aXX2EBuXe6kT2Wir8RzgcvBRuckuYGra77SGs/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      LoFi beats for those in need of rehabilitation
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:7', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 2 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmVsj8JHaKfrtk54GoM6cwtcd586GnLEQjutzHxZDE63i3/image.jpeg" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmegLhZjM8ET1ucNdJXAmvsjqngSMwmBmgYtB3ZN1omY5i/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Granular Synthesis - Moscow
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:11', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 3 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmeuHEgYAMggaGpVT5ozgX8fgTr7QgtS92TTAdhAzcyyie/image.jpeg" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmeuHEgYAMggaGpVT5ozgX8fgTr7QgtS92TTAdhAzcyyie/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Granular Synthesis - Jacksonville
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:16', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 4 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/Qmbit7bRym9iF7ykcuuupZBPfgeWtRBz8nNWTbZvvD1rLc/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/Qmbit7bRym9iF7ykcuuupZBPfgeWtRBz8nNWTbZvvD1rLc/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      French Press
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:21', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 5 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmUnXAfBC5kMkNKcwXLHoBofsWSVGjbLp9VxL3Treq2AYw/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmUnXAfBC5kMkNKcwXLHoBofsWSVGjbLp9VxL3Treq2AYw/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Cezve
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:22', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 6 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmUFjGe9j6mcUBFW71RHTQ3aZsXswiufCkhV53bsXKnUCP/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmUFjGe9j6mcUBFW71RHTQ3aZsXswiufCkhV53bsXKnUCP/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Rehab Cigs
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:24', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 7 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmVncUbahY2n8etZHQmo8CsCjoXQ3qGJgTc9dbNJqiF7qU/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmVncUbahY2n8etZHQmo8CsCjoXQ3qGJgTc9dbNJqiF7qU/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Painkiller
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:26', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 8 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmeGNhDqRS3bsA8pkM6uRAjp7xSAqdM3PvrDcBG5MPjy8r/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmeGNhDqRS3bsA8pkM6uRAjp7xSAqdM3PvrDcBG5MPjy8r/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      IV Drip
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:29', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 9 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmTHGB8ijyecnopBkc2R6zYK5RCUHHJAQdRVRpU99H9jcL/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmTHGB8ijyecnopBkc2R6zYK5RCUHHJAQdRVRpU99H9jcL/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Sunglasses
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:30', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 10 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmNaaQqXb1ueDDwkCU8yjDWLtiv4diefNVRatfMezxn5GK/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmNaaQqXb1ueDDwkCU8yjDWLtiv4diefNVRatfMezxn5GK/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Beanie
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:32', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 11 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmQJKCubwjiFmvLxzKVvtSu3gdH788vrHdJH7zK7vphtvT/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmQJKCubwjiFmvLxzKVvtSu3gdH788vrHdJH7zK7vphtvT/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Disposable Cup
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:37', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 12 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmbkcX3B8Y4BnoFh4D9Qw3aS1JJ2AHEcbjikYYY2XRtjsg/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmbkcX3B8Y4BnoFh4D9Qw3aS1JJ2AHEcbjikYYY2XRtjsg/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Unpullable Rug
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:38', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 13 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmY9U91amqDyLKC7tnrWGtpWBVUudnt82uTpFTnLiH5G1F/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmY9U91amqDyLKC7tnrWGtpWBVUudnt82uTpFTnLiH5G1F/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Matryoshka Prelude
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:40', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 14 -->
-                  <li data-cover="https://ipfs.rarible.com/ipfs/QmdMeXvf16kEtcDvShweabCEBDuWuS9XPYEyserckeP3pm/image.jpeg" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmdMeXvf16kEtcDvShweabCEBDuWuS9XPYEyserckeP3pm/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Granular Synthesis - Budapest
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:43', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 15 -->
-                  <li data-cover="https://ipfs.io/ipfs/QmegLhZjM8ET1ucNdJXAmvsjqngSMwmBmgYtB3ZN1omY5i/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmegLhZjM8ET1ucNdJXAmvsjqngSMwmBmgYtB3ZN1omY5i/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Polkadot Mug
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:50', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 16 -->
-                  <li data-cover="https://ipfs.io/ipfs/QmXquMt7WAy6zH85CtQH5bGFuqzYPzktbPu2MFCR7GSZjD/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmXquMt7WAy6zH85CtQH5bGFuqzYPzktbPu2MFCR7GSZjD/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Grinder
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:58', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 17 -->
-                  <li data-cover="https://ipfs.io/ipfs/QmPXStbsvVH2J1qawT8c8AgpuADbSQdRKfcdFREzFjiG4x/image.webp" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmPXStbsvVH2J1qawT8c8AgpuADbSQdRKfcdFREzFjiG4x/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      LoFi beats for those on the road to recovery
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:66', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 18 -->
-                  <li data-cover="https://ipfs.io/ipfs/Qmew3u6P7NePdyWuMtHYcKwYY9P8Y1YoS3JxzSJdbeZdqe/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/Qmew3u6P7NePdyWuMtHYcKwYY9P8Y1YoS3JxzSJdbeZdqe/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Mystery Bag
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:70', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 19 -->
-                  <li data-cover="https://ipfs.io/ipfs/QmRNNKdypy1vT7Pa4ZN814QfPeGGt6jPNkGziAq2EuiQ5X/image.webp" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmRNNKdypy1vT7Pa4ZN814QfPeGGt6jPNkGziAq2EuiQ5X/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      LoFi beats for a festival comedown
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:76', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 20 -->
-                  <li data-cover="https://ipfs.io/ipfs/Qmat8KQTiW9GBhNRm9veW24pW2DZvMG68EcgqGm8ZTV3sT/image.gif" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/Qmat8KQTiW9GBhNRm9veW24pW2DZvMG68EcgqGm8ZTV3sT/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Dissociate
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:77', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 21 -->
-                  <li data-cover="https://ipfs.io/ipfs/QmY3CucZ4KbQcEfnwhjkLTJU4SWVj6MQ5CxTD946cXBA3H/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmY3CucZ4KbQcEfnwhjkLTJU4SWVj6MQ5CxTD946cXBA3H/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Cheeseburger
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:78', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 22 -->
-                  <li data-cover="https://ipfs.io/ipfs/QmbLCZQbA3gJZWPqkgtNwVaERoChVTRjqYP1Za41ae2o8b/image.webp" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmbLCZQbA3gJZWPqkgtNwVaERoChVTRjqYP1Za41ae2o8b/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Tunnel Vision
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:84', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 23 -->
-                  <li data-cover="https://ipfs.io/ipfs/QmeH882tbtUMJzkbcW8snLDvdGS41UrJT8obikfwMP7y9D/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmeH882tbtUMJzkbcW8snLDvdGS41UrJT8obikfwMP7y9D/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Espresso Machine
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:86', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 24 -->
-                  <li data-cover="https://ipfs.io/ipfs/QmRFCJafRebFdFvfrWut1B9iFnoS9hWzZMcLJinrm71Rq1/image.jpeg" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmRFCJafRebFdFvfrWut1B9iFnoS9hWzZMcLJinrm71Rq1/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Heard melodies are sweet, but those unheard are sweeter
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:91', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 25  -->
-                  <li data-cover="https://ipfs.io/ipfs/Qmeut268jd6JBHtLNbRbQeaYDSMzi8PojeoDuYohFcm5Gt/image.jpeg" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/Qmeut268jd6JBHtLNbRbQeaYDSMzi8PojeoDuYohFcm5Gt/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      So haggard and so woe-begone?
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:93', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 26  -->
-                  <li data-cover="https://ipfs.io/ipfs/QmYoAAsbkkdsVccvKSQWNCpf8eyAAMCB4P5K5jCNDYFMQN/image.jpeg" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmYoAAsbkkdsVccvKSQWNCpf8eyAAMCB4P5K5jCNDYFMQN/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      The Public
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:96', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 27  -->
-                  <li data-cover="https://ipfs.io/ipfs/QmcdcK72Sy13Sv3hjkzSbSMhzo7X4ax4Z6Xrady4HWmEB4/image.jpeg" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmcdcK72Sy13Sv3hjkzSbSMhzo7X4ax4Z6Xrady4HWmEB4/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Truth beauty
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:103', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 28  -->
-                  <li data-cover="https://ipfs.io/ipfs/Qmc5to2hNKhKfztdpnjGQVMFUzBMKEdcV1mKmAkgFYfsNC/image.jpeg" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/Qmc5to2hNKhKfztdpnjGQVMFUzBMKEdcV1mKmAkgFYfsNC/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      And no birds sing.
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:104', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 29  -->
-                  <li data-cover="https://ipfs.io/ipfs/QmQVnkzJEFkAdetAW8jRSiZySNPNFnHoK1gcfFjDoiRd4K/image.jpeg" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmQVnkzJEFkAdetAW8jRSiZySNPNFnHoK1gcfFjDoiRd4K/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Fragrant zone
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:107', '_blank')"></button>
-                  </li>
-                  <hr>
-                  <!-- song 30  -->
-                  <li data-cover="https://ipfs.io/ipfs/QmTEVxYWZajKuF24fmaiRHxqtBrg3Daxtcis8MziuBFTRB/image.png" data-artist="NFT Rehab">
-                    <a href="https://ipfs.io/ipfs/QmTEVxYWZajKuF24fmaiRHxqtBrg3Daxtcis8MziuBFTRB/animation.mpga">
-                      <img src="img/play-track.png" height="20"/>
-                      Pepe goes reee! (digital version)
-                    </a>
-                    <button class="buy-track" onclick="window.open('https://app.rarible.com/token/0xf3bb137b2a6d518700c6b7e85b05341599822397:111', '_blank')"></button>
-                  </li>
-                  <hr>
-              </ul>
-            </div>
-          </div>
-          <div class="tab-pane fade show" id="nav-catalog" role="tabpanel" aria-labelledby="nav-catalog-tab">
-            <div class="player4">
-              <ul class="playlist">
-                <!-- catalog works -->
-                <!-- song 1 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeigfua73r6nmzxqvs45rfd7dhwhcotgkcdisu4alfapmxwp2don2ku" data-artist="momopixel">
-                  <a href="https://ipfs.fleek.co/ipfs/bafybeibhjgbfoj4qf2lq5xjjhcmaf642o6uoxihb7prbbsdqow3ccdroai">
-                    <img src="img/play-track.png" height="20"/>
-                    Internally
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/momopixel/internally', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 2 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeib7hapbxwgckuqwpi5up5bf2fndpfhqapgv6drz4urs24pdjuztrm" data-artist="harriscole">
-                  <a href="https://ipfs.fleek.co/ipfs/bafybeibjiumbspgvg6h3ktnrywquohqtomosczfyntluss6blsayifd66m">
-                    <img src="img/play-track.png" height="20"/>
-                    Inside
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/harriscole/inside', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 3 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeianjjhydqztrh25fk42aun7sw65h5n4mkevfsajdnnaiekawvrr2u" data-artist="blakeskowron">
-                  <a href="https://ipfs.io/ipfs/bafybeigjbehhmbrvwvoy3rrupzyh2zuo2tlzhdix34xrfk3f3wozwhls3a">
-                    <img src="img/play-track.png" height="20"/>
-                    How To Find Clay
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/blakeskowron/how-to-find-clay', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 4 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeihxjlkrnjjlw4vfgos2k67w3fpiqqw3pkuuml7il7bkmzgczq5oqq" data-artist="thepolishambassador">
-                  <a href="https://ipfs.io/ipfs/bafybeifpjobeuq2bgxhhfcef4sollclhysdwnhhf5a5jyyjf2k5pmohib4">
-                    <img src="img/play-track.png" height="20"/>
-                    Mi Na No
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/thepolishambassador/mi-na-no', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 5-->
-                <li data-cover="https://ipfs.io/ipfs/bafybeig3kc7sjoe436c6hypebiqxwd2au3dyf3zbr7kactyfawxxyo3p7a" data-artist="panthermodern">
-                  <a href="https://ipfs.io/ipfs/bafybeic2mvcybo4dk6polutxqmdtcooo3ita6r3mkyemusgjtyf4xpjcyy">
-                    <img src="img/play-track.png" height="20"/>
-                    Crawling
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/panthermodern/crawling', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 6-->
-                <li data-cover="https://ipfs.io/ipfs/bafybeig37gnu3aayl764amssaz4oedssyhg7lebjiez6py2fltqthqxjuy" data-artist="xylayx">
-                  <a href="https://ipfs.io/ipfs/bafybeibbavaoldhxl535km7gefvzlvra4ptdf35qthugxpodlbfqppt5vq">
-                    <img src="img/play-track.png" height="20"/>
-                    Higher
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/xylalyx/higher', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 7-->
-                <li data-cover="http://ipfs.io/ipfs/bafybeicq2uxcssg4rpw27q2qqvd35q6ubvx53faskkshngypcq7xp7rofu" data-artist="gold">
-                  <a href="https://ipfs.io/ipfs/bafybeiaxogkjfqcfqrrt25kqkxdy3pzcgz7ctchdjjii5ufapw7bkpuh74">
-                    <img src="img/play-track.png" height="20"/>
-                    Pulling Back the Curtains
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/gold/pulling-back-the-curtains', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 8 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeidnlgqn6ogqjb5yj5drogo5v3qd4g5calitpouuags36fitgfbb6m" data-artist="reo">
-                  <a href="https://ipfs.io/ipfs/bafybeifdjvbeypm5nyjs7uogmun23wxwaynkqohnpjzm3kig7pri35afqq">
-                    <img src="img/play-track.png" height="20"/>
-                    A+L+G+O+R+H+Y+T+H+M
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/reo/a-l-g-o-r-h-y-t-h-m', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 9 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeihsb6g2p7o7pk3vtg3ny3mr3jjp4xk2gwrvzu5e44lv3buytebga4" data-artist="devinjmorrison">
-                  <a href="https://ipfs.io/ipfs/bafybeihvtqtqxvtqwqrgbjo2lgoavpgyh7ufrhq4ty3ymsrf5dbixcf37y">
-                    <img src="img/play-track.png" height="20"/>
-                    Casper
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/devinjmorrison/casper', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 10 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeifpngp7crcfjkzhjl4quiy32gmctn43j34xgi5mxgw6smlqfh4cya" data-artist="salva">
-                  <a href="https://ipfs.io/ipfs/bafybeigb4eblmlx6pyi5h5wwncffop6ocn4ti5co2p6rndf44ujdpyuloi">
-                    <img src="img/play-track.png" height="20"/>
-                    LSDREAM
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/salva/lsdream', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song11 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeiecuxqfxho6jhd3vxrilvyvxfglsgjepj7mogpu3nj6uaocdtpzp4" data-artist="keyboardkid206">
-                  <a href="https://ipfs.io/ipfs/bafybeigptea45honeci24biufbm2cwqx6jelxpvxchutzwvsofkdrtg6re">
-                    <img src="img/play-track.png" height="20"/>
-                    Cook Up Beat Challenge
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/keyboardkid206/cook-up-beat-challenge', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song12 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeidh5oseziwfj6lhsl36qfx7waw2ue2hccphnwlo7eozzotdbahn3i" data-artist="letjoux">
-                  <a href="https://ipfs.io/ipfs/bafybeidumod7lwjsszmnqcqdv74e3ca6c6to6fysfxqtjkb2x2ltlm5ak4">
-                    <img src="img/play-track.png" height="20"/>
-                    Saturn IV
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/letjoux/saturn-iv', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song13 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeif4qu3u3f4v4474fshk2cn3ii2a3jkmm27uedmhectbogehzhrc6m" data-artist="quietluke">
-                  <a href="https://ipfs.io/ipfs/bafybeic2eedqr7sr2vdjsq7xvv4btylkf2yofcpegrqiidzpzjmysekjh4">
-                    <img src="img/play-track.png" height="20"/>
-                    untitled_01.wav
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/quietluke/untitled-01-wav', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song14 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeia244pkmf33zj3522wgo5aaegk256ipw4dwch7vlkbdksvd7aewvm" data-artist="charlieheat4379">
-                  <a href="https://ipfs.io/ipfs/bafybeicryyfmhpz5coay5yy2c5iihenbouq6fjhurmmn6ixiwdv52z3c7u">
-                    <img src="img/play-track.png" height="20"/>
-                    Hot Water
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/charlieheat4379/hot-water', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song15 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeig37krxatkno5xynkn2knmqkcu43hmzzxhgfkbw2hsvcwnrkacubu" data-artist="yahzarah">
-                  <a href="https://ipfs.io/ipfs/bafybeiavldrkg7cfppedthgbmsppn66agqeyqduu7awb3loc3yahoeesi4">
-                    <img src="img/play-track.png" height="20"/>
-                    GUILLOTINE
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/yahzarah/guillotine', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song16 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeihp4y2a7dkmxw7hop24vuz2h4nenhr434vatuajjrcryfweqkblfm" data-artist="jeremie">
-                  <a href="https://ipfs.io/ipfs/bafybeifha7jm2bwxjny2qkrkhhvglcmeldqptojj6gnfctchgh3ct43av4">
-                    <img src="img/play-track.png" height="20"/>
-                    HELLO
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/jeremie/hello', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song17 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeial55j33b6trvrkb3q2mcdvlo5jne7gvvlc5cf4bwyfkz747jkm7i" data-artist="boysnoize">
-                  <a href="https://ipfs.io/ipfs/bafybeicg7ckxcmiacyzn37bldsxz7djfvmry5yoqe537yytjbqtpixyoj4">
-                    <img src="img/play-track.png" height="20"/>
-                    Ypoint
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/boysnoize/ypoint', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song18 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeihpqjdbjawlx3tsps3rswilf2rfj25aemp4jl6vwhoav72wewyesu" data-artist="richiehawtin">
-                  <a href="https://ipfs.io/ipfs/bafybeidrzxah65l4l2i7gxwfikbyqpoof33gliymtfcicmpvjt3xujsgce">
-                    <img src="img/play-track.png" height="20"/>
-                    Concept 1 96:11 00:00
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/richiehawtin/concept-1-96-11-00-00', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song19 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeiaxpgwlsppcdvw6bzomi65u5olkx5mmxl2h3uxhgtpivwemgataem" data-artist="camoufly">
-                  <a href="https://ipfs.io/ipfs/bafybeicu3kdaxjx2eya5hnynny4rvlr36yq5s5tuk2szukegsjf7aawcs4">
-                    <img src="img/play-track.png" height="20"/>
-                    Safe
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/camoufly/safe', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song20 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeickligirt7qmdlwho5xx7dcchkg7dgq5jdjmqx4f6y6rt4byarzoq" data-artist="asc">
-                  <a href="https://ipfs.io/ipfs/bafybeicu3kdaxjx2eya5hnynny4rvlr36yq5s5tuk2szukegsjf7aawcs4">
-                    <img src="img/play-track.png" height="20"/>
-                    Space & Time
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/asc/space-time', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song21 -->
-                <li data-cover="https://ipfs.io/ipfs/bafybeihxjyi57ahloo4rl4x7y6letgbzf6cqebuuawrw3253jnd6bmgztu" data-artist="oshi">
-                  <a href="https://ipfs.io/ipfs/bafybeicx7p35tphva6qfabg3a6j2wlk4ec74okunqzlb6oendycmclbxx4">
-                    <img src="img/play-track.png" height="20"/>
-                    Older
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://beta.catalog.works/oshi/older', '_blank')"></button>
-                </li>
-                <hr>
-              </ul>
-            </div>
-          </div>
-
-          <div class="tab-pane fade show" id="nav-daorecords" role="tabpanel" aria-labelledby="nav-daorecords-tab">
-            <div class="player5">
-              <ul class="playlist">
-                <!-- daorecords -->
-                <!-- song 1 -->
-                <li data-cover="https://arweave.net/MdZ9tVhMbYMzVJzAA_-Zwn5oqbfuqopzT3esuXULt4U" data-artist="napoleondalegend">
-                  <a href="https://yzpvjejf7zjzqis7eoyff4oxuevv7al2mrlueyqyzkxvdm223hpa.arweave.net/xl9UkSX-U5giXyOwUvHXoStfgXpkV0JiGMqvUbNa2d4">
-                    <img src="img/play-track.png" height="20"/>
-                    Father
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://mintbase.io/pez-dispenser/0x5d7ca4bbb351f9f69ef9bcb057c54f3faa9be4d5/2aLQc4d7PxQJCvv2_MB5DgPle8w0nO010RH_rwYZ5hA', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 2 -->
-                <li data-cover="https://arweave.net/4JDrJrzIXdv56xgLPSV3nF6m-DO01lakdhIxXckKiq8" data-artist="lilsiri x jessiejess">
-                  <a href="https://arweave.net/XXGCJ9ElNOWJeQIivj7tzrB_tavxArcpIyOytOhrwv8">
-                    <img src="img/play-track.png" height="20"/>
-                    DAO Gang
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://mintbase.io/pez-dispenser/0x5d7ca4bbb351f9f69ef9bcb057c54f3faa9be4d5/0oJXyCaPLWvyT1BU_1OjQKYZPu-QwOePuoAGHkV0GFg', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 3 -->
-                <li data-cover="https://arweave.net/NY0svkPPIqC1IPvq0tpJvizdPeWVylvlWQVzUOOCOG0" data-artist="vandal">
-                  <a href="https://arweave.net/u64CtrHjBa_HjMSZyIbrB3wUKrqAVI_YwxlCEjqRyak">
-                    <img src="img/play-track.png" height="20"/>
-                    OK Boomer - Gold Edition
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://mintbase.io/pez-dispenser/0x5d7ca4bbb351f9f69ef9bcb057c54f3faa9be4d5/Aonbrh6JnOLBLOj0ly0eKPtiWAapMSMivrD-ElMIwJA', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 4 -->
-                <li data-cover="https://arweave.net/XzoTJ3hR77F9Ufz_BKPBKAqpYVfMQmeUak-xFsMePDk" data-artist="vandal">
-                  <a href="https://arweave.net/Ih5vS2jo3EqM8t87S8FAllxs68PpRqd9xczgVIXMMts">
-                    <img src="img/play-track.png" height="20"/>
-                    MintTape Vol 1 Audio NFT
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://mintbase.io/pez-dispenser/0x5d7ca4bbb351f9f69ef9bcb057c54f3faa9be4d5/GEW3EYKpDpjmnzsNW-pALbxqx38wjDxrNtX6oJdm1VM', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 5 -->
-                <li data-cover="https://lh3.googleusercontent.com/1FNnBl_D9zda7ll-TpAo76LJSAMtjI1sqRLQ-pUek9jZLFsY7fMUGUW_zv3E9G0qUKJeiyyVbVnfJfxavvzLQA0SdGTL31qKnlhV=s286" data-artist="dayne s">
-                  <a href="https://storage.opensea.io/files/ca7dacbf33528944510d69f32ee745a9.mp3">
-                    <img src="img/play-track.png" height="20"/>
-                    Mint
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/80988198869171339287920091716558520191725486817295584358103445651138617016345', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 6 -->
-                <li data-cover="https://lh3.googleusercontent.com/xqPreLbhMozD2-1sR8E_HhgYdLoz9CGtYrbGOWxBtCyQtmJGTkOhpM-_wE_olnimqqJzmVhRXMzWw8fBF-ydg0g2aYwS4QOIGUJSEg=s286" data-artist="sonic medicine">
-                  <a href="https://storage.opensea.io/files/f44c41ec576d77ccecaef1478ec0406d.mp3">
-                    <img src="img/play-track.png" height="20"/>
-                    Raising Fire
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/80988198869171339287920091716558520191725486817295584358103445663233244921859', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 7 -->
-                <li data-cover="https://lh3.googleusercontent.com/aroTO89nmdE_Vw0e3n3s-9CkrHhRYlIwwBtavgFbapqWtd9PjyOO1xy8ZNzrJs037P9n4KzmIEaPCvpoaNKhm1x9xDREbXMt5vvgQg=s286" data-artist="bone police">
-                  <a href="https://storage.opensea.io/files/58b411f8ef5086dd30cbce55f5751f82.mp3">
-                    <img src="img/play-track.png" height="20"/>
-                    Felt My Face Drip Off
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/80988198869171339287920091716558520191725486817295584358103445645641058877450', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 8 -->
-                <li data-cover="https://lh3.googleusercontent.com/7jugG4kEw_vTelmQye5CqP9yP7sdf-aq-pJhCyWR3Z6YvsMHiKF9sUFz4t4hAhHRu7zGToaceHHn-VI4qtkFkX_pyvHS7xPgRmoDww=s286" data-artist="mr northstar">
-                  <a href="https://storage.opensea.io/files/e98878f61548eb0ef3d7806a89855b40.mp3">
-                    <img src="img/play-track.png" height="20"/>
-                    Bionic Arm
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/80988198869171339287920091716558520191725486817295584358103445662133733294085', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 9 -->
-                <li data-cover="https://lh3.googleusercontent.com/H4WhuyQjgq8K1rfGFzpkorF_njkxHa6W5-IrUYUQ0reuzQwuyn6djmLIl-1c0N7S2Mrny1EoEGl4QHB8ptsZsvxl_xaaysS7J_caiWo=s286" data-artist="c-sol aka peso pesado">
-                  <a href="https://storage.opensea.io/files/f35bbe9e9a0a6ac5a04e5e47f95cbdaf.mp3">
-                    <img src="img/play-track.png" height="20"/>
-                    Valderrama
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/80988198869171339287920091716558520191725486817295584358103445655536663527425', '_blank')"></button>
-                </li>
-                <hr>
-                <!-- song 10 -->
-                <li data-cover="https://lh3.googleusercontent.com/wVASjKF_JqSRcTBfSXCBzvO9TZmLMBzeA5iA-ECkXTOLolqbwWpLYcJnBdE8X8TDlAjGKbyaNMs2HVebm1uvcDZM8b_tjHLBnwXX=s286" data-artist="dungeon allstar">
-                  <a href="https://storage.opensea.io/files/60af4a35e74c4375aeeca0ccfbf5245c.mp3">
-                    <img src="img/play-track.png" height="20"/>
-                    Man Ain't Movin' Right
-                  </a>
-                  <button class="buy-track" onclick="window.open('https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/80988198869171339287920091716558520191725486817295584358103445642342523994113', '_blank')"></button>
-                </li>
-                <hr>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </div>
-        <div class="modal-footer">
-          <a href="tipping-xdai.html" class="btn btn-buy btn-block btn-lg" target="_blank">Tipping</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-  MODAL POOL STABLECOINS TABS
-  ========================================================================= -->
-  <div class="modal fade" id="poolModal2" tabindex="-1" aria-labelledby="poolModal2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="poolStableModalLabel">Pool Name</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('btn-click').play();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-header">
-          <div class="row w-100">
-            <div class="col-md-6">
-              <p class="m-0" id="stableAPY">Loading...</p>
-            </div>
-            <div class="col-md-6">
-              <p class="m-0" id="tvl">Loading...</p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-body">
-          <nav>
-            <div class="nav nav-tabs justify-content-between" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active col-md-6 text-center" id="nav-stake-tab" data-toggle="tab" href="#nav-stake" role="tab" aria-controls="nav-stake" aria-selected="true">STAKE</a>
-              <a class="nav-item nav-link col-md-6 text-center" id="nav-withdraw-tab" data-toggle="tab" href="#nav-withdraw" role="tab" aria-controls="nav-withdraw" aria-selected="false">WITHDRAW</a>
-            </div>
-          </nav>
-          <div class="tab-content" id="nav-tabContent">
-            <!-- STAKE TAB -->
-            <div class="tab-pane fade show active" id="nav-stake" role="tabpanel" aria-labelledby="nav-stake-tab">
-              <div class="row mt-2">
-                <div class="col-md-6">
-                  <p id="stakeText"></p>
-                </div>
-                <div class="col-md-6">
-                  <p id="availableToStakeStable">Available:</p>
-                </div>
-              </div>
-              <input type="number" id="tokenAmountStable" class="form-control" placeholder="Insert the amount"></input>
-              <span class="errorMessage">Please add an amount of token</span>
-              <div class="row mt-4 text-center">
-                <div class="col-md-6">
-                  <div class="pool-box p-2">
-                    <p>Earned</p>
-                    <h1 id="poolRewardStable">-</h1>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="pool-box p-2">
-                    <p class="text-center">Staked</p>
-                    <h1 id="poolStakedStable">-</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="row mt-4">
-                <div class="col-md-12">
-                  <button id="" class="btn_approve nav-link btn btn-approve btn-block text-uppercase btn-block" onclick="approve()">Approve</button>
-                  <button id="" class="btn_stake nav-link btn btn-approve btn-block text-uppercase btn-block" onclick="stakeStable()">Stake</button>
-                </div>
-              </div>
-            </div>
-            <!-- WITHDRAW TAB -->
-            <div class="tab-pane fade" id="nav-withdraw" role="tabpanel" aria-labelledby="nav-withdraw-tab">
-              <div class="row mt-4 text-center">
-                <div class="col-md-12">
-                  <div class="pool-box p-2">
-                    <p>Earned</p>
-                    <h1 id="poolRewardStableW">-</h1>
-                  </div>
-                </div>
-              </div>
-              <p class="mt-5">Choose your withdraw option</p>
-              <nav>
-                <div class="nav nav-tabs justify-content-between mt-2" id="nav-tab" role="tablist">
-                  <a class="nav-item nav-link active col-md-4 text-center" id="nav-0-tab" data-toggle="tab" href="#nav-0" role="tab" aria-controls="nav-0" aria-selected="true">OPT 1</a>
-                  <a class="nav-item nav-link col-md-4 text-center" id="nav-50-tab" data-toggle="tab" href="#nav-50" role="tab" aria-controls="nav-50" aria-selected="false">OPT 2</a>
-                  <a class="nav-item nav-link col-md-4 text-center" id="nav-100-tab" data-toggle="tab" href="#nav-100" role="tab" aria-controls="nav-100" aria-selected="false">OPT 3</a>
-                </div>
-              </nav>
-              <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-0" role="tabpanel" aria-labelledby="nav-0-tab">
-                  <div class="row mt-2">
-                    <div class="col-md-12">
-                      <p class="mt-1">If you withdraw using this option you will receive your initial collateral of <span class="msgCollateral">-</span> and <span id="msgISLA">0</span> ISLA that you have farmed but no stablecoin interests.</p>
-                      <button class="nav-link btn btn-withdraw btn-block text-uppercase btn-block" onclick="withdrawOpt1()">Withdraw</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane fade" id="nav-50" role="tabpanel" aria-labelledby="nav-50-tab">
-                  <div class="row mt-2">
-                    <div class="col-md-12">
-                      <p>If you withdraw using this option you will receive your initial collateral of <span class="msgCollateral">-</span> , <span id="msgHalfISLA">0</span> ISLA that you have farmed and <span id="msgHalfStable">0</span> stablecoin earned.</p>
-                      <button class="nav-link btn btn-withdraw btn-block text-uppercase btn-block" onclick="withdrawOpt2()">Withdraw</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane fade" id="nav-100" role="tabpanel" aria-labelledby="nav-100-tab">
-                  <div class="row mt-2">
-                    <div class="col-md-12">
-                      <p>If you withdraw using this option you will receive your initial collateral of <span class="msgCollateral">-</span> and <span id="msgStableEarned">0</span> in stablecoin interest earned but 0 ISLA.</p>
-                      <button class="nav-link btn btn-withdraw btn-block text-uppercase btn-block" onclick="withdrawOpt3()">Withdraw</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <div class="modal-footer text-left">
-
-          <input class="d-none" type="text" id="currentPoolToken"></input>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- =========================================================================
-  SCRIPTS
-  ========================================================================= -->
+    <script src="js/typewriter.js"></script>
     <script src="vendors/bootstrap-4.5.0/js/jquery-3.5.1.min.js"></script>
     <script src="vendors/bootstrap-4.5.0/js/popper.min.js"></script>
     <script src="vendors/bootstrap-4.5.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/musicplayer-min.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/gas.js"></script>
-    <script src="js/wallet.js"></script>
-    <script src="js/pool-modal.js"></script>
-    <script src="js/pool-stable-modal.js"></script>
-    <script src="js/galleon-modal.js"></script>
-    <script src="js/countdown.js"></script>
-    <script src="js/nft-modal.js"></script>
-    <script src="js/vending.js"></script>
-
-    <script>
-    $(".player1").musicPlayer({
-        elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],
-        playerAbovePlaylist: true,
-        autoPlay: false,
-        loop: true,
-        onLoad: function () {
-          //$('.playlist').hide();
-          //Add Audio player
-          plElem = "<div class='pl'></div>";
-          $('.player1').find('.player').append(plElem);
-          // show playlist
-          $('.pl').click(function (e) {
-              e.preventDefault();
-              $('.player1').find('.playlist').toggleClass("hidden");
-          });
-        },
-
-    });
-
-    $(".player2").musicPlayer({
-        elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],
-        playerAbovePlaylist: true,
-        autoPlay: false,
-        loop: true,
-        onLoad: function () {
-          //$('.playlist').hide();
-          //Add Audio player
-          plElem = "<div class='pl'></div>";
-          $('.player2').find('.player').append(plElem);
-          // show playlist
-          $('.pl').click(function (e) {
-              e.preventDefault();
-              $('.player2').find('.playlist').toggleClass("hidden");
-          });
-        },
-
-    });
-
-    $(".player3").musicPlayer({
-        elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],
-        playerAbovePlaylist: true,
-        autoPlay: false,
-        loop: true,
-        onLoad: function () {
-          //$('.playlist').hide();
-          //Add Audio player
-          plElem = "<div class='pl'></div>";
-          $('.player3').find('.player').append(plElem);
-          // show playlist
-          $('.pl').click(function (e) {
-              e.preventDefault();
-              $('.player3').find('.playlist').toggleClass("hidden");
-          });
-        },
-
-    });
-
-    $(".player4").musicPlayer({
-        elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],
-        playerAbovePlaylist: true,
-        autoPlay: false,
-        loop: true,
-        onLoad: function () {
-          //$('.playlist').hide();
-          //Add Audio player
-          plElem = "<div class='pl'></div>";
-          $('.player4').find('.player').append(plElem);
-          // show playlist
-          $('.pl').click(function (e) {
-              e.preventDefault();
-              $('.player4').find('.playlist').toggleClass("hidden");
-          });
-        },
-
-    });
-
-    $(".player5").musicPlayer({
-        elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],
-        playerAbovePlaylist: true,
-        autoPlay: false,
-        loop: true,
-        onLoad: function () {
-          //$('.playlist').hide();
-          //Add Audio player
-          plElem = "<div class='pl'></div>";
-          $('.player5').find('.player').append(plElem);
-          // show playlist
-          $('.pl').click(function (e) {
-              e.preventDefault();
-              $('.player5').find('.playlist').toggleClass("hidden");
-          });
-        },
-
-    });
-
-    $(".player-dv").musicPlayer({
-        elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],
-        playerAbovePlaylist: true,
-        autoPlay: false,
-        loop: true,
-        onLoad: function () {
-          //$('.playlist').hide();
-          //Add Audio player
-          plElem = "<div class='pl'></div>";
-          $('.player-dv').find('.player').append(plElem);
-          // show playlist
-          $('.pl').click(function (e) {
-              e.preventDefault();
-              $('.player-dv').find('.playlist').toggleClass("hidden");
-          });
-        },
-
-    });
-
-
-    </script>
-
   </body>
-</html>
+  </html>

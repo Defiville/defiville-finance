@@ -1,0 +1,191 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  color: #f4f4f4;
+}
+a:hover {
+  color: #f4f4f4;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* ================================================================================
+UTILITIES
+================================================================================ */
+
+.white {
+  color: #f4f4f4;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+.opacity-50:hover {
+  opacity: 1;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+/* ================================================================================
+BUTTONS
+================================================================================ */
+
+.btn-primary {
+  background-color: #00C8D4;
+  color: #FFFFFF;
+  border-radius: 8px;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #049aa2;
+}
+.btn-link {
+  color: #f4f4f4;
+}
+.btn-link:hover {
+  color: #f4f4f4;
+}
+
+.typewrite {
+  font-weight: 700;
+  padding: 15px 0px;
+}
+
+.arrow::after {
+  content: " ";
+  display: inline-block;
+  background-image: url('../img/arrow-right.svg');
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  opacity: 0;
+}
+
+.arrow:hover::after {
+  opacity: 1;
+  transform: translate(10px, 0px);
+  transition: transform 0.2s;
+}
+
+/* ================================================================================
+DROPDOWN
+================================================================================ */
+
+.dropdown-menu {
+  border-radius: 8px;
+  border: none;
+}
+.dropdown-item {
+  width: unset;
+  margin: 0px 8px;
+  border-radius: 8px;
+}
+
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(42 167 176 0.5);
+}
+
+.jumbotron {
+  background: -moz-linear-gradient(0deg, rgba(0,168,191,1) 0%, rgba(0,168,191,0) 50%), url('../img/jumbotron.png');
+  background: -webkit-linear-gradient(0deg, rgba(0,168,191,1) 0%, rgba(0,168,191,0) 50%), url('../img/jumbotron.png');
+  background: linear-gradient(0deg, rgba(0,168,191,1) 0%, rgba(0,168,191,0) 50%), url('../img/jumbotron.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ================================================================================
+SECTIONS
+================================================================================ */
+
+#defiville {
+  background: -moz-linear-gradient(0deg, rgba(15,20,29,1) 0%, rgba(15,20,29,0) 50%, rgba(3,135,155,0) 85%, rgba(0,168,191,1) 100%), url('../img/season-one.png');
+  background: -webkit-linear-gradient(0deg, rgba(15,20,29,1) 0%, rgba(15,20,29,0) 50%, rgba(3,135,155,0) 85%, rgba(0,168,191,1) 100%), url('../img/season-one.png');
+  background: linear-gradient(0deg, rgba(15,20,29,1) 0%, rgba(15,20,29,0) 50%, rgba(3,135,155,0) 85%, rgba(0,168,191,1) 100%), url('../img/season-one.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#niftymusic {
+  background-color: #0F141D;
+  background-image: url('../img/bg-gradient.png'), url('../img/niftymusic.png');
+  background-size: cover, 50%;
+  background-repeat: no-repeat;
+  background-position: left, right;
+}
+
+#pirates {
+  /* background: -moz-linear-gradient(180deg, rgba(15,20,29,1) 0%, rgba(15,20,29,0) 30%), url('../img/beach.svg');
+  background: -webkit-linear-gradient(180deg, rgba(15,20,29,1) 0%, rgba(15,20,29,0) 30%), url('../img/beach.svg');
+  background: linear-gradient(180deg, rgba(15,20,29,1) 0%, rgba(15,20,29,0) 30%), url('../img/beach.svg'); */
+  background-image: url('../img/beach.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#governance {
+  background: -moz-linear-gradient(180deg, rgba(251,193,132,1) 0%, rgba(251,193,132,0) 50%), url('../img/governance.png');
+  background: -webkit-linear-gradient(180deg, rgba(251,193,132,1) 0%, rgba(251,193,132,0) 50%), url('../img/governance.png');
+  background: linear-gradient(180deg, rgba(251,193,132,1) 0%, rgba(251,193,132,0) 50%), url('../img/governance.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+#tokenomics {
+  background: -moz-linear-gradient(0deg, rgba(2,1,2,1) 0%, rgba(2,1,2,0) 50%), url('../img/tokenomics.png');
+  background: -webkit-linear-gradient(0deg, rgba(2,1,2,1) 0%, rgba(2,1,2,0) 50%), url('../img/tokenomics.png');
+  background: linear-gradient(0deg, rgba(2,1,2,1) 0%, rgba(2,1,2,0) 50%), url('../img/tokenomics.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+footer {
+  background-color: #020102;
+}
+.chad {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+  .jumbotron {
+    background-position: center;
+  }
+  #defiville {
+    background-position: right;
+  }
+  #governance {
+    background-position: top;
+  }
+  #tokenomics {
+    background-position: top;
+  }
+}
